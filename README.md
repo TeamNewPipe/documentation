@@ -1,9 +1,13 @@
 NewPipe Tutorial
 ================
 
-This is the tutorial for the [NewPipeExtractor](https://github.com/TeamNewPipeExtractor). It's thought for thous who want to write their own service, or use NewPipeExtractor in theyr own projects.
+This is the [tutorial](https://teamnewpipe.github.io/tutorial/) for the [NewPipeExtractor](https://github.com/TeamNewPipeExtractor).
+It's thought for thous who want to write their own service, or use NewPipeExtractor in their own projects.
 
-This tutorial and the documentation are in an early state. So [feedback](https://github.com) is always welcome :D
+This tutorial and the documentation are in an early state. So [feedback](https://github.com/TeamNewPipe/tutorial/issues) is always welcome :D
+
+The tutorial is crated using [`mkdocs`](http://www.mkdocs.org/). You can test and host it your self by running `mkdocs serve` in the root
+directory of this project. If you want to deploy your changes and you are one of the maintainers you can run `mkdocs gh-deploy && git push`.
 
 ## License
 
