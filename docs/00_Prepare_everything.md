@@ -1,8 +1,8 @@
 # Prepare everything
 
-Welcome to the NewPipe tutorial. This tutorial will guide you through the process of creating your own NewPipeExtractor service
-with which NewPipe will gain support for a dedicated streaming service like YouTube, Vimeo or SournCloud.
-Let's dive right. ;D
+Welcome to the NewPipe tutorial. This tutorial will guide you through the process of creating your own NewPipeExtractor
+service with which NewPipe will gain support for a dedicated streaming service like YouTube, Vimeo or SournCloud. Let's
+dive right. ;D
 
 ## Setup your dev environment
 
