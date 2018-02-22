@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>None/</loc>
+     <loc>/</loc>
      <lastmod>2018-02-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,15 @@
 
     
     <url>
-     <loc>None/00_PrepareEverything/</loc>
+     <loc>/00_Prepare_everything/</loc>
+     <lastmod>2018-02-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/01_Basic_concept_of_the_extractor/</loc>
      <lastmod>2018-02-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
