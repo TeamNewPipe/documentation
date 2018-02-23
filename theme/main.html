@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{# 
+  Override the stylesheets loading fonts from fonts.googleapis.com to prevent tracking
+  The stylesheet
+  This issue was discussed at https://github.com/TeamNewPipe/tutorial/issues/1
+  You can find the original file at https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/readthedocs/base.html
+#}
+
+{%- block styles %}
+  <link rel="stylesheet" href="{{ base_url }}/css/local_fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="{{ base_url }}/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="{{ base_url }}/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="{{ base_url }}/css/highlight.css" type="text/css" />
+
+  {%- for path in extra_css %}
+  <link href="{{ path }}" rel="stylesheet">
+  {%- endfor %}
+{%- endblock %}

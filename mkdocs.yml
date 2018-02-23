@@ -1,2 +1,4 @@
 site_name: NewPipe Tutorial
-theme: readthedocs
+theme:
+    name: readthedocs
+    custom_dir: theme
