@@ -159,14 +159,14 @@ try {
 <h2 id="collectorextractor-pattern-for-lists">Collector/Extractor pattern for lists</h2>
 <p>Sometimes information can not be represented as a structure, but as a list. In NewPipe an item of a list is called
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html">InfoItem</a>. In order
-to get such items a <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html">InfoItemsCollector</a>
-is used. For each item that should be extracted a new Extractor will be given to the InfoItemCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html#commit-E-">commit()</a>.</p>
+to get such items a <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html">InfoItemsCollector</a>
+is used. For each item that should be extracted a new Extractor will be given to the InfoItemCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-">commit()</a>.</p>
 <p><img alt="InfoItemsCollector_objectdiagram.svg" src="../img/InfoItemsCollector_objectdiagram.svg" /></p>
 <p>When a streaming site shows a list it usually offers some additional information about that list, like it's title, a thumbnail
 or its creator. Such info can be called <strong>list header</strong>.</p>
 <p>Also if you open a list in a web browser the website usually does not load the whole list, but only a part
 of it. In order to get more you may have to click on a next page button, or scroll down. This is why a list in
-NewPipe is coped down into <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.NextItemsResult.html">InfoItemPage</a>s. Each Page has its own URL, and needs to be extracted separately.</p>
+NewPipe is coped down into <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemPage.html">InfoItemPage</a>s. Each Page has its own URL, and needs to be extracted separately.</p>
 <p>List header information and extracting multiple pages of an InfoItem list can be handled by a
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a></p>
               
