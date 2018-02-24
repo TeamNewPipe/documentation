@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Basic Concept of the Extractor - NewPipe Tutorial</title>
+  <title>Concept of the Extractor - NewPipe Tutorial</title>
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Basic Concept of the Extractor";
-    var mkdocs_page_input_path = "01_Basic_concept_of_the_extractor.md";
-    var mkdocs_page_url = "/01_Basic_concept_of_the_extractor/";
+    var mkdocs_page_name = "Concept of the Extractor";
+    var mkdocs_page_input_path = "01_Concept_of_the_extractor.md";
+    var mkdocs_page_url = "/01_Concept_of_the_extractor/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -59,14 +59,16 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Basic Concept of the Extractor</a>
+    <a class="current" href="./">Concept of the Extractor</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#basic-concept-of-the-extractor">Basic Concept of the Extractor</a></li>
+    <li class="toctree-l2"><a href="#concept-of-the-extractor">Concept of the Extractor</a></li>
     
         <ul>
         
             <li><a class="toctree-l3" href="#collectorextractor-pattern">Collector/Extractor pattern</a></li>
+        
+            <li><a class="toctree-l3" href="#collectorextractor-pattern-for-lists">Collector/Extractor pattern for lists</a></li>
         
         </ul>
     
@@ -96,7 +98,7 @@
     
       
     
-    <li>Basic Concept of the Extractor</li>
+    <li>Concept of the Extractor</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -106,7 +108,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="basic-concept-of-the-extractor">Basic Concept of the Extractor</h1>
+                <h1 id="concept-of-the-extractor">Concept of the Extractor</h1>
 <h2 id="collectorextractor-pattern">Collector/Extractor pattern</h2>
 <p>Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
 you will find all over the code. It is called the <strong>extractor/collector</strong> pattern. The idea behind this pattern is that
@@ -121,13 +123,52 @@ You need to take care of the extractors.</p>
 <pre><code class="java">Info info;
 try {
     // Create a new Extractor with a given context provided as parameter.
-    Extractor extractor = new Extractor(ome_meta_info);
+    Extractor extractor = new Extractor(some_meta_info);
     // Retrieves the data form extractor and builds info package.
     info = Info.getInfo(extractor);
 } catch(Exception e) {
     // handle errors when collector decided to break up extraction
 }
 </code></pre>
+
+<h3 id="typical-implementation-of-a-single-data-extractor">Typical implementation of a single data extractor</h3>
+<p>The typical implementation of a single data extractor on the other hand would look like this:</p>
+<pre><code class="java">class MyExtractor extends FutureExtractor {
+
+    public MyExtractor(RequiredInfo requiredInfo, ForExtraction forExtraction) {
+        super(requiredInfo, forExtraction);
+
+        ...
+    }
+
+    @Override
+    public void fetch() {
+        // Actually fetch the page data here
+    }
+
+    @Override
+    public String someDataFiled() 
+        throws ExtractionException {    //The exception needs to be thrown if someting failed
+        // get piece of information and return it
+    }
+
+    ...                                 // More datafields
+}
+</code></pre>
+
+<h2 id="collectorextractor-pattern-for-lists">Collector/Extractor pattern for lists</h2>
+<p>Sometimes information can not be represented as a structure, but as a list. In NewPipe an item of a list is called
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html">InfoItem</a>. In order
+to get such items a <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html">InfoItemsCollector</a>
+is used. For each item that should be extracted a new Extractor will be given to the InfoItemCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html#commit-E-">commit()</a>.</p>
+<p><img alt="InfoItemsCollector_objectdiagram.svg" src="../img/InfoItemsCollector_objectdiagram.svg" /></p>
+<p>When a streaming site shows a list it usually offers some additional information about that list, like it's title, a thumbnail
+or its creator. Such info can be called <strong>list header</strong>.</p>
+<p>Also if you open a list in a web browser the website usually does not load the whole list, but only a part
+of it. In order to get more you may have to click on a next page button, or scroll down. This is why a list in
+NewPipe is coped down into <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.NextItemsResult.html">InfoItemPage</a>s. Each Page has its own URL, and needs to be extracted separately.</p>
+<p>List header information and extracting multiple pages of an InfoItem list can be handled by a
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a></p>
               
             </div>
           </div>
