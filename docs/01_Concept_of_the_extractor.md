@@ -57,8 +57,8 @@ class MyExtractor extends FutureExtractor {
 
 Sometimes information can not be represented as a structure, but as a list. In NewPipe an item of a list is called
 [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html). In order
-to get such items a [InfoItemsCollector](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html)
-is used. For each item that should be extracted a new Extractor will be given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemCollector.html#commit-E-).
+to get such items a [InfoItemsCollector](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html)
+is used. For each item that should be extracted a new Extractor will be given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
 
 ![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
 
@@ -67,7 +67,7 @@ or its creator. Such info can be called __list header__.
 
 Also if you open a list in a web browser the website usually does not load the whole list, but only a part
 of it. In order to get more you may have to click on a next page button, or scroll down. This is why a list in
-NewPipe is coped down into [InfoItemPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.NextItemsResult.html)s. Each Page has its own URL, and needs to be extracted separately.
+NewPipe is coped down into [InfoItemPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemPage.html)s. Each Page has its own URL, and needs to be extracted separately.
 
 List header information and extracting multiple pages of an InfoItem list can be handled by a
 [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html)
