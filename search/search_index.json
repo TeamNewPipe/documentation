@@ -2,13 +2,13 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to NewPipe Tutorial\n\n\nThis side is a beginner tutorial for people who want to use, or write services for the \nNewPipe Extractor\n.\nThis however is not the \ndocumentation\n for it.\n\n\nThis tutorial and the documentation are in an early state. So \nfeedback\n is always welcome :D\n\n\nStay Tuned\n\n\nTune yourself to stay ;D",
-            "title": "Welcome to NewPipe Tutorial"
+            "text": "Welcome to the NewPipe Documentaiton.\n\n\nThis side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the \nNewPipe Extractor\n.\nThis however is an addition to our \njdoc documentation\n.\n\n\nThis tutorial and the documentation are in an early state. So \nfeedback\n is always welcome :D\n\n\nStay Tuned\n\n\nTune yourself to stay ;D",
+            "title": "Welcome to the NewPipe Documentaiton."
         },
         {
-            "location": "/#welcome-to-newpipe-tutorial",
-            "text": "This side is a beginner tutorial for people who want to use, or write services for the  NewPipe Extractor .\nThis however is not the  documentation  for it.  This tutorial and the documentation are in an early state. So  feedback  is always welcome :D",
-            "title": "Welcome to NewPipe Tutorial"
+            "location": "/#welcome-to-the-newpipe-documentaiton",
+            "text": "This side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the  NewPipe Extractor .\nThis however is an addition to our  jdoc documentation .  This tutorial and the documentation are in an early state. So  feedback  is always welcome :D",
+            "title": "Welcome to the NewPipe Documentaiton."
         },
         {
             "location": "/#stay-tuned",
