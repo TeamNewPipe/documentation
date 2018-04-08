@@ -37,7 +37,7 @@ If all the checks are green you did everything right, and you are good to go to 
 # Inclusion criteria for services
 
 After creating you own service you will need to submit it to our [NewPipeExtractor](https://github.com/teamnewpipe/newpipeextractor)
- repository. However in order to include your changes you need to follow certain rules.
+ repository. However in order to include your changes you need to follow these rules:
 
 1. Stick to our [Code contribution guidelines](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution)
 2. Do not send services that present content we [don't allow](#not-allowed-content) on NewPipe.
