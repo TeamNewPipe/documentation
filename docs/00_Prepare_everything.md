@@ -33,4 +33,33 @@ Next import the cloned project into your [ide](https://www.jetbrains.com/help/id
 and [run](https://www.jetbrains.com/help/idea/performing-tests.html) it.
 If all the checks are green you did everything right, and you are good to go to move on to the next chapter.
 ![tests passed on idea](img/prepare_tests_passed.png)
- 
+
+# Inclusion criteria for services
+
+After creating you own service you will need to submit it to our [NewPipeExtractor](https://github.com/teamnewpipe/newpipeextractor)
+ repository. However in order to include your changes you need to follow certain rules.
+
+1. Stick to our [Code contribution guidelines](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution)
+2. Do not send services that present content we [don't allow](#not-allowed-content) on NewPipe.
+3. You need to be willing to keep on maintaining your service after submission.
+4. Be patient and do the requested changes when one of our maintainers rejects your code.
+
+## Allowed Content
+
+- Basically anything except [NOT allowed content](#not-allowed-content).
+- Any kind of porn/NSFW that is allowed according to the [US Porn act](https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm).
+- Advertisement (may be handled specially tho)
+
+## NOT allowed Content
+
+- NSFL
+- Porn that is not allowed according to [US Porn act](https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm).
+- Any form of violence
+- Child pornography
+- Media that harms others
+- Media that shows the violation of human rights
+- Copyright infringement/pirated media
+
+
+
+
