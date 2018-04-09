@@ -22,6 +22,7 @@ First and foremost you need to meet certain conditions in order to write your ow
     - __[git](https://git-scm.com/downloads/guis)__
     - __[java 8](https://www.java.com/en/download/faq/java8.xml)__
     - __[gradle](https://gradle.org/)__
+    - __[unit testing](https://junit.org/junit5/)__
     - I highly recomend [IDEA Community](https://www.jetbrains.com/idea/) since it has everything we need.
 - A __[github](https://github.com/)__ account
 - A loot of patience and excitement ;D
