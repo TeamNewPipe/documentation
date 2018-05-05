@@ -2,18 +2,18 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to the NewPipe Documentaiton.\n\n\nThis side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the \nNewPipe Extractor\n.\nThis however is an addition to our \njdoc documentation\n.\n\n\nThis tutorial and the documentation are in an early state. So \nfeedback\n is always welcome :D\n\n\nStay Tuned\n\n\nTune yourself to stay ;D",
-            "title": "Welcome to the NewPipe Documentaiton."
-        },
-        {
-            "location": "/#welcome-to-the-newpipe-documentaiton",
-            "text": "This side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the  NewPipe Extractor .\nThis however is an addition to our  jdoc documentation .  This tutorial and the documentation are in an early state. So  feedback  is always welcome :D",
-            "title": "Welcome to the NewPipe Documentaiton."
+            "text": "j# Welcome to the NewPipe Documentaiton.\n\n\nThis side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the \nNewPipe Extractor\n.\nThis however is an addition to our \njdoc documentation\n.\n\n\nThis tutorial and the documentation are in an early state. So \nfeedback\n is always welcome :D\n\n\nStay Tuned\n\n\nTune yourself to stay ;D\n\n\nIntroduction\n\n\nThe NewPipeExtractor is a java framework for scraping video platform websites in a way that they can be accedes like a normal API. The extractor is the core of the popular Youtube and streaming app \nNewPipe\n for android, however it's system independent and also available for other platforms. \n\n\nThe beauty behind the NewPipeExtractor is that is takes care about the extraction process, error handling etc., so you can take care about what is important: Scraping the website.\nIt focuses on making it possible for the creator of a scraper for a streaming service to create best outcome by least amount of self written code.",
+            "title": "Home"
         },
         {
             "location": "/#stay-tuned",
             "text": "Tune yourself to stay ;D",
             "title": "Stay Tuned"
+        },
+        {
+            "location": "/#introduction",
+            "text": "The NewPipeExtractor is a java framework for scraping video platform websites in a way that they can be accedes like a normal API. The extractor is the core of the popular Youtube and streaming app  NewPipe  for android, however it's system independent and also available for other platforms.   The beauty behind the NewPipeExtractor is that is takes care about the extraction process, error handling etc., so you can take care about what is important: Scraping the website.\nIt focuses on making it possible for the creator of a scraper for a streaming service to create best outcome by least amount of self written code.",
+            "title": "Introduction"
         },
         {
             "location": "/00_Prepare_everything/",
