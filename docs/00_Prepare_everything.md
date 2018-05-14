@@ -58,7 +58,7 @@ After creating you own service you will need to submit it to our [NewPipeExtract
 - Any form of violence
 - Child pornography
 - Media that harms others
-- Media that shows the violation of human rights
+- Media that violates human rights
 - Copyright infringement/pirated media
 
 
