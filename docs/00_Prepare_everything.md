@@ -33,6 +33,12 @@ This way you have your own working repository. Now clone this repository into yo
 Next import the cloned project into your [ide](https://www.jetbrains.com/help/idea/configuring-projects.html#importing-project)
 and [run](https://www.jetbrains.com/help/idea/performing-tests.html) it.
 If all the checks are green you did everything right, and you are good to go to move on to the next chapter.
+
+#### Running test in Android Studio
+
+Go to _run_ > _edit configurations_ > _add new configuration_ and select "Gradle".
+As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.
+
 ![tests passed on idea](img/prepare_tests_passed.png)
 
 # Inclusion criteria for services
