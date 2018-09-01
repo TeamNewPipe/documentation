@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="None">
   
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Home - NewPipe Documentation</title>
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Welcome to the NewPipe Documentaiton. - NewPipe Documentation</title>
   <link rel="stylesheet" href="./css/local_fonts.css" type="text/css" />
 
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
@@ -17,14 +17,15 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
+    var mkdocs_page_name = "Welcome to the NewPipe Documentaiton.";
     var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -38,7 +39,7 @@
         <a href="." class="icon icon-home"> NewPipe Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -49,13 +50,16 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href=".">Home</a>
+    <a class="current" href=".">Welcome to the NewPipe Documentaiton.</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#stay-tuned">Stay Tuned</a></li>
+    <li class="toctree-l2"><a href="#welcome-to-the-newpipe-documentaiton">Welcome to the NewPipe Documentaiton.</a></li>
     
-
-    <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#introduction">Introduction</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -63,12 +67,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="00_Prepare_everything/">00 Prepare everything</a>
+    <a class="" href="00_Prepare_everything/">Prepare everything</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="01_Concept_of_the_extractor/">01 Concept of the extractor</a>
+    <a class="" href="01_Concept_of_the_extractor/">Concept of the Extractor</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
 	    </li>
           
         </ul>
@@ -93,7 +102,7 @@
     
       
     
-    <li>Home</li>
+    <li>Welcome to the NewPipe Documentaiton.</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,16 +112,14 @@
           <div role="main">
             <div class="section">
               
-                <p>j# Welcome to the NewPipe Documentaiton.</p>
-<p>This side is a beginner friendly tutorial and documentatin for people who want to use, or write services for the <a href="https://github.com/TeamNewPipe/NewPipeExtractor">NewPipe Extractor</a>.
-This however is an addition to our <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/">jdoc documentation</a>.</p>
-<p>This tutorial and the documentation are in an early state. So <a href="https://github.com/TeamNewPipe/documentation/issues">feedback</a> is always welcome :D</p>
-<h2 id="stay-tuned">Stay Tuned</h2>
-<p>Tune yourself to stay ;D</p>
+                <h1 id="welcome-to-the-newpipe-documentaiton">Welcome to the NewPipe Documentaiton.</h1>
+<p>This side is/should be a beginner friendly tutorial and documentation for people who want to use, or write services for the <a href="https://github.com/TeamNewPipe/NewPipeExtractor">NewPipe Extractor</a>.
+It is an addition to our auto generated <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/">jdoc documentation</a>.</p>
+<p>Please be aware that it is also in an early state, so help and <a href="https://github.com/TeamNewPipe/documentation/issues">feedback</a> is always welcome :D</p>
 <h2 id="introduction">Introduction</h2>
-<p>The NewPipeExtractor is a java framework for scraping video platform websites in a way that they can be accedes like a normal API. The extractor is the core of the popular Youtube and streaming app <a href="https://newpipe.schabi.org">NewPipe</a> for android, however it's system independent and also available for other platforms. </p>
-<p>The beauty behind the NewPipeExtractor is that is takes care about the extraction process, error handling etc., so you can take care about what is important: Scraping the website.
-It focuses on making it possible for the creator of a scraper for a streaming service to create best outcome by least amount of self written code.</p>
+<p>The NewPipeExtractor is a Java framework for scraping video platform websites in a way that they can be accedes like a normal API. The extractor is the core of the popular Youtube and streaming App <a href="https://newpipe.schabi.org">NewPipe</a> for android, however it's system independent and also available for other platforms. </p>
+<p>The beauty behind this framework is it takes care about the extraction process, error handling etc., so you can take care about what is important: Scraping the website.
+It focuses on making it possible for the creator of a scraper for a streaming service to create best outcome by least amount of written code.</p>
               
             </div>
           </div>
@@ -120,7 +127,7 @@ It focuses on making it possible for the creator of a scraper for a streaming se
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="00_Prepare_everything/" class="btn btn-neutral float-right" title="00 Prepare everything">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="00_Prepare_everything/" class="btn btn-neutral float-right" title="Prepare everything">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -153,14 +160,13 @@ It focuses on making it possible for the creator of a scraper for a streaming se
     </span>
 </div>
     <script>var base_url = '.';</script>
-    <script src="./js/theme.js"></script>
-      <script src="./search/require.js"></script>
-      <script src="./search/search.js"></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 0.17.3
-Build Date UTC : 2018-05-14 11:30:39
+MkDocs version : 1.0.3
+Build Date UTC : 2018-09-01 13:48:12
 -->

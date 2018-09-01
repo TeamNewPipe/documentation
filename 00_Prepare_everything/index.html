@@ -19,12 +19,13 @@
     // Current page data
     var mkdocs_page_name = "Prepare everything";
     var mkdocs_page_input_path = "00_Prepare_everything.md";
-    var mkdocs_page_url = "/00_Prepare_everything/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -38,7 +39,7 @@
         <a href=".." class="icon icon-home"> NewPipe Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -49,7 +50,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Home</a>
+    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -82,7 +83,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../01_Concept_of_the_extractor/">01 Concept of the extractor</a>
+    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
 	    </li>
           
         </ul>
@@ -149,8 +155,11 @@ using the <a href="https://github.com/TeamNewPipe/NewPipeExtractor#fork-destinat
 This way you have your own working repository. Now clone this repository into your local folder in which you want to work in.
 Next import the cloned project into your <a href="https://www.jetbrains.com/help/idea/configuring-projects.html#importing-project">ide</a>
 and <a href="https://www.jetbrains.com/help/idea/performing-tests.html">run</a> it.
-If all the checks are green you did everything right, and you are good to go to move on to the next chapter.
-<img alt="tests passed on idea" src="../img/prepare_tests_passed.png" /></p>
+If all the checks are green you did everything right, and you are good to go to move on to the next chapter.</p>
+<h4 id="running-test-in-android-studio">Running test in Android Studio</h4>
+<p>Go to <em>run</em> &gt; <em>edit configurations</em> &gt; <em>add new configuration</em> and select "Gradle".
+As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.</p>
+<p><img alt="tests passed on idea" src="../img/prepare_tests_passed.png" /></p>
 <h1 id="inclusion-criteria-for-services">Inclusion criteria for services</h1>
 <p>After creating you own service you will need to submit it to our <a href="https://github.com/teamnewpipe/newpipeextractor">NewPipeExtractor</a>
  repository. However in order to include your changes you need to follow these rules:</p>
@@ -183,10 +192,10 @@ If all the checks are green you did everything right, and you are good to go to 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../01_Concept_of_the_extractor/" class="btn btn-neutral float-right" title="01 Concept of the extractor">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../01_Concept_of_the_extractor/" class="btn btn-neutral float-right" title="Concept of the Extractor">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Welcome to the NewPipe Documentaiton."><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -220,9 +229,8 @@ If all the checks are green you did everything right, and you are good to go to 
     </span>
 </div>
     <script>var base_url = '..';</script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/require.js"></script>
-      <script src="../search/search.js"></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
