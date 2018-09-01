@@ -3,7 +3,7 @@
 ## Collector/Extractor pattern
 
 Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
-you will find all over the code. It is called the __extractor/collector__ pattern. The idea behind this pattern is that
+you will find all over the code. It is called the __extractor/collector__ pattern. The idea behind it is that
 the [extractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)
 would produce single peaces of data, and the collector would take it and form usable data for the front end out of it.
 The collector also controls the parsing process, and takes care about error handling. So if the extractor fails at any
@@ -14,7 +14,7 @@ You need to take care of the extractors.
 ### Usage in the front end
 
 So typical call for retrieving data from a website would look like this:
-```java
+``` java
 Info info;
 try {
     // Create a new Extractor with a given context provided as parameter.
@@ -29,7 +29,7 @@ try {
 ### Typical implementation of a single data extractor
 
 The typical implementation of a single data extractor on the other hand would look like this:
-```java
+``` java
 class MyExtractor extends FutureExtractor {
 
     public MyExtractor(RequiredInfo requiredInfo, ForExtraction forExtraction) {
