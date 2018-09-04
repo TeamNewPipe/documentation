@@ -2,3 +2,5 @@ site_name: NewPipe Documentation
 theme:
     name: readthedocs
     custom_dir: theme 
+markdown_extensions:
+   - fenced_code
