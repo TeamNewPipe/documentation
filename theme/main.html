@@ -2,19 +2,46 @@
 
 {# 
   Override the stylesheets loading fonts from fonts.googleapis.com to prevent tracking
-  The stylesheet
   This issue was discussed at https://github.com/TeamNewPipe/tutorial/issues/1
   You can find the original file at https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/readthedocs/base.html
+  
+  While fixing the syntax highlighting (see https://github.com/TeamNewPipe/documentation/issues/5)
+  I saw that some   of the required scripts come from https://cdnjs.cloudflare.com.
+  The libs block fixes most of this - except for some less frequently (and not by NewPipe or NewPipe Extractor) used languages. I kept the CDN script as fallback for these languages.
 #}
 
 {%- block styles %}
+  <!-- local fonts -->
   <link rel="stylesheet" href="{{ base_url }}/css/local_fonts.css" type="text/css" />
 
   <link rel="stylesheet" href="{{ base_url }}/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="{{ base_url }}/css/theme_extra.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="{{ base_url }}/css/github.min.css" type="text/css" />
   <link rel="stylesheet" href="{{ base_url }}/css/highlight.css" type="text/css" />
+  
 
   {%- for path in extra_css %}
   <link href="{{ path }}" rel="stylesheet">
   {%- endfor %}
+{%- endblock %}
+
+{%- block libs %}
+  {% if page %}
+  <script>
+    // Current page data
+    var mkdocs_page_name = {{ page.title|tojson|safe }};
+    var mkdocs_page_input_path = {{ page.file.src_path|string|tojson|safe }};
+    var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
+  </script>
+  {% endif %}
+  <script src="{{ 'js/jquery-2.1.1.min.js'|url }}" defer></script>
+  <script src="{{ 'js/modernizr-2.8.3.min.js'|url }}" defer></script>
+  {%- if config.theme.highlightjs %}
+  <script src="{{ base_url }}/js/highlight.min.js"></script>
+  {%- for lang in config.theme.hljs_languages %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{lang}}.min.js"></script>
+  {%- endfor %}
+  <script>hljs.initHighlightingOnLoad();</script>
+  {%- endif %}
 {%- endblock %}
