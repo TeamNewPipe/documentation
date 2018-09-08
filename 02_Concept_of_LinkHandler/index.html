@@ -81,7 +81,7 @@
         
             <li><a class="toctree-l3" href="#implementation">Implementation</a></li>
         
-            <li><a class="toctree-l3" href="#listlinkhandler-and-querylinkhandler">ListLinkHandler and QueryLinkHandler</a></li>
+            <li><a class="toctree-l3" href="#listlinkhandler-and-searchqueryhandler">ListLinkHandler and SearchQueryHandler</a></li>
         
         </ul>
     
@@ -168,10 +168,25 @@ LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/
 }
 </code></pre>
 
-<h3 id="listlinkhandler-and-querylinkhandler">ListLinkHandler and QueryLinkHandler</h3>
-<p>List based resources like channels and playlists can be sorted, for example by date, name, or by a certain name.
-Therefore these type of resources don't just use a LinkHandler, but an extention called
-<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html">ListLinkHandler</a></p>
+<h3 id="listlinkhandler-and-searchqueryhandler">ListLinkHandler and SearchQueryHandler</h3>
+<p>List based resources like channels and playlists can be sorted, and filtered.
+Therefore these type of resources don't just use a LinkHandler, but a class called
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html">ListLinkHandler</a>
+which inherits from LinkHandler and adds the fields <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#contentFilters">ContentFilter</a>
+which is used to filter by resource type like stream or playlist, and
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter">SortFilter</a>
+which is used to sort by name, date or view count.</p>
+<p>ListLinkHandler are also created by overriding the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a>
+additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--">getAvailableContentFilter()</a>
+and <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableSortFilter--">getAvailableSortFilter()</a>.
+Through these you can tell the front end which kind of filter your service support.</p>
+<h4 id="searchqueryhandler">SearchQueryHandler</h4>
+<p>You can not point to a search request with an ID like you point to a playlist or a channel, simply because one and the
+same search request might have a changing outcome deepening on the country or the time you send the request. This is
+why the idea of an "ID" is replaced by a "SearchString" in the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html">SearchQueryHandler</a>
+These work like regular ListLinkHandler, accept that you don't have to implement the methodes <code>onAcceptUrl()</code>
+and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a>.</p>
               
             </div>
           </div>
