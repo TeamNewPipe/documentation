@@ -9,10 +9,13 @@
   
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Concept of LinkHandler - NewPipe Documentation</title>
+  <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="../css/github.min.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css" type="text/css" />
   
   <script>
@@ -24,7 +27,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="../js/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -70,6 +73,18 @@
             
     <li class="toctree-l2"><a href="#concept-of-linkhandler">Concept of LinkHandler</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#importand-notes-about-linkhandler">Importand notes about LinkHandler:</a></li>
+        
+            <li><a class="toctree-l3" href="#usage">Usage</a></li>
+        
+            <li><a class="toctree-l3" href="#implementation">Implementation</a></li>
+        
+            <li><a class="toctree-l3" href="#listlinkhandler-and-querylinkhandler">ListLinkHandler and QueryLinkHandler</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -107,6 +122,56 @@
             <div class="section">
               
                 <h1 id="concept-of-linkhandler">Concept of LinkHandler</h1>
+<p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandler.html">LinkHandler</a>
+represent Links to resources like videos, search requests, channels, etc.
+The idea behind them is that a video can have multiple links pointig to it, but it has
+one unique id that represents it, like this example:</p>
+<p><a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">oHg5SJYRHA0</a> can be represented as:</p>
+<ul>
+<li>https://www.youtube.com/watch?v=oHg5SJYRHA0 (default url for youtube)</li>
+<li>https://youtu.be/oHg5SJYRHA0</li>
+<li>https://m.youtube.com/watch?v=oHg5SJYRHA0</li>
+</ul>
+<h3 id="importand-notes-about-linkhandler">Importand notes about LinkHandler:</h3>
+<ul>
+<li>A simple <code>LinkHandler</code> will contain the default URL, the ID and the original url.</li>
+<li><code>LinkHandler</code> are ReadOnly</li>
+<li>LinkHandler are also used to determine which part of the extractor can handle a certain link.</li>
+<li>In order to get one you must either call
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-">fromUrl()</a> or <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-">fromId()</a> of the the coresponding <code>LinkHandlerFactory</code>.</li>
+<li>Every type of Type of Resource has its own LinkHandlerFactory. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>So the typical Usage for getting a LinkHandler would look like this.</p>
+<pre><code class="java">LinkHandlerFactory myLinkHandlerFactory = new MyStreamLinkHandlerFactory();
+LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/the_video&quot;);
+</code></pre>
+
+<h3 id="implementation">Implementation</h3>
+<p>In order to Use LinkHandler for your service you must override the apropriate LinkHandlerFactory. eg:</p>
+<pre><code class="java">class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
+
+    @Override
+    public String getId(String url) throws ParsingException {
+        // Return the ID based on the url.
+    }
+
+    @Override
+    public String getUrl(String id) throws ParsingException {
+        // Return the url based on the id given.
+    }
+
+    @Override
+    public boolean onAcceptUrl(String url) throws ParsingException {
+        // Return true if this LinkHanlderFactory can handle this type of link
+    }
+}
+</code></pre>
+
+<h3 id="listlinkhandler-and-querylinkhandler">ListLinkHandler and QueryLinkHandler</h3>
+<p>List based resources like channels and playlists can be sorted, for example by date, name, or by a certain name.
+Therefore these type of resources don't just use a LinkHandler, but an extention called
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html">ListLinkHandler</a></p>
               
             </div>
           </div>
