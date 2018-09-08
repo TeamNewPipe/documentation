@@ -51,11 +51,32 @@ class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
 }
 ```
 
-### ListLinkHandler and QueryLinkHandler
+### ListLinkHandler and SearchQueryHandler
 
-List based resources like channels and playlists can be sorted, for example by date, name, or by a certain name.
-Therefore these type of resources don't just use a LinkHandler, but an extention called
+List based resources like channels and playlists can be sorted, and filtered.
+Therefore these type of resources don't just use a LinkHandler, but a class called
 [ListLinkHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html)
+which inherits from LinkHandler and adds the fields [ContentFilter](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#contentFilters)
+which is used to filter by resource type like stream or playlist, and
+[SortFilter](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter)
+which is used to sort by name, date or view count.
+
+ListLinkHandler are also created by overriding the [ListLinkHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html)
+additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
+[getAvailableContentFilter()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--)
+and [getAvailableSortFilter()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableSortFilter--).
+Through these you can tell the front end which kind of filter your service support.
+
+
+#### SearchQueryHandler
+
+You can not point to a search request with an ID like you point to a playlist or a channel, simply because one and the
+same search request might have a changing outcome deepening on the country or the time you send the request. This is
+why the idea of an "ID" is replaced by a "SearchString" in the [SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html)
+These work like regular ListLinkHandler, accept that you don't have to implement the methodes `onAcceptUrl()`
+and `getId()` when overriding [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html).
+
+
 
 
 
