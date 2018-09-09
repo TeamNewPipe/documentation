@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Run the changes in the App - NewPipe Documentation</title>
+  <!-- local fonts -->
+  <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="../css/github.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Run the changes in the App";
+    var mkdocs_page_input_path = "04_Run_changes_in_App.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> NewPipe Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Run the changes in the App</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#run-the-changes-in-the-app">Run the changes in the App</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#setup-android-studio">Setup Android Studio</a></li>
+        
+            <li><a class="toctree-l3" href="#get-the-newpipe-code-and-run-it">Get the NewPipe code and run it.</a></li>
+        
+            <li><a class="toctree-l3" href="#run-your-changes-on-the-extractor">Run your changes on the Extractor</a></li>
+        
+            <li><a class="toctree-l3" href="#trouble-shoot">Trouble shoot</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">NewPipe Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Run the changes in the App</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="run-the-changes-in-the-app">Run the changes in the App</h1>
+<p>You should develop and test your changes with the JUnit environment that is
+provided by the NewPipe Extractor and IDEA. If you want to try it then with
+the actual fronted you need to follow these changes.</p>
+<h3 id="setup-android-studio">Setup Android Studio</h3>
+<p>First of all you want to setup a working Android Studio environment. For this please
+download Studio from <a href="https://developer.android.com/studio/">developer.android.com</a>,
+and follow the <a href="https://developer.android.com/studio/install">instructions</a> about how to set it up.</p>
+<h3 id="get-the-newpipe-code-and-run-it">Get the NewPipe code and run it.</h3>
+<p>In order to get it you must simply clone or download from the current <code>dev</code> branch
+<a href="https://github.com/TeamNewPipe/NewPipe/archive/dev.zip">github.com/TeamNewPipe/NewPipe.git</a>.
+You can then build and run it following <a href="https://developer.android.com/studio/run/">these instructions</a>.
+Please also make sure you are comfortable with <a href="https://en.droidwiki.org/wiki/Android_Debug_Bridge">adb</a> since
+you might experience some trouble running your compiled app on a real device, especially under linux where you
+sometimes have to adjust the udev rules in order to
+<a href="http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device be accessible</a>.</p>
+<h3 id="run-your-changes-on-the-extractor">Run your changes on the Extractor</h3>
+<p>In order to use the extractor in our app we use <a href="https://jitpack.io">jitpack</a>. This is a build service that can build
+marven *.jar packages for android and java based on a github or gitlab repositories. </p>
+<p>To the extractor through jitpack, you need to push them to your online repository of
+your copy that you host either on <a href="https://github.com">github</a> or <a href="https://gitlab.com">gitlab</a>. It's important to host
+it on one of both. Now copy your repository url in Http format, go to <a href="https://jitpack.io/">jitpack</a>, and past it there
+From here you can grap the latest commit via <code>GET IT</code> button.
+I recomend not to use SNAPSHOT, since I am not sure when snapshot is build. An "implementation" string will be generated
+for you. Copy this string and replace the <code>implementation 'com.github.TeamNewPipe:NewPipeExtractor:&lt;commit&gt;'</code> line in
+the file <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58">/app/build.gradle</a> with it.</p>
+<video width="600" controls>
+  <source src="/media/how_to_jitpack.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p>If everything synced well then you should only see a screen with OK signs. Now you can go on an compile and run NewPipe
+with the new extractor.
+<img alt="image_sync_ok" src="../img/sync_ok.png" /></p>
+<h3 id="trouble-shoot">Trouble shoot</h3>
+<p>If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
+click on that little paper symbol next to the <code>GET IT</code> button. If it is red it already shows that the build failed.
+<img alt="jitpack failed to build" src="../img/jitpack_fail.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../02_Concept_of_LinkHandler/" class="btn btn-neutral" title="Concept of LinkHandler"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../02_Concept_of_LinkHandler/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
