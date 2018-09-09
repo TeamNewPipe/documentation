@@ -34,7 +34,7 @@ for you. Copy this string and replace the `implementation 'com.github.TeamNewPip
 the file [/app/build.gradle](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58) with it.
 
 <video width="600" controls>
-  <source src="/media/how_to_jitpack.mp4" type="video/mp4">
+  <source src="../media/how_to_jitpack.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
