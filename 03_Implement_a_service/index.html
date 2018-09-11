@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Implement a service - NewPipe Documentation</title>
+  <!-- local fonts -->
+  <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="../css/github.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Implement a service";
+    var mkdocs_page_input_path = "03_Implement_a_service.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> NewPipe Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Implement a service</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#implement-a-service">Implement a service</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#search">Search</a></li>
+        
+            <li><a class="toctree-l3" href="#stream">Stream</a></li>
+        
+            <li><a class="toctree-l3" href="#channel">Channel</a></li>
+        
+            <li><a class="toctree-l3" href="#playlist">Playlist</a></li>
+        
+            <li><a class="toctree-l3" href="#kiosk">Kiosk</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">NewPipe Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Implement a service</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="implement-a-service">Implement a service</h1>
+<p>Services or better service connectors are the parts of NewPipe which communicative with an actual service like YouTube.
+This Page will describe how you can implement and add your own. Please make sure you red and understand the
+<a href="https://teamnewpipe.github.io/documentation/01_Concept_of_the_extractor/">Concept of Extractors</a>
+and the <a href="https://teamnewpipe.github.io/documentation/02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+before implementing your own Service.</p>
+<h3 id="search">Search</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html">SearchExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a></li>
+</ul>
+<h3 id="stream">Stream</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamExtractor.html">StreamExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamInfoItemExtractor.html">StreamInfoItemExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html">LinkHandlerFactory</a></li>
+</ul>
+<h3 id="channel">Channel</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelInfoItemExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
+</ul>
+<h3 id="playlist">Playlist</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/playlist/PlaylistExtractor.html">PlaylistExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/playlist/PlaylistExtractor.html">PlayListInfoItemExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
+</ul>
+<h3 id="kiosk">Kiosk</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/kiosk/KioskList.KioskExtractorFactory.html">KioskExtractorFactory</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/kiosk/KioskExtractor.html">KioskExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../04_Run_changes_in_App/" class="btn btn-neutral float-right" title="Run the changes in the App">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../02_Concept_of_LinkHandler/" class="btn btn-neutral" title="Concept of LinkHandler"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../02_Concept_of_LinkHandler/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../04_Run_changes_in_App/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
