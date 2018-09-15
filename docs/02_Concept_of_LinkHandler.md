@@ -2,12 +2,12 @@
 
 [LinkHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandler.html)
 represent Links to resources like videos, search requests, channels, etc.
-The idea behind them is that a video can have multiple links pointig to it, but it has
-one unique id that represents it, like this example:
+The idea behind them is that a video can have multiple links pointing to it, but it has
+one unique ID that represents it, like this example:
 
 [oHg5SJYRHA0](https://www.youtube.com/watch?v=oHg5SJYRHA0) can be represented as:
 
-- https://www.youtube.com/watch?v=oHg5SJYRHA0 (default url for youtube)
+- https://www.youtube.com/watch?v=oHg5SJYRHA0 (default URL for YouTube)
 - https://youtu.be/oHg5SJYRHA0
 - https://m.youtube.com/watch?v=oHg5SJYRHA0
 
@@ -16,12 +16,12 @@ one unique id that represents it, like this example:
 - `LinkHandler` are ReadOnly
 - LinkHandler are also used to determine which part of the extractor can handle a certain link.
 - In order to get one you must either call
-[fromUrl()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-) or [fromId()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-) of the the coresponding `LinkHandlerFactory`.
+[fromUrl()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-) or [fromId()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-) of the the corresponding `LinkHandlerFactory`.
 - Every type of Type of Resource has its own LinkHandlerFactory. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.
 
 ### Usage
 
-So the typical Usage for getting a LinkHandler would look like this.
+So the typical usage for getting a LinkHandler would look like this.
 ```java
 LinkHandlerFactory myLinkHandlerFactory = new MyStreamLinkHandlerFactory();
 LinkHandler myVideo = myLinkHandlerFactory.fromUrl("https://my.service.com/the_video");
@@ -29,19 +29,19 @@ LinkHandler myVideo = myLinkHandlerFactory.fromUrl("https://my.service.com/the_v
 
 ### Implementation
 
-In order to Use LinkHandler for your service you must override the apropriate LinkHandlerFactory. eg:
+In order to Use LinkHandler for your service you must override the appropriate LinkHandlerFactory. eg:
 
 ```java
 class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
     
     @Override
     public String getId(String url) throws ParsingException {
-        // Return the ID based on the url.
+        // Return the ID based on the URL.
     }
 
     @Override
     public String getUrl(String id) throws ParsingException {
-        // Return the url based on the id given.
+        // Return the URL based on the ID given.
     }
 
     @Override
@@ -70,7 +70,7 @@ Through these you can tell the front end which kind of filter your service suppo
 
 #### SearchQueryHandler
 
-You can not point to a search request with an ID like you point to a playlist or a channel, simply because one and the
+You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
 same search request might have a changing outcome deepening on the country or the time you send the request. This is
 why the idea of an "ID" is replaced by a "SearchString" in the [SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html)
 These work like regular ListLinkHandler, accept that you don't have to implement the methodes `onAcceptUrl()`
