@@ -80,15 +80,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#search">Search</a></li>
-        
-            <li><a class="toctree-l3" href="#stream">Stream</a></li>
-        
-            <li><a class="toctree-l3" href="#channel">Channel</a></li>
-        
-            <li><a class="toctree-l3" href="#playlist">Playlist</a></li>
-        
-            <li><a class="toctree-l3" href="#kiosk">Kiosk</a></li>
+            <li><a class="toctree-l3" href="#the-service">The service</a></li>
         
         </ul>
     
@@ -139,21 +131,31 @@ This Page will describe how you can implement and add your own. Please make sure
 <a href="https://teamnewpipe.github.io/documentation/01_Concept_of_the_extractor/">Concept of Extractors</a>
 and the <a href="https://teamnewpipe.github.io/documentation/02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
 before implementing your own Service.</p>
+<h2 id="the-service">The service</h2>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ServiceList.html">ServiceList</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html">StreamingService</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.ServiceInfo.html">ServiceInfo</a></li>
 </ul>
-<h3 id="search">Search</h3>
+<p><strong>The parts of a service:</strong></p>
 <ul>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html">SearchExtractor</a></li>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a></li>
+<li><a href="#stream">Stream</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#channel">Channel</a> <em>(optional)</em></li>
+<li><a href="#playlist">Playlist</a> <em>(optional)</em></li>
+<li><a href="#kiosk">Kiosk</a> <em>(optional)</em></li>
 </ul>
 <h3 id="stream">Stream</h3>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamExtractor.html">StreamExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamInfoItemExtractor.html">StreamInfoItemExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html">LinkHandlerFactory</a></li>
+</ul>
+<h3 id="search">Search</h3>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html">SearchExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/SuggestionExtractor.html">SuggestionExtractor</a> <em>(optional)</em></li>
 </ul>
 <h3 id="channel">Channel</h3>
 <ul>
