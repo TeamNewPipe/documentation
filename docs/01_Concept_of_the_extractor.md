@@ -5,7 +5,7 @@
 Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
 you will find all over the code. It is called the __extractor/collector__ pattern. The idea behind it is that
 the [extractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)
-would produce single peaces of data, and the collector would take it and form usable data for the front end out of it.
+would produce single pieces of data, and the collector would take it and form usable data for the front end out of it.
 The collector also controls the parsing process, and takes care about error handling. So if the extractor fails at any
 point the collector will decide whether it should continue parsing or not. This requires the extractor to be made out of
 many small methods. One method for every data field the collector wants to have. The collectors are provided by NewPipe.
@@ -99,7 +99,7 @@ When a website shows a long list of items it usually does not load the whole lis
 
 This is why a list in NewPipe lists are chopped down into smaller lists called [InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html)s. Each page has its own URL, and needs to be extracted separately.
 
-Additional metainformation about the list such as it's title a thumbnail
+Additional metainformation about the list such as its title a thumbnail
 or its creator, and extracting multiple pages can be handled by a
 [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html),
 and it's [ListExtractor.InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html).
@@ -115,7 +115,7 @@ such as:
    returns a ListExtractor.InfoItemsPage by its URL which was retrieved by the `getNextPageUrl()` method of the previous page.
 
 
-The reason why the first page is handled speciall is because many Websites such as Youtube will load the first page of
+The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
 items like a regular webpage, but all the others as AJAX request.
 
 

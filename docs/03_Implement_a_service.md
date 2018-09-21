@@ -1,10 +1,19 @@
 # Implement a service
 
 Services or better service connectors are the parts of NewPipe which communicative with an actual service like YouTube.
-This Page will describe how you can implement and add your own. Please make sure you red and understand the
+This Page will describe how you can implement and add your own. Please make sure you read and understand the
 [Concept of Extractors](https://teamnewpipe.github.io/documentation/01_Concept_of_the_extractor/)
 and the [Concept of LinkHandler](https://teamnewpipe.github.io/documentation/02_Concept_of_LinkHandler/)
 before implementing your own Service.
+
+__The parts of a service:__
+
+- [Head of Service](#head-of-service)
+- [Stream](#stream)
+- [Search](#search)
+- [Channel](#channel) _(optional)_
+- [Playlist](#playlist) _(optional)_
+- [Kiosk](#kiosk) _(optional)_
 
 ### Allowed Libraries
 
@@ -46,14 +55,15 @@ of NewPipe. This way the will become an official part of the NewPipe Extractor.
 Every service has an ID, which will be set when this list gets created. You set this Id by entering it in the constructor.
 So when adding your service just give it the ID of the previously last service in the list incremented by one.
 
-### Search
-- [SearchExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html)
-- [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html)
-
 ### Stream
 - [StreamExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamExtractor.html)
 - [StreamInfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamInfoItemExtractor.html)
 - [LinkHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html)
+
+### Search
+- [SearchExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html)
+- [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html)
+- [SuggestionExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/SuggestionExtractor.html) _(optional)_
 
 ### Channel
 - [ChannelExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html)

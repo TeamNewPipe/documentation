@@ -28,7 +28,7 @@ marven *.jar packages for android and java based on a github or gitlab repositor
 To the extractor through jitpack, you need to push them to your online repository of
 your copy that you host either on [github](https://github.com) or [gitlab](https://gitlab.com). It's important to host
 it on one of both. Now copy your repository url in Http format, go to [jitpack](https://jitpack.io/), and past it there
-From here you can grap the latest commit via `GET IT` button.
+From here you can grab the latest commit via `GET IT` button.
 I recomend not to use SNAPSHOT, since I am not sure when snapshot is build. An "implementation" string will be generated
 for you. Copy this string and replace the `implementation 'com.github.TeamNewPipe:NewPipeExtractor:<commit>'` line in
 the file [/app/build.gradle](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58) with it.
