@@ -53,7 +53,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
+    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -134,7 +134,7 @@
 <p>Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
 you will find all over the code. It is called the <strong>extractor/collector</strong> pattern. The idea behind it is that
 the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">extractor</a>
-would produce single peaces of data, and the collector would take it and form usable data for the front end out of it.
+would produce single pieces of data, and the collector would take it and form usable data for the front end out of it.
 The collector also controls the parsing process, and takes care about error handling. So if the extractor fails at any
 point the collector will decide whether it should continue parsing or not. This requires the extractor to be made out of
 many small methods. One method for every data field the collector wants to have. The collectors are provided by NewPipe.
@@ -214,7 +214,7 @@ that will return the data of one InfoItem.</p>
 or its creator. Such info can be called <strong>list header</strong>.</p>
 <p>When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down. </p>
 <p>This is why a list in NewPipe lists are chopped down into smaller lists called <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">InfoItemsPage</a>s. Each page has its own URL, and needs to be extracted separately.</p>
-<p>Additional metainformation about the list such as it's title a thumbnail
+<p>Additional metainformation about the list such as its title a thumbnail
 or its creator, and extracting multiple pages can be handled by a
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a>,
 and it's <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">ListExtractor.InfoItemsPage</a>.</p>
@@ -228,7 +228,7 @@ such as:</p>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html#getPage-java.lang.String-">getPage()</a>
    returns a ListExtractor.InfoItemsPage by its URL which was retrieved by the <code>getNextPageUrl()</code> method of the previous page.</li>
 </ul>
-<p>The reason why the first page is handled speciall is because many Websites such as Youtube will load the first page of
+<p>The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
 items like a regular webpage, but all the others as AJAX request.</p>
               
             </div>

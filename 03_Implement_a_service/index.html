@@ -53,7 +53,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
+    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -80,7 +80,19 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#the-service">The service</a></li>
+            <li><a class="toctree-l3" href="#allowed-libraries">Allowed Libraries</a></li>
+        
+            <li><a class="toctree-l3" href="#head-of-service">Head of Service</a></li>
+        
+            <li><a class="toctree-l3" href="#stream">Stream</a></li>
+        
+            <li><a class="toctree-l3" href="#search">Search</a></li>
+        
+            <li><a class="toctree-l3" href="#channel">Channel</a></li>
+        
+            <li><a class="toctree-l3" href="#playlist">Playlist</a></li>
+        
+            <li><a class="toctree-l3" href="#kiosk">Kiosk</a></li>
         
         </ul>
     
@@ -127,24 +139,53 @@
               
                 <h1 id="implement-a-service">Implement a service</h1>
 <p>Services or better service connectors are the parts of NewPipe which communicative with an actual service like YouTube.
-This Page will describe how you can implement and add your own. Please make sure you red and understand the
+This Page will describe how you can implement and add your own. Please make sure you read and understand the
 <a href="https://teamnewpipe.github.io/documentation/01_Concept_of_the_extractor/">Concept of Extractors</a>
 and the <a href="https://teamnewpipe.github.io/documentation/02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
 before implementing your own Service.</p>
-<h2 id="the-service">The service</h2>
-<ul>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ServiceList.html">ServiceList</a></li>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html">StreamingService</a></li>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.ServiceInfo.html">ServiceInfo</a></li>
-</ul>
 <p><strong>The parts of a service:</strong></p>
 <ul>
+<li><a href="#head-of-service">Head of Service</a></li>
 <li><a href="#stream">Stream</a></li>
 <li><a href="#search">Search</a></li>
 <li><a href="#channel">Channel</a> <em>(optional)</em></li>
 <li><a href="#playlist">Playlist</a> <em>(optional)</em></li>
 <li><a href="#kiosk">Kiosk</a> <em>(optional)</em></li>
 </ul>
+<h3 id="allowed-libraries">Allowed Libraries</h3>
+<p>The NewPipe Extractor already comes a long with a lot of usable tools and external libraries that should make extracting easy.
+For some specific (tiny) tasks regex is allowed. Here you can take a look at the
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/utils/Parser.html">Parser</a>,
+which will give you a little help with that. <strong>Use Regex with care!!!</strong> Avoid it as often as possible. It's better to
+ask us to introduce a new library than start using regex to often.</p>
+<ul>
+<li>Html/XML Parsing: <a href="https://jsoup.org/apidocs/overview-summary.html">jsoup</a></li>
+<li>JSON Parsiong: <a href="https://github.com/mmastrac/nanojson#parser-example">nanojson</a></li>
+<li>JavaScript Parsing/Execution: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Documentation">Mozilla Rhino</a></li>
+<li>Link dectection in strings: <a href="https://github.com/robinst/autolink-java">AutoLink</a></li>
+</ul>
+<p>If you need to introduce new libraries please tell us before you do it.</p>
+<h3 id="head-of-service">Head of Service</h3>
+<p>First of all if you want to create a new service you should create a new package below <code>org.schabi.newpipe.services</code>
+, with the name of your service as package name. Here you must put an implementation of these two classes:</p>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html">StreamingService</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.ServiceInfo.html">ServiceInfo</a></li>
+</ul>
+<p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html">StreamingService</a>
+is a factory class that will return objects of all important parts of your service.
+Every extractor Kisok, Info type you add, and which should be part of your implementation must be instantiated using an
+instance of this class.</p>
+<p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.ServiceInfo.html">ServiceInfo</a>
+will return some meta information about your service. Such as the name, the capabilities, and your name as well as your 
+email address for further notice and maintenance issues. Remember, after extending this class you need to return an
+instance of it by through your implementation of
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html#getServiceInfo--"><code>StreamingService.getServiceInfo()</code></a>.</p>
+<p>When these two classes are extended by you, you need to add them to the
+<a href="https://github.com/TeamNewPipe/NewPipeExtractor/blob/49c2eb51859a58e4bb5ead2d9d0771408f7d59d6/extractor/src/main/java/org/schabi/newpipe/extractor/ServiceList.java#L23">ServiceList</a>
+of NewPipe. This way the will become an official part of the NewPipe Extractor.
+Every service has an ID, which will be set when this list gets created. You set this Id by entering it in the constructor.
+So when adding your service just give it the ID of the previously last service in the list incremented by one.</p>
 <h3 id="stream">Stream</h3>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamExtractor.html">StreamExtractor</a></li>

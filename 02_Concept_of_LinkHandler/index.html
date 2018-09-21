@@ -53,7 +53,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentaiton.</a>
+    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -134,11 +134,11 @@
                 <h1 id="concept-of-linkhandler">Concept of LinkHandler</h1>
 <p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandler.html">LinkHandler</a>
 represent Links to resources like videos, search requests, channels, etc.
-The idea behind them is that a video can have multiple links pointig to it, but it has
-one unique id that represents it, like this example:</p>
+The idea behind them is that a video can have multiple links pointing to it, but it has
+one unique ID that represents it, like this example:</p>
 <p><a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">oHg5SJYRHA0</a> can be represented as:</p>
 <ul>
-<li>https://www.youtube.com/watch?v=oHg5SJYRHA0 (default url for youtube)</li>
+<li>https://www.youtube.com/watch?v=oHg5SJYRHA0 (default URL for YouTube)</li>
 <li>https://youtu.be/oHg5SJYRHA0</li>
 <li>https://m.youtube.com/watch?v=oHg5SJYRHA0</li>
 </ul>
@@ -148,27 +148,27 @@ one unique id that represents it, like this example:</p>
 <li><code>LinkHandler</code> are ReadOnly</li>
 <li>LinkHandler are also used to determine which part of the extractor can handle a certain link.</li>
 <li>In order to get one you must either call
-<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-">fromUrl()</a> or <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-">fromId()</a> of the the coresponding <code>LinkHandlerFactory</code>.</li>
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-">fromUrl()</a> or <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-">fromId()</a> of the the corresponding <code>LinkHandlerFactory</code>.</li>
 <li>Every type of Type of Resource has its own LinkHandlerFactory. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>So the typical Usage for getting a LinkHandler would look like this.</p>
+<p>So the typical usage for getting a LinkHandler would look like this.</p>
 <pre><code class="java">LinkHandlerFactory myLinkHandlerFactory = new MyStreamLinkHandlerFactory();
 LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/the_video&quot;);
 </code></pre>
 
 <h3 id="implementation">Implementation</h3>
-<p>In order to Use LinkHandler for your service you must override the apropriate LinkHandlerFactory. eg:</p>
+<p>In order to Use LinkHandler for your service you must override the appropriate LinkHandlerFactory. eg:</p>
 <pre><code class="java">class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
 
     @Override
     public String getId(String url) throws ParsingException {
-        // Return the ID based on the url.
+        // Return the ID based on the URL.
     }
 
     @Override
     public String getUrl(String id) throws ParsingException {
-        // Return the url based on the id given.
+        // Return the URL based on the ID given.
     }
 
     @Override
@@ -192,7 +192,7 @@ additionally to the abstract methods this factory inherits from the LinkHandlerF
 and <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableSortFilter--">getAvailableSortFilter()</a>.
 Through these you can tell the front end which kind of filter your service support.</p>
 <h4 id="searchqueryhandler">SearchQueryHandler</h4>
-<p>You can not point to a search request with an ID like you point to a playlist or a channel, simply because one and the
+<p>You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
 same search request might have a changing outcome deepening on the country or the time you send the request. This is
 why the idea of an "ID" is replaced by a "SearchString" in the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html">SearchQueryHandler</a>
 These work like regular ListLinkHandler, accept that you don't have to implement the methodes <code>onAcceptUrl()</code>
