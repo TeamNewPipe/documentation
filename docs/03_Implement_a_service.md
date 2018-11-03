@@ -83,7 +83,8 @@ __Parts required to be implemented:__
 - [LinkHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html)
 
 ### Search
-The SearchExtractor is also required to be implemented. It will take a search query represented as [SearchQueryHandler](link here),
+The SearchExtractor is also required to be implemented. It will take a search query represented as
+[SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html)
 and return a list of search results. Since many services support a suggestion popup while you type you will also want to implement
 a __SuggestionExtractor__. This will make it possible for the frontend to as well display a suggestion while typing.
 

@@ -1,6 +1,8 @@
 NewPipe Tutorial
 ================
 
+[![travis_build_state](https://api.travis-ci.org/TeamNewPipe/documentation.svg?branch=master)](https://travis-ci.org/TeamNewPipe/documentation)
+
 This is the [tutorial](https://teamnewpipe.github.io/documentation/) for the [NewPipeExtractor](https://github.com/TeamNewPipeExtractor).
 It's thought for thous who want to write their own service, or use NewPipeExtractor in their own projects.
 

@@ -11,9 +11,9 @@ First and foremost you need to meet certain conditions in order to write your ow
 ### What you need to know
 
 - Basic understanding of __[git](https://try.github.io)__
-- Good __[Java](http://whatpixel.com/best-java-books/)__ knowledge
+- Good __[Java](https://whatpixel.com/best-java-books/)__ knowledge
 - Good understanding of __[web technology](https://www.w3schools.com/)__
-- Basic understanding about __[unit testing](http://www.vogella.com/tutorials/JUnit/article.html)__ and __[JUnit](https://junit.org/)__
+- Basic understanding about __[unit testing](https://www.vogella.com/tutorials/JUnit/article.html)__ and __[JUnit](https://junit.org/)__
 - Flawless understanding of how to [contribute](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution) to the __NewPipe project__
 
 ### What you need to have
@@ -39,7 +39,7 @@ If all the checks are green you did everything right, and you are good to go to 
 Go to _run_ > _edit configurations_ > _add new configuration_ and select "Gradle".
 As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.
 
-![tests passed on idea](img/prepare_tests_passed.png)
+![tests passed on idea](/img/prepare_tests_passed.png)
 
 # Inclusion criteria for services
 
@@ -66,7 +66,4 @@ After creating you own service you will need to submit it to our [NewPipeExtract
 - Media that harms others
 - Media that violates human rights
 - Copyright infringement/pirated media
-
-
-
 

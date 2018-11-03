@@ -18,7 +18,7 @@ You can then build and run it following [these instructions](https://developer.a
 Please also make sure you are comfortable with [adb](https://en.droidwiki.org/wiki/Android_Debug_Bridge) since
 you might experience some trouble running your compiled app on a real device, especially under linux where you
 sometimes have to adjust the udev rules in order to
-[make your device be accessible](http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/).
+[make your device be accessible](https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/).
 
 ### Run your changes on the Extractor
 
