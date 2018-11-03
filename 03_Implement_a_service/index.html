@@ -80,6 +80,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#required-and-optional-parts">Required and optional parts</a></li>
+        
             <li><a class="toctree-l3" href="#allowed-libraries">Allowed Libraries</a></li>
         
             <li><a class="toctree-l3" href="#head-of-service">Head of Service</a></li>
@@ -88,9 +90,9 @@
         
             <li><a class="toctree-l3" href="#search">Search</a></li>
         
-            <li><a class="toctree-l3" href="#channel">Channel</a></li>
-        
             <li><a class="toctree-l3" href="#playlist">Playlist</a></li>
+        
+            <li><a class="toctree-l3" href="#channel">Channel</a></li>
         
             <li><a class="toctree-l3" href="#kiosk">Kiosk</a></li>
         
@@ -139,21 +141,29 @@
               
                 <h1 id="implement-a-service">Implement a service</h1>
 <p>Services or better service connectors are the parts of NewPipe which communicative with an actual service like YouTube.
-This Page will describe how you can implement and add your own. Please make sure you read and understand the
+This Page will describe how you can implement and add your own to the extractor. Please make sure you read and understand the
 <a href="https://teamnewpipe.github.io/documentation/01_Concept_of_the_extractor/">Concept of Extractors</a>
 and the <a href="https://teamnewpipe.github.io/documentation/02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
-before implementing your own Service.</p>
+before doing this.</p>
+<h3 id="required-and-optional-parts">Required and optional parts</h3>
+<p>Please be aware that your extractor has to implement certain parts, but does not have to implement all.
+This is because not all services support every feature other services support. For example, it might be that a certain
+service does not support channels. If so, you can leve out the implementation of channels, and make the corresponding
+factory methode of the your <strong>StreamingService</strong> implementation return <strong>null</strong>. The forntend will then automatically
+leave out these parts.</p>
+<p>However if you start to implement one of the optional parts of the list below, you have to implement all parts/classes
+of it. NewPipe will crash if you only implement the extractor for the list item of a channel, but not the channel extractor itself.</p>
 <p><strong>The parts of a service:</strong></p>
 <ul>
 <li><a href="#head-of-service">Head of Service</a></li>
 <li><a href="#stream">Stream</a></li>
 <li><a href="#search">Search</a></li>
-<li><a href="#channel">Channel</a> <em>(optional)</em></li>
 <li><a href="#playlist">Playlist</a> <em>(optional)</em></li>
+<li><a href="#channel">Channel</a> <em>(optional)</em></li>
 <li><a href="#kiosk">Kiosk</a> <em>(optional)</em></li>
 </ul>
 <h3 id="allowed-libraries">Allowed Libraries</h3>
-<p>The NewPipe Extractor already comes a long with a lot of usable tools and external libraries that should make extracting easy.
+<p>The NewPipe Extractor already comes along with a lot of usable tools and external libraries that should make extracting easy.
 For some specific (tiny) tasks regex is allowed. Here you can take a look at the
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/utils/Parser.html">Parser</a>,
 which will give you a little help with that. <strong>Use Regex with care!!!</strong> Avoid it as often as possible. It's better to
@@ -174,40 +184,54 @@ ask us to introduce a new library than start using regex to often.</p>
 </ul>
 <p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html">StreamingService</a>
 is a factory class that will return objects of all important parts of your service.
-Every extractor Kisok, Info type you add, and which should be part of your implementation must be instantiated using an
-instance of this class.</p>
+Every extractor, handler, and info type you add, and which should be part of your implementation, must be instantiated using an
+instance of this class. You can see it as a factory for all objects of your implementation.</p>
 <p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.ServiceInfo.html">ServiceInfo</a>
 will return some meta information about your service. Such as the name, the capabilities, and your name as well as your 
 email address for further notice and maintenance issues. Remember, after extending this class you need to return an
 instance of it by through your implementation of
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/StreamingService.html#getServiceInfo--"><code>StreamingService.getServiceInfo()</code></a>.</p>
-<p>When these two classes are extended by you, you need to add them to the
+<p>When these two classes are extended by you, you need to add your <code>StreamingService</code> to the
 <a href="https://github.com/TeamNewPipe/NewPipeExtractor/blob/49c2eb51859a58e4bb5ead2d9d0771408f7d59d6/extractor/src/main/java/org/schabi/newpipe/extractor/ServiceList.java#L23">ServiceList</a>
-of NewPipe. This way the will become an official part of the NewPipe Extractor.
-Every service has an ID, which will be set when this list gets created. You set this Id by entering it in the constructor.
+of NewPipe. This way your service will become an official part of the NewPipe Extractor.
+Every service has an ID, which will be set when this list gets created. You need to set this ID by entering it in the constructor.
 So when adding your service just give it the ID of the previously last service in the list incremented by one.</p>
 <h3 id="stream">Stream</h3>
+<p>Streams are considered single entities of video or audio, the come along with metainformation like a title, a description,
+next/related videos, thumbnail and commends. For getting the url to the actual stream data as well as this metainformation
+StreamExtractor is used. The LinkHandlerFactory will represent a link to such a stream. StreamInfoItemExtractor will
+extract one item in a list of items representing such Streams, like a search result or a playlist.
+Since every Streaming service (obviously) provides streams this is required to implement. Otherwise your service was
+pretty useless :)</p>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamExtractor.html">StreamExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/stream/StreamInfoItemExtractor.html">StreamInfoItemExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html">LinkHandlerFactory</a></li>
 </ul>
 <h3 id="search">Search</h3>
+<p>The SearchExtractor is also required to be implemented. It will take a search query represented as <a href="link here">SearchQueryHandler</a>,
+and return a list of search results. Since many services support a suggestion popup while you type you will also want to implement
+a <strong>SuggestionExtractor</strong>. This will make it possible for the frontend to as well display a suggestion while typing.</p>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html">SearchExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/SuggestionExtractor.html">SuggestionExtractor</a> <em>(optional)</em></li>
 </ul>
-<h3 id="channel">Channel</h3>
-<ul>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelExtractor</a></li>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelInfoItemExtractor</a></li>
-<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
-</ul>
 <h3 id="playlist">Playlist</h3>
+<p>Playlists are lists of streams provided by the service (you may not have to take care about locally saved playlists. This will be handled by the frontend).
+A playlist may only contains <strong>StreamItems</strong>, but no other <strong>InfoItem</strong> types.</p>
 <ul>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/playlist/PlaylistExtractor.html">PlaylistExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/playlist/PlaylistExtractor.html">PlayListInfoItemExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
+</ul>
+<h3 id="channel">Channel</h3>
+<p>A Channel is mostly a <a href="#playlist">Playlist</a>, the only diferens is that it does not represent a simple list of streams, but a
+user, a channel, or any entity that could be represented as a user. This is why the metadata supported by the channel extractor
+differs form the one of a playlist.</p>
+<ul>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelExtractor</a></li>
+<li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/channel/ChannelExtractor.html">ChannelInfoItemExtractor</a></li>
 <li><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a></li>
 </ul>
 <h3 id="kiosk">Kiosk</h3>
