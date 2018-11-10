@@ -2,7 +2,7 @@
 
 You should develop and test your changes with the JUnit environment that is
 provided by the NewPipe Extractor and IDEA. If you want to try it then with
-the actual fronted you need to follow these changes.
+the actual fronted you need to follow these steps.
 
 ### Setup Android Studio
 

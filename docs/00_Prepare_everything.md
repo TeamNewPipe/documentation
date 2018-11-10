@@ -1,8 +1,14 @@
 # Prepare everything
 
-Welcome to the NewPipe tutorial. This tutorial will guide you through the process of creating your own NewPipeExtractor
-service with which NewPipe will gain support for a dedicated streaming service like YouTube, Vimeo or SoundCloud. Let's
-dive right in. ;D
+Welcome to the NewPipeExtractor documentation. This tutorial will guide you through the process of creating your own Extractor
+service with which NewPipe will gain support for a dedicated streaming service like YouTube, Vimeo or SoundCloud.
+The whole documentation consists of this page, which explains the general concept of the NewPipeExtractor, as well as our
+[Jdoc](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/) setup.
+
+__IMPORTANT!!!__ this is likely to be the worst documentation you have ever red, so do not hesitate to
+[report](https://github.com/teamnewpipe/documentation/issues) if
+you find any (spelling)errors, incomplete parts or you simply don't understand something. We are an open community
+and are open for everyone to help :)
 
 ## Setup your dev environment
 
