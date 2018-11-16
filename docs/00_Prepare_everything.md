@@ -45,7 +45,7 @@ If all the checks are green you did everything right, and you are good to go to 
 Go to _run_ > _edit configurations_ > _add new configuration_ and select "Gradle".
 As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.
 
-![tests passed on idea](/img/prepare_tests_passed.png)
+![tests passed on idea](img/prepare_tests_passed.png)
 
 # Inclusion criteria for services
 

@@ -60,7 +60,7 @@ Sometimes information can be represented as a list. In NewPipe a list is represe
 A InfoItemCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
 For each item that should be extracted a new Extractor must be created, and given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
 
-![InfoItemsCollector_objectdiagram.svg](/img/InfoItemsCollector_objectdiagram.svg)
+![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
 
 If you are implementing a list for your service you need to extend InfoItem containing the extracted information,
 and implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)

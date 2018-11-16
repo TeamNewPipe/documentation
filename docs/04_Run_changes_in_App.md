@@ -40,10 +40,11 @@ Your browser does not support the video tag.
 
 If everything synced well then you should only see a screen with OK signs. Now you can go on an compile and run NewPipe
 with the new extractor.
-![image_sync_ok](/img/sync_ok.png)
+
+![image_sync_ok](img/sync_ok.png)
 
 ### Trouble shoot
 
 If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
 click on that little paper symbol next to the `GET IT` button. If it is red it already shows that the build failed.
-![jitpack failed to build](/img/jitpack_fail.png)
+![jitpack failed to build](img/jitpack_fail.png)
