@@ -12,12 +12,12 @@ one unique ID that represents it, like this example:
 - https://m.youtube.com/watch?v=oHg5SJYRHA0
 
 ### Importand notes about LinkHandler: 
-- A simple `LinkHandler` will contain the default URL, the ID and the original url.
-- `LinkHandler` are ReadOnly
-- LinkHandler are also used to determine which part of the extractor can handle a certain link.
+- A simple `LinkHandler` will contain the default URL, the ID and the original URL.
+- `LinkHandler`s are ReadOnly
+- `LinkHandler`s are also used to determine which part of the extractor can handle a certain link.
 - In order to get one you must either call
 [fromUrl()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-) or [fromId()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-) of the the corresponding `LinkHandlerFactory`.
-- Every type of Type of Resource has its own LinkHandlerFactory. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.
+- Every type of Type of Resource has its own `LinkHandlerFactory`. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.
 
 ### Usage
 
@@ -65,15 +65,15 @@ ListLinkHandler are also created by overriding the [ListLinkHandlerFactory](http
 additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
 [getAvailableContentFilter()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--)
 and [getAvailableSortFilter()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableSortFilter--).
-Through these you can tell the front end which kind of filter your service support.
+Through these you can tell the front end which kind of filter your service supports.
 
 
 #### SearchQueryHandler
 
 You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
-same search request might have a changing outcome deepening on the country or the time you send the request. This is
+same search request might have a different outcome depending on the country or the time you send the request. This is
 why the idea of an "ID" is replaced by a "SearchString" in the [SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html)
-These work like regular ListLinkHandler, accept that you don't have to implement the methodes `onAcceptUrl()`
+These work like regular ListLinkHandler, except that you don't have to implement the methods `onAcceptUrl()`
 and `getId()` when overriding [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html).
 
 
