@@ -10,7 +10,7 @@ before doing this.
 Your service does not have to implement everything. Some parts are optional.
 This is because not all services support every feature other services support. For example, it might be that a certain
 service does not support channels. If so, you can leave out the implementation of channels, and make the corresponding
-factory methode of the your __StreamingService__ implementation return __null__. The forntend will handle the lack of
+factory method of the your __StreamingService__ implementation return __null__. The frontend will handle the lack of
 having channels then.
 
 However if you start to implement one of the optional parts of the list below, you have to implement all parts/classes
@@ -34,9 +34,9 @@ which will give you a little help with that. __Use Regex with care!!!__ Avoid it
 ask us to introduce a new library than start using regex to often.
 
 - Html/XML Parsing: [jsoup](https://jsoup.org/apidocs/overview-summary.html)
-- JSON Parsiong: [nanojson](https://github.com/mmastrac/nanojson#parser-example)
+- JSON Parsing: [nanojson](https://github.com/mmastrac/nanojson#parser-example)
 - JavaScript Parsing/Execution: [Mozilla Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Documentation)
-- Link dectection in strings: [AutoLink](https://github.com/robinst/autolink-java)
+- Link detection in strings: [AutoLink](https://github.com/robinst/autolink-java)
 
 If you need to introduce new libraries please tell us before you do it.
 
@@ -69,8 +69,8 @@ So when adding your service just give it the ID of the previously last service i
 
 ### Stream
 
-Streams are considered single entities of video or audio, they come along with metainformation like a title, a description,
-next/related videos, thumbnail and commends. For getting the url to the actual stream data as well as this metainformation
+Streams are considered single entities of video or audio. They come along with metainformation like a title, a description,
+next/related videos, a thumbnail and comments. For getting the URL to the actual stream data as well as this metainformation
 StreamExtractor is used. The LinkHandlerFactory will represent a link to such a stream. StreamInfoItemExtractor will
 extract one item in a list of items representing such Streams, like a search result or a playlist.
 Since every Streaming service (obviously) provides streams this is required to implement. Otherwise your service was
@@ -105,7 +105,7 @@ __Parts required to be implemented:__
 - [ListLinkHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html)
 
 ### Channel
-A Channel is mostly a [Playlist](#playlist), the only diferens is that it does not represent a simple list of streams, but a
+A Channel is mostly a [Playlist](#playlist), the only difference is that it does not represent a simple list of streams, but a
 user, a channel, or any entity that could be represented as a user. This is why the metadata supported by the channel extractor
 differs form the one of a playlist.
 
@@ -123,7 +123,7 @@ Your service would look pretty empty if you select it and no video is being disp
 since users of NewPipe can decide by the settings weather they want to see the kiosk page or not.
 
 #### Multiple Kiosks
-Most services will implement more than one Kiosk, so a service might have a "Top 20" for different categories like "Country Music", "Techno" ets.
+Most services will implement more than one Kiosk, so a service might have a "Top 20" for different categories like "Country Music", "Techno", etc.
 This is why the extractor will let you implement multiple __KioskExtractors__. Since different kiosk pages might also differ 
 with their HTML structure every page you want to support has to be implemented as its own __KioskExtractor__.
 However if the pages are similar you can use the same Implementation, but set the page type when you instantiate your __KioskExtractor__

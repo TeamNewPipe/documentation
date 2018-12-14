@@ -5,9 +5,9 @@
 Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
 you will find all over the code. It is called the __extractor/collector__ pattern. The idea behind it is that
 the [extractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)
-would produce single pieces of data, and the collector would take it and form usable data for the front end out of it.
-The collector also controls the parsing process, and takes care about error handling. So if the extractor fails at any
-point the collector will decide whether it should continue parsing or not. This requires the extractor to be made out of
+would produce single pieces of data, and the collector would collect it to form usable data for the front end.
+The collector also controls the parsing process, and takes care of error handling. So if the extractor fails at any
+point, the collector will decide whether or not it should continue parsing. This requires the extractor to be made out of
 many small methods. One method for every data field the collector wants to have. The collectors are provided by NewPipe.
 You need to take care of the extractors.
 
@@ -92,7 +92,7 @@ private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
 
 ## InfoItems encapsulated in pages
 
-When a streaming site shows a list of items it usually offers some additional information about that list, like it's title a thumbnail
+When a streaming site shows a list of items it usually offers some additional information about that list, like it's title, a thumbnail,
 or its creator. Such info can be called __list header__.
 
 When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down. 
@@ -116,7 +116,7 @@ such as:
 
 
 The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
-items like a regular webpage, but all the others as AJAX request.
+items like a regular webpage, but all the others as an AJAX request.
 
 
 

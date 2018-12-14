@@ -23,11 +23,11 @@ sometimes have to adjust the udev rules in order to
 ### Run your changes on the Extractor
 
 In order to use the extractor in our app we use [jitpack](https://jitpack.io). This is a build service that can build
-marven *.jar packages for android and java based on a github or gitlab repositories. 
+maven *.jar packages for android and java based on a github or gitlab repositories. 
 
 To the extractor through jitpack, you need to push them to your online repository of
 your copy that you host either on [github](https://github.com) or [gitlab](https://gitlab.com). It's important to host
-it on one of both. Now copy your repository url in Http format, go to [jitpack](https://jitpack.io/), and past it there
+it on one of both. Now copy your repository url in Http format, go to [jitpack](https://jitpack.io/), and past it there.
 From here you can grab the latest commit via `GET IT` button.
 I recomend not to use SNAPSHOT, since I am not sure when snapshot is build. An "implementation" string will be generated
 for you. Copy this string and replace the `implementation 'com.github.TeamNewPipe:NewPipeExtractor:<commit>'` line in
@@ -43,7 +43,7 @@ with the new extractor.
 
 ![image_sync_ok](img/sync_ok.png)
 
-### Trouble shoot
+### Troubleshooting
 
 If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
 click on that little paper symbol next to the `GET IT` button. If it is red it already shows that the build failed.

@@ -5,9 +5,9 @@ service with which NewPipe will gain support for a dedicated streaming service l
 The whole documentation consists of this page, which explains the general concept of the NewPipeExtractor, as well as our
 [Jdoc](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/) setup.
 
-__IMPORTANT!!!__ this is likely to be the worst documentation you have ever red, so do not hesitate to
+__IMPORTANT!!!__ this is likely to be the worst documentation you have ever read, so do not hesitate to
 [report](https://github.com/teamnewpipe/documentation/issues) if
-you find any (spelling)errors, incomplete parts or you simply don't understand something. We are an open community
+you find any spelling errors, incomplete parts or you simply don't understand something. We are an open community
 and are open for everyone to help :)
 
 ## Setup your dev environment
@@ -19,7 +19,7 @@ First and foremost you need to meet certain conditions in order to write your ow
 - Basic understanding of __[git](https://try.github.io)__
 - Good __[Java](https://whatpixel.com/best-java-books/)__ knowledge
 - Good understanding of __[web technology](https://www.w3schools.com/)__
-- Basic understanding about __[unit testing](https://www.vogella.com/tutorials/JUnit/article.html)__ and __[JUnit](https://junit.org/)__
+- Basic understanding of __[unit testing](https://www.vogella.com/tutorials/JUnit/article.html)__ and __[JUnit](https://junit.org/)__
 - Flawless understanding of how to [contribute](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution) to the __NewPipe project__
 
 ### What you need to have
@@ -61,11 +61,11 @@ After creating you own service you will need to submit it to our [NewPipeExtract
 
 - Basically anything except [NOT allowed content](#not-allowed-content).
 - Any kind of porn/NSFW that is allowed according to the [US Porn act](https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm).
-- Advertisement (may be handled specially tho)
+- Advertisement (may be handled specially though)
 
 ## NOT allowed Content
 
-- NSFL
+- NSFL (Not Safe For Life)
 - Porn that is not allowed according to [US Porn act](https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm).
 - Any form of violence
 - Child pornography
