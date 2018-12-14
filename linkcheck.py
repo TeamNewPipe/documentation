@@ -22,8 +22,8 @@ for filename in os.listdir():
                         RETURN_VALUE = 1
                         print(filename + ": Could not find target for" + link)
                 else:
-                    if link.startswith("/"):
-                        link = BASE_URL + link
+                    if link.startswith("img/"):
+                        link = BASE_URL + "/" + link
                     if not link.startswith("http"):
                         RETURN_VALUE = 1
                         print(filename + ": " + link + " is not filled out or not http")
