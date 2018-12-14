@@ -91,7 +91,7 @@
         
             <li><a class="toctree-l3" href="#run-your-changes-on-the-extractor">Run your changes on the Extractor</a></li>
         
-            <li><a class="toctree-l3" href="#trouble-shoot">Trouble shoot</a></li>
+            <li><a class="toctree-l3" href="#troubleshooting">Troubleshooting</a></li>
         
         </ul>
     
@@ -149,10 +149,10 @@ sometimes have to adjust the udev rules in order to
 <a href="https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device be accessible</a>.</p>
 <h3 id="run-your-changes-on-the-extractor">Run your changes on the Extractor</h3>
 <p>In order to use the extractor in our app we use <a href="https://jitpack.io">jitpack</a>. This is a build service that can build
-marven *.jar packages for android and java based on a github or gitlab repositories. </p>
+maven *.jar packages for android and java based on a github or gitlab repositories. </p>
 <p>To the extractor through jitpack, you need to push them to your online repository of
 your copy that you host either on <a href="https://github.com">github</a> or <a href="https://gitlab.com">gitlab</a>. It's important to host
-it on one of both. Now copy your repository url in Http format, go to <a href="https://jitpack.io/">jitpack</a>, and past it there
+it on one of both. Now copy your repository url in Http format, go to <a href="https://jitpack.io/">jitpack</a>, and past it there.
 From here you can grab the latest commit via <code>GET IT</code> button.
 I recomend not to use SNAPSHOT, since I am not sure when snapshot is build. An "implementation" string will be generated
 for you. Copy this string and replace the <code>implementation 'com.github.TeamNewPipe:NewPipeExtractor:&lt;commit&gt;'</code> line in
@@ -165,7 +165,7 @@ Your browser does not support the video tag.
 <p>If everything synced well then you should only see a screen with OK signs. Now you can go on an compile and run NewPipe
 with the new extractor.</p>
 <p><img alt="image_sync_ok" src="../img/sync_ok.png" /></p>
-<h3 id="trouble-shoot">Trouble shoot</h3>
+<h3 id="troubleshooting">Troubleshooting</h3>
 <p>If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
 click on that little paper symbol next to the <code>GET IT</code> button. If it is red it already shows that the build failed.
 <img alt="jitpack failed to build" src="../img/jitpack_fail.png" /></p>

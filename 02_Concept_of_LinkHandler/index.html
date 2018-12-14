@@ -144,12 +144,12 @@ one unique ID that represents it, like this example:</p>
 </ul>
 <h3 id="importand-notes-about-linkhandler">Importand notes about LinkHandler:</h3>
 <ul>
-<li>A simple <code>LinkHandler</code> will contain the default URL, the ID and the original url.</li>
-<li><code>LinkHandler</code> are ReadOnly</li>
-<li>LinkHandler are also used to determine which part of the extractor can handle a certain link.</li>
+<li>A simple <code>LinkHandler</code> will contain the default URL, the ID and the original URL.</li>
+<li><code>LinkHandler</code>s are ReadOnly</li>
+<li><code>LinkHandler</code>s are also used to determine which part of the extractor can handle a certain link.</li>
 <li>In order to get one you must either call
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-">fromUrl()</a> or <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-">fromId()</a> of the the corresponding <code>LinkHandlerFactory</code>.</li>
-<li>Every type of Type of Resource has its own LinkHandlerFactory. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
+<li>Every type of Type of Resource has its own <code>LinkHandlerFactory</code>. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
 </ul>
 <h3 id="usage">Usage</h3>
 <p>So the typical usage for getting a LinkHandler would look like this.</p>
@@ -190,12 +190,12 @@ which is used to sort by name, date or view count.</p>
 additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--">getAvailableContentFilter()</a>
 and <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableSortFilter--">getAvailableSortFilter()</a>.
-Through these you can tell the front end which kind of filter your service support.</p>
+Through these you can tell the front end which kind of filter your service supports.</p>
 <h4 id="searchqueryhandler">SearchQueryHandler</h4>
 <p>You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
-same search request might have a changing outcome deepening on the country or the time you send the request. This is
+same search request might have a different outcome depending on the country or the time you send the request. This is
 why the idea of an "ID" is replaced by a "SearchString" in the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html">SearchQueryHandler</a>
-These work like regular ListLinkHandler, accept that you don't have to implement the methodes <code>onAcceptUrl()</code>
+These work like regular ListLinkHandler, except that you don't have to implement the methods <code>onAcceptUrl()</code>
 and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a>.</p>
               
             </div>
