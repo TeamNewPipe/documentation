@@ -38,10 +38,22 @@ Also Linux/*BSD comes pre installed with python. Most distributions also deliver
 2. Run `pip3 install mkdocs` to install mkdocs only for the current user,
 or run `sudo pip3 install mkdocs` to install mkdocs systemwide. Last one has the higher chance to work properly.
 
+## Android/ChromeOS
+This might sound funny, but according to the growing amount of ChromeBooks and Android tablets with keyboard this might actually be useful.
+
+1. Install the [Tremux App](https://termux.com/) from [f-droid](https://f-droid.org/packages/com.termux/).
+2. Launch Termux and type `apt update`
+3. Install python and git with the command: `apt install git python`
+4. Now install mkdocs with `pip install mkdocs`.
+
+From here on everything will be the same as on Desktop. If you want to edit the files you can (besides vim or emacs which are available through Termux) use your favourite text editor on android. This is possible by opening the files with the Termux integration of the build in android file manager:
+
+![termux_files](/img/termux_files.png)
+
 ## Update
 Sometimes mkdocs changes the way how to serve, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To ensure this simply run `pip3 install --upgrade mkdocs` or `sudo pip3 install --upgrade mkdocs` if you installed pip system wide on a linux/bsd system.
 
-# Using mkdocs
+## Using mkdocs
 In order to extend this documentation you have to clone it from its [git repository](https://github.com/TeamNewPipe/documentation). When you cloned it, you will find a [mkdocs.yml](https://github.com/TeamNewPipe/documentation/blob/master/mkdocs.yml) file, and a [docs](https://github.com/TeamNewPipe/documentation/tree/master/docs) directory inside. The yaml file is the [config file](https://www.mkdocs.org/user-guide/configuration/) while in the directory docs the documentation files are stored. [here](https://www.mkdocs.org/user-guide/writing-your-docs/) is a guide about how to use mkdocs.
 
 ## Write and Deploy
