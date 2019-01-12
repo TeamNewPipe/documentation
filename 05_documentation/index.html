@@ -98,14 +98,11 @@
         
             <li><a class="toctree-l3" href="#linuxbsd">Linux/*BSD</a></li>
         
+            <li><a class="toctree-l3" href="#androidchromeos">Android/ChromeOS</a></li>
+        
             <li><a class="toctree-l3" href="#update">Update</a></li>
         
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#using-mkdocs">Using mkdocs</a></li>
-    
-        <ul>
+            <li><a class="toctree-l3" href="#using-mkdocs">Using mkdocs</a></li>
         
             <li><a class="toctree-l3" href="#write-and-deploy">Write and Deploy</a></li>
         
@@ -182,9 +179,19 @@
 <li>Run <code>pip3 install mkdocs</code> to install mkdocs only for the current user,
 or run <code>sudo pip3 install mkdocs</code> to install mkdocs systemwide. Last one has the higher chance to work properly.</li>
 </ol>
+<h2 id="androidchromeos">Android/ChromeOS</h2>
+<p>This might sound funny, but according to the growing amount of ChromeBooks and Android tablets with keyboard this might actually be useful.</p>
+<ol>
+<li>Install the <a href="https://termux.com/">Tremux App</a> from <a href="https://f-droid.org/packages/com.termux/">f-droid</a>.</li>
+<li>Launch Termux and type <code>apt update</code></li>
+<li>Install python and git with the command: <code>apt install git python</code></li>
+<li>Now install mkdocs with <code>pip install mkdocs</code>.</li>
+</ol>
+<p>From here on everything will be the same as on Desktop. If you want to edit the files you can (besides vim or emacs which are available through Termux) use your favourite text editor on android. This is possible by opening the files with the Termux integration of the build in android file manager:</p>
+<p><img alt="termux_files" src="/img/termux_files.png" /></p>
 <h2 id="update">Update</h2>
 <p>Sometimes mkdocs changes the way how to serve, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To ensure this simply run <code>pip3 install --upgrade mkdocs</code> or <code>sudo pip3 install --upgrade mkdocs</code> if you installed pip system wide on a linux/bsd system.</p>
-<h1 id="using-mkdocs">Using mkdocs</h1>
+<h2 id="using-mkdocs">Using mkdocs</h2>
 <p>In order to extend this documentation you have to clone it from its <a href="https://github.com/TeamNewPipe/documentation">git repository</a>. When you cloned it, you will find a <a href="https://github.com/TeamNewPipe/documentation/blob/master/mkdocs.yml">mkdocs.yml</a> file, and a <a href="https://github.com/TeamNewPipe/documentation/tree/master/docs">docs</a> directory inside. The yaml file is the <a href="https://www.mkdocs.org/user-guide/configuration/">config file</a> while in the directory docs the documentation files are stored. <a href="https://www.mkdocs.org/user-guide/writing-your-docs/">here</a> is a guide about how to use mkdocs.</p>
 <h2 id="write-and-deploy">Write and Deploy</h2>
 <p>If you are writing a documentation page, and want a live preview of it you can enter the root directory of this documentation project, and then run <code>mkdocs serve</code> this will start the mkdocs internal webserver on port <code>8000</code>. So all you have to do is type <code>localhost:8000</code> into the addressbar of your browser, and here you go. If you modify a file, and save it, mkdocs will reload the page and show you the new content.</p>
