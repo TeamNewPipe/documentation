@@ -48,7 +48,7 @@ This might sound funny, but according to the growing amount of ChromeBooks and A
 
 From here on everything will be the same as on Desktop. If you want to edit the files you can (besides vim or emacs which are available through Termux) use your favourite text editor on android. This is possible by opening the files with the Termux integration of the build in android file manager:
 
-![termux_files](/img/termux_files.png)
+![termux_files](img/termux_files.png)
 
 ## Update
 Sometimes mkdocs changes the way how to serve, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To ensure this simply run `pip3 install --upgrade mkdocs` or `sudo pip3 install --upgrade mkdocs` if you installed pip system wide on a linux/bsd system.
