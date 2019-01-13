@@ -1,7 +1,7 @@
 # Documentation
 
 
-The Documentation you are currently reading is written using [mkdocs](https://www.mkdocs.org/). It is a tool that will generate a static website based on files writting in [markdown](https://www.markdownguide.org/). Markdown has the advantage that it is simple to read and write, and that there are several tools that can translate a markdown file into languages like html or latex.
+The Documentation you are currently reading is written using [mkdocs](https://www.mkdocs.org/). It is a tool that will generate a static website based on [markdown](https://www.markdownguide.org/) files. Markdown has the advantage that it is simple to read and write, and that there are several tools that can translate a markdown file into languages like html or latex.
 
 ## Installation
 
