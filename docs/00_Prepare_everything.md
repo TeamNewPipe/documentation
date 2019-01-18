@@ -40,7 +40,18 @@ Next import the cloned project into your [IDE](https://www.jetbrains.com/help/id
 and [run](https://www.jetbrains.com/help/idea/performing-tests.html) it.
 If all the checks are green you did everything right, and you are good to go to move on to the next chapter.
 
-#### Running test in Android Studio
+### Importing the NewPipe Extractor in IntelliJ IDEA
+If you use IntelliJ IDEA you might want to know how to import the NewPipe extractor painlessly. This is what you want to do.
+
+1. `git clone` the extractor onto your computer locally.
+2. Start IntelliJ Idea, and click on `Import Project`.
+3. Select the root directory of the NewPipe Extractor
+4. Now it's important to select "__Import Project form external Model__" and then choose __Gradle__.
+![import from gradle image](img/select_gradle.png)
+5. In the next window make sure "__Use grale 'wrapper' task configuration__" is selected.
+![use gradle 'wrapper' task configuration checkbox](img/select_gradle_wrapper.png)
+
+### Running test in Android Studio/IntelliJ IDEA
 
 Go to _run_ > _edit configurations_ > _add new configuration_ and select "Gradle".
 As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.
