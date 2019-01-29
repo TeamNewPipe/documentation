@@ -191,6 +191,7 @@ which inherits from LinkHandler and adds the fields <a href="https://teamnewpipe
 which is used to filter by resource type like stream or playlist, and
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter">SortFilter</a>
 which is used to sort by name, date or view count.</p>
+<p><strong>!!ATENTION!!</strong> Be careful when you implement content filter: No selected filter equals all filters selected. So if your get an empty content filter list in your extractor make sure you return everything. By means use if statements like this <code>contentFilter.contains("video") || contentFilter.isEmpty()</code>.</p>
 <p>ListLinkHandler are also created by overriding the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a>
 additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--">getAvailableContentFilter()</a>
