@@ -61,6 +61,8 @@ which is used to filter by resource type like stream or playlist, and
 [SortFilter](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter)
 which is used to sort by name, date or view count.
 
+__!!ATENTION!!__ Be careful when you implement content filter: No selected filter equals all filters selected. So if your get an empty content filter list in your extractor make sure you return everything. By means use if statements like this `contentFilter.contains("video") || contentFilter.isEmpty()`.
+
 ListLinkHandler are also created by overriding the [ListLinkHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html)
 additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
 [getAvailableContentFilter()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--)
