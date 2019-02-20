@@ -171,14 +171,44 @@ So in short: cool function but bad code -&gt; no merge. We should focus on leavi
 <p>At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA.</p>
 <p>After the maintainer merged the new feature into the dev branch he should add the title of the pullrequest or a summary of the changes into the <a href="#release-notes">release note</a>.</p>
 <h3 id="creating-a-new-release">Creating a new release</h3>
-<p>Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.</p>
+<p>Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.
+Be aware of the rule that a release should never be done on a frieday. For NewPipe this mean don't do a release if you don't have time for it!!!</p>
 <ol>
 <li>Fork the <strong>dev</strong> branch into a new <strong>release_x.y.z</strong> branch.</li>
 <li>Increase the <a href="#versioning">version number</a></li>
 <li>Copy the <a href="#release-notes">release note</a> from the github version draft into the corresponding fastlane file (see <a href="#release-notes">release note</a>).</li>
-<li>Open up a pull request form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
+<li>Open up a pullrequest form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
+<li>Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.</li>
+<li>Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file <code>NewPipe_&lt;versionNumber&gt;_RC1.apk</code>.
+   Zip it and post it into the head of the release issue. This way other people can test the release candidate.</li>
+<li>Test and QA the new version with the help of other people</li>
+<li>Leave the PR open for a few days and advertise people to help testing.</li>
 </ol>
+<p>While being in release phase no new pullrequests must be merged into <strong>dev</strong> branch.</p>
+<p>This procedure does not have to be done for the extractor as extractor will be tested together with the fronted.</p>
+<h3 id="quckfixes">Quckfixes</h3>
+<p>When issuing a new release you will most likely encounter new bugs. These bugs are called <strong>regressions</strong> as they where not there before.
+If you notice a regression during release phase you are allowed to push fixes directly into the release branch without having to fork a branch away from it.
+All maintainers (people who have write access to the release branch) have to be aware that they might be required to fix regressions so plan your release on a time when
+you have time for coding. Do not introduce new features while being in release phase.</p>
+<p>When you have pushed a quickfix you will want to updated the <strong>release candidate</strong> you put into the <strong>issue</strong> corresponding to the <strong>release pull request</strong>.
+Increase the version number in the filename of the Release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc. <em>Don't update the actuall version number however :P</em>.</p>
+<p><img alt="release_branch" src="../img/release_branch.svg" /></p>
 <h3 id="releasing">Releasing</h3>
+<p>Once the glories day of all days has come, and you feel like fulfilling the ceremony of releasing. This is what you will want to do.
+After going through the release procedure of having <a href="#create_a_new_release">created a new release</a> and maybe having done <a href="#quickfixes">quickfixes</a> on the new release,
+you will want to do these steps:</p>
+<ol>
+<li>Hit merge Pullreqest</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code></li>
+<li>Merge <strong>dev</strong> into master on the extractor</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor</li>
+<li>Make sure the draft name equals the tag name <img alt="draft_name" src="../img/draft_name.png" /></li>
+<li>Make sure to not have forgotten enything</li>
+<li>Hit <code>Publish Release</code></li>
+<li>Rebase quickfix changes back into <strong>dev</strong> if quickfixes where made</li>
+</ol>
+<p><img alt="rebase_back" src="../img/rebase_back_release.svg" /></p>
 <h2 id="hotfix-releases">Hotfix releases</h2>
 <p><img alt="this_is_fine" src="../img/could_not_decrypt.png" /></p>
 <h3 id="fix-branch">Fix branch</h3>

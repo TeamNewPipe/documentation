@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="400"
+   viewBox="182 94 204.25833 203.3114"
+   version="1.1"
+   id="svg115"
+   sodipodi:docname="rebase_back_release.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata121">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs119" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="740"
+     id="namedview117"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.92953528"
+     inkscape:cx="185.27914"
+     inkscape:cy="250.74271"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg115" />
+  <g
+     id="Hintergrund"
+     transform="matrix(0.53220791,0,0,0.53220791,84.333466,54.284818)">
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="418"
+       y="106.636"
+       id="text4">
+      <tspan
+         x="418"
+         y="106.636"
+         id="tspan2">dev</tspan>
+    </text>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="424.68799"
+       cy="360.51599"
+       id="ellipse6"
+       r="24" />
+    <g
+       id="g12">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="424.68799"
+         y1="384.51599"
+         x2="424.95801"
+         y2="453.056"
+         id="line8" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="419.928,445.312 424.967,455.292 429.928,445.272 "
+         id="polyline10" />
+    </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="115.1"
+       y="-31.450001"
+       id="text16">
+      <tspan
+         x="115.1"
+         y="-31.450001"
+         id="tspan14" />
+    </text>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="323.354"
+       cy="266.09799"
+       id="ellipse18"
+       r="23.25" />
+    <g
+       id="g24">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         d="m 323.354,289.348 c 1.648,35.872 101.078,15.636 101.298,42.696"
+         id="path20"
+         inkscape:connector-curvature="0" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="419.589,324.321 424.67,334.28 429.588,324.24 "
+         id="polyline22" />
+    </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="488.254"
+       y="106.059"
+       id="text28">
+      <tspan
+         x="488.254"
+         y="106.059"
+         id="tspan26" />
+    </text>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="494"
+       y="104"
+       id="text32">
+      <tspan
+         x="494"
+         y="104"
+         id="tspan30" />
+    </text>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="207.51199"
+       cy="354.78201"
+       id="ellipse34"
+       r="23" />
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="287"
+       y="106"
+       id="text38">
+      <tspan
+         x="287"
+         y="106"
+         id="tspan36">release_x.y.z</tspan>
+    </text>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="190"
+       y="107"
+       id="text42">
+      <tspan
+         x="190"
+         y="107"
+         id="tspan40">master</tspan>
+    </text>
+    <g
+       id="g48">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="207.51199"
+         y1="377.78201"
+         x2="207.052"
+         y2="450.29199"
+         id="line44" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="202.102,442.496 207.038,452.528 212.101,442.56 "
+         id="polyline46" />
+    </g>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="208.517"
+       cy="163.239"
+       id="ellipse50"
+       r="20" />
+    <g
+       id="g56">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         d="m 208.543,184.117 c 0.048,39.375 113.375,7.702 114.685,54.261"
+         id="path52"
+         inkscape:connector-curvature="0" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="318.012,230.757 323.291,240.613 328.008,230.476 "
+         id="polyline54" />
+    </g>
+    <g
+       id="g62">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="208.51801"
+         y1="183.239"
+         x2="207.54201"
+         y2="327.31"
+         id="line58" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="202.595,319.512 207.527,329.546 212.595,319.58 "
+         id="polyline60" />
+    </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="517.79999"
+       y="196.278"
+       id="text66">
+      <tspan
+         x="517.79999"
+         y="196.278"
+         id="tspan64">quickfix</tspan>
+    </text>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="425.49799"
+       cy="265.04001"
+       id="ellipse68"
+       r="20" />
+    <g
+       id="g74">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="425.49799"
+         y1="285.04001"
+         x2="424.758"
+         y2="332.04401"
+         id="line70" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="419.881,324.203 424.723,334.28 429.88,324.36 "
+         id="polyline72" />
+    </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="523.09601"
+       y="151.021"
+       id="text78">
+      <tspan
+         x="523.09601"
+         y="151.021"
+         id="tspan76" />
+    </text>
+    <g
+       id="g84">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="505.672"
+         y1="196.871"
+         x2="349.52399"
+         y2="231.189"
+         id="line80" />
+      <polygon
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="339.757,233.335 350.597,236.072 348.45,226.305 "
+         id="polygon82" />
+    </g>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
+       cx="426.63599"
+       cy="169.187"
+       id="ellipse86"
+       r="20" />
+    <g
+       id="g92">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="426.63599"
+         y1="189.187"
+         x2="425.58899"
+         y2="240.569"
+         id="line88" />
+      <polyline
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="420.748,232.705 425.544,242.804 430.746,232.908 "
+         id="polyline90" />
+    </g>
+    <g
+       id="g98">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         x1="505.672"
+         y1="195.95399"
+         x2="455.58701"
+         y2="235.86501"
+         id="line94" />
+      <polygon
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="447.766,242.097 458.703,239.775 452.471,231.955 "
+         id="polygon96" />
+    </g>
+    <g
+       id="g104">
+      <line
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20;stroke-opacity:1"
+         x1="248.914"
+         y1="161.79601"
+         x2="375.14499"
+         y2="163.259"
+         id="line100" />
+      <polygon
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-opacity:1"
+         points="385.144,163.374 375.203,158.259 375.087,168.258 "
+         id="polygon102" />
+    </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="358.03601"
+       y="151.479"
+       id="text108">
+      <tspan
+         x="358.03601"
+         y="151.479"
+         id="tspan106">REBASE</tspan>
+    </text>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="380.04401"
+       y="141.392"
+       id="text112">
+      <tspan
+         x="380.04401"
+         y="141.392"
+         id="tspan110" />
+    </text>
+  </g>
+</svg>
