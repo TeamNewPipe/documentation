@@ -8,14 +8,14 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210"
-   height="310.22198"
-   viewBox="385 95 111.125 157.21394"
+   height="300"
+   viewBox="385 95 104.17968 152.03365"
    version="1.1"
-   id="svg31"
-   sodipodi:docname="release_branch.svg"
+   id="svg39"
+   sodipodi:docname="feature_branch.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
-     id="metadata37">
+     id="metadata45">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -27,7 +27,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs35" />
+     id="defs43" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -39,19 +39,19 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
      inkscape:window-height="740"
-     id="namedview33"
+     id="namedview41"
      showgrid="false"
      units="px"
-     inkscape:zoom="2.7171031"
-     inkscape:cx="83.271021"
-     inkscape:cy="318.35955"
+     inkscape:zoom="0.48032051"
+     inkscape:cx="151.1811"
+     inkscape:cy="245.66929"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg31" />
+     inkscape:current-layer="svg39" />
   <g
      id="Hintergrund"
-     transform="matrix(0.66806063,0,0,0.66806063,127.1286,26.441733)">
+     transform="matrix(0.6187154,0,0,0.6187154,144.56047,34.721636)">
     <text
        font-size="12.8"
        style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
@@ -97,13 +97,13 @@
     <text
        font-size="12.8"
        style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-       x="470"
-       y="108.15"
+       x="459.65701"
+       y="107.209"
        id="text20">
       <tspan
-         x="470"
-         y="108.15"
-         id="tspan18">release_xyz</tspan>
+         x="459.65701"
+         y="107.209"
+         id="tspan18">feature_xyz</tspan>
     </text>
     <circle
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-opacity:1"
@@ -123,5 +123,27 @@
          points="406.246,206.816 411.045,216.914 416.244,207.016 "
          id="polyline26" />
     </g>
+    <text
+       font-size="12.8"
+       style="font-style:normal;font-weight:normal;font-size:12.80000019px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="481"
+       y="102"
+       id="text32">
+      <tspan
+         x="481"
+         y="102"
+         id="tspan30" />
+    </text>
+    <text
+       font-size="12.7998"
+       style="font-style:normal;font-weight:normal;font-size:12.79979992px;font-family:sans-serif;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="505"
+       y="103"
+       id="text36">
+      <tspan
+         x="505"
+         y="103"
+         id="tspan34" />
+    </text>
   </g>
 </svg>

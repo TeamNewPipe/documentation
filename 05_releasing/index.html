@@ -96,6 +96,10 @@
         
             <li><a class="toctree-l3" href="#hotfix-releases">Hotfix releases</a></li>
         
+            <li><a class="toctree-l3" href="#versioning">Versioning</a></li>
+        
+            <li><a class="toctree-l3" href="#release-notes">Release notes</a></li>
+        
         </ul>
     
 
@@ -158,19 +162,52 @@ branch with a stable/releasable version.</p>
 <p>For development the <strong>dev</strong> branch is used. Pushing to <strong>dev</strong> directly however is also not allowed since QA and testing should be done before pushing to <strong>dev</strong>.
 This ensures that also the dev version works as good a possible.
 So in order to change something on the app one may want to <strong>fork</strong> the dev branch and develop the changes in his own branch (this is called feature branching).</p>
-<p><img alt="feature_branching" src="../img/release_branch.svg" /></p>
-<h3 id="merching-featuresbugfixes">Merching features/bugfixes</h3>
+<p><img alt="feature_branching" src="../img/feature_branch.svg" /></p>
+<h3 id="merging-featuresbugfixes">Merging features/bugfixes</h3>
 <p>After being done with the feature one should open up a <strong>Pull Reuqest</strong> to the dev branch here a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
 If you are a maintainer please take care about the code architecture so corrosion or code shifting can be prevented. Please also preface core quality over functionality.
 So in short: cool function but bad code -&gt; no merge. We should focus on leaving the code as clean as possible.</p>
 <p><img alt="merge_feature_into_dev" src="../img/merge_into_dev.svg" /></p>
-<p>At best you as a maintainer should build the app and put the signed apk into the description of that new Pullrequest. This way other people can test the feature/bugfix and therefore help with QA.</p>
+<p>At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA.</p>
+<p>After the maintainer merged the new feature into the dev branch he should add the title of the pullrequest or a summary of the changes into the <a href="#release-notes">release note</a>.</p>
 <h3 id="creating-a-new-release">Creating a new release</h3>
+<p>Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.</p>
+<ol>
+<li>Fork the <strong>dev</strong> branch into a new <strong>release_x.y.z</strong> branch.</li>
+<li>Increase the <a href="#versioning">version number</a></li>
+<li>Copy the <a href="#release-notes">release note</a> from the github version draft into the corresponding fastlane file (see <a href="#release-notes">release note</a>).</li>
+<li>Open up a pull request form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
+</ol>
 <h3 id="releasing">Releasing</h3>
 <h2 id="hotfix-releases">Hotfix releases</h2>
 <p><img alt="this_is_fine" src="../img/could_not_decrypt.png" /></p>
 <h3 id="fix-branch">Fix branch</h3>
 <h3 id="releasing_1">Releasing</h3>
+<h2 id="versioning">Versioning</h2>
+<p>Versioning NewPipe is simple.</p>
+<ul>
+<li><strong>Major</strong>: The <strong>major</strong> version number (the number before the first dot) was 0 for years. The reason for this changed over time. First I wanted this number to
+  switch to 1 once NewPipe was feature complete. Now I rather think of increasing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\_(ツ)_/¯ .</li>
+<li><strong>Minor</strong>: The <strong>minor</strong> version number (the number after the first dot) will be increased if there is a major feature added to the app.</li>
+<li><strong>Small Minor</strong>: The small minor (the number after the second dot) will be increased if there are just smaller bug fixes or features added to the app.</li>
+</ul>
+<h4 id="versioning-the-extractor">Versioning the extractor</h4>
+<p>The extractor is always released together with the app, therefore the version number of the extractor is the same as the one of the app.</p>
+<h4 id="version-code">Version code</h4>
+<p>In android an app can also have a <a href="https://developer.android.com/studio/publish/versioning">versionCode</a>. This code is a <code>long integer</code> and can be increased by any value to show a device that a new version is there.
+For NewPipe the version code will be increased by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
+are reserved for our internal fdroid build server.</p>
+<h2 id="release-notes">Release notes</h2>
+<p>Release notes should give the user an idea of what was changed on the app. The release nodes for NewPipe are stored in the <a href="https://github.com/TeamNewPipe/NewPipe/releases/tag/v0.14.0">github draft for a new release</a>. When a maintainer wants to add change to the release note, but there is no draft for a new version he should create one.</p>
+<p>Changes can be categorized into three types.</p>
+<ul>
+<li><strong>New</strong>: New features that god added to the app.</li>
+<li><strong>Improved</strong>: Improvements to the app, or already existing features</li>
+<li><strong>Fixes</strong>: Bugfixes</li>
+</ul>
+<p>When releasing a new version of NewPipe, before actually hitting release the maintainer should copy the release note from the draft and put it into a file called
+<code>&lt;versionCode&gt;.txt</code> (whereas <code>&lt;versionCode&gt;</code> needs to be the version code of the comming release). This file must be stored in the direcotry <a href="https://github.com/teamnewpipe/newpipe/tree/dev/fastlane/metadata/android/en-US/changelogs"><code>/fastlane/metadata/android/en-US/changelogs</code></a>. This way fdroid will later be able to show the
+changes done on the app.</p>
               
             </div>
           </div>
