@@ -43,13 +43,50 @@ After the maintainer merged the new feature into the dev branch he should add th
 ### Creating a new release
 
 Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.
+Be aware of the rule that a release should never be done on a frieday. For NewPipe this mean don't do a release if you don't have time for it!!!
 
 1. Fork the __dev__ branch into a new __release_x.y.z__ branch.
 2. Increase the [version number](#versioning)
 3. Copy the [release note](#release-notes) from the github version draft into the corresponding fastlane file (see [release note](#release-notes)).
-4. Open up a pull request form the new __release_x.y.z__ branch into the __master__ branch.
+4. Open up a pullrequest form the new __release_x.y.z__ branch into the __master__ branch.
+5. Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.
+6. Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file `NewPipe_<versionNumber>_RC1.apk`.
+   Zip it and post it into the head of the release issue. This way other people can test the release candidate.
+7. Test and QA the new version with the help of other people
+8. Leave the PR open for a few days and advertise people to help testing.
+
+While being in release phase no new pullrequests must be merged into __dev__ branch.
+
+This procedure does not have to be done for the extractor as extractor will be tested together with the fronted.
+
+### Quckfixes
+
+When issuing a new release you will most likely encounter new bugs. These bugs are called __regressions__ as they where not there before.
+If you notice a regression during release phase you are allowed to push fixes directly into the release branch without having to fork a branch away from it.
+All maintainers (people who have write access to the release branch) have to be aware that they might be required to fix regressions so plan your release on a time when
+you have time for coding. Do not introduce new features while being in release phase.
+
+When you have pushed a quickfix you will want to updated the __release candidate__ you put into the __issue__ corresponding to the __release pull request__.
+Increase the version number in the filename of the Release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc. _Don't update the actuall version number however :P_.
+
+![release_branch](img/release_branch.svg)
 
 ### Releasing
+
+Once the glories day of all days has come, and you feel like fulfilling the ceremony of releasing. This is what you will want to do.
+After going through the release procedure of having [created a new release](#create_a_new_release) and maybe having done [quickfixes](#quickfixes) on the new release,
+you will want to do these steps:
+
+1. Hit merge Pullreqest
+2. Create a GPG signed tag with the name `v0.x.y`
+3. Merge __dev__ into master on the extractor
+4. Create a GPG signed tag with the name `v0.x.y` on the extractor
+5. Make sure the draft name equals the tag name ![draft_name](img/draft_name.png)
+6. Make sure to not have forgotten enything
+7. Hit `Publish Release`
+8. Rebase quickfix changes back into __dev__ if quickfixes where made
+
+![rebase_back](img/rebase_back_release.svg)
 
 ## Hotfix releases
 
