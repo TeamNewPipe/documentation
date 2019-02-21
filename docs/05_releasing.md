@@ -67,7 +67,7 @@ All maintainers (people who have write access to the release branch) have to be 
 you have time for coding. Do not introduce new features while being in release phase.
 
 When you have pushed a quickfix you will want to updated the __release candidate__ you put into the __issue__ corresponding to the __release pull request__.
-Increase the version number in the filename of the Release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc. _Don't update the actuall version number however :P_.
+Increment the version number in the filename of the Release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc. _Don't update the actuall version number however :P_.
 
 ![release_branch](img/release_branch.svg)
 
@@ -92,18 +92,49 @@ you will want to do these steps:
 
 ![this_is_fine](img/could_not_decrypt.png)
 
-### Fix branch
+As described aboth NewPipe is a web crawler, and therefore might brake randomly. In order to keep the downtime of NewPipe as low as possible when such a shutdown happens
+we allow so called __hotfixes__.
+
+
+
+- A hotfix allows work on the master branch instead of the dev branch.
+- A hotfix MUST __NOT__ contain any features or other bugfixes.
+- A hotfix may only focus on fixing what has caused the shutdown.
+
+### Hotfix branch
+
+Hotfixes work on the master branch. The reason for this is because dev branch might have experimental changes that have not yet been tested properly enough to be released. Master however should always be at the latest stable version of NewPipe. If this one brakes due to a shutdown you may therefore want to fix that version.
+Of course you are not allowed to push to master directly so you will have to open up a __hotfix__ branch. _If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well._
+
+![hotfix_branch](img/hotfix_branch.svg)
 
 ### Releasing
+
+If you fixed the issue and found it to be tested and reviewed well enough you man release. Here you don't need to undergo the full release procedure of a regular release, which might take up to a few days.
+Keep in mind that if the hotfix might turn out to be broken after release you want to release another hotfix.
+Here it is important to release fast, and after all a less broken version of NewPipe is better then a full broken version ¯\\\_(ツ)\_/¯.
+This is what you will want to do when releasing a hotfix version.
+
+1. Hit merge Pullreqest
+2. Create a GPG signed tag with the name `v0.x.y`
+3. Merge __dev__ into master on the extractor
+4. Create a GPG signed tag with the name `v0.x.y` on the extractor
+5. Create a new release draft and write the down the fix into the release note
+6. Copy the [release note](#release_notes) into the fastlane directory of releases
+7. Increment the __small minor__ version number and the `versionCode`
+8. Hit `Publish Release`
+9. Rebase the hotfix back into __dev__ branch
+
+![rebase_back_hotfix](img/rebase_back_hotfix.svg)
 
 ## Versioning
 
 Versioning NewPipe is simple.
 
 - __Major__: The __major__ version number (the number before the first dot) was 0 for years. The reason for this changed over time. First I wanted this number to
-  switch to 1 once NewPipe was feature complete. Now I rather think of increasing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\\\_(ツ)\_/¯ .
-- __Minor__: The __minor__ version number (the number after the first dot) will be increased if there is a major feature added to the app.
-- __Small Minor__: The small minor (the number after the second dot) will be increased if there are just smaller bug fixes or features added to the app.
+  switch to 1 once NewPipe was feature complete. Now I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\\\_(ツ)\_/¯ .
+- __Minor__: The __minor__ version number (the number after the first dot) will be incremented if there is a major feature added to the app.
+- __Small Minor__: The small minor (the number after the second dot) will be incremented if there are just smaller bug fixes or features added to the app.
 
 
 #### Versioning the extractor
@@ -111,8 +142,8 @@ Versioning NewPipe is simple.
 The extractor is always released together with the app, therefore the version number of the extractor is the same as the one of the app.
 
 #### Version code
-In android an app can also have a [versionCode](https://developer.android.com/studio/publish/versioning). This code is a `long integer` and can be increased by any value to show a device that a new version is there.
-For NewPipe the version code will be increased by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
+In android an app can also have a [versionCode](https://developer.android.com/studio/publish/versioning). This code is a `long integer` and can be incremented by any value to show a device that a new version is there.
+For NewPipe the version code will be incremented by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
 are reserved for our internal fdroid build server.
 
 ## Release notes
