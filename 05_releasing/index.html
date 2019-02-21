@@ -192,7 +192,7 @@ If you notice a regression during release phase you are allowed to push fixes di
 All maintainers (people who have write access to the release branch) have to be aware that they might be required to fix regressions so plan your release on a time when
 you have time for coding. Do not introduce new features while being in release phase.</p>
 <p>When you have pushed a quickfix you will want to updated the <strong>release candidate</strong> you put into the <strong>issue</strong> corresponding to the <strong>release pull request</strong>.
-Increase the version number in the filename of the Release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc. <em>Don't update the actuall version number however :P</em>.</p>
+Increment the version number in the filename of the Release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc. <em>Don't update the actuall version number however :P</em>.</p>
 <p><img alt="release_branch" src="../img/release_branch.svg" /></p>
 <h3 id="releasing">Releasing</h3>
 <p>Once the glories day of all days has come, and you feel like fulfilling the ceremony of releasing. This is what you will want to do.
@@ -211,21 +211,47 @@ you will want to do these steps:</p>
 <p><img alt="rebase_back" src="../img/rebase_back_release.svg" /></p>
 <h2 id="hotfix-releases">Hotfix releases</h2>
 <p><img alt="this_is_fine" src="../img/could_not_decrypt.png" /></p>
-<h3 id="fix-branch">Fix branch</h3>
+<p>As described aboth NewPipe is a web crawler, and therefore might brake randomly. In order to keep the downtime of NewPipe as low as possible when such a shutdown happens
+we allow so called <strong>hotfixes</strong>.</p>
+<ul>
+<li>A hotfix allows work on the master branch instead of the dev branch.</li>
+<li>A hotfix MUST <strong>NOT</strong> contain any features or other bugfixes.</li>
+<li>A hotfix may only focus on fixing what has caused the shutdown.</li>
+</ul>
+<h3 id="hotfix-branch">Hotfix branch</h3>
+<p>Hotfixes work on the master branch. The reason for this is because dev branch might have experimental changes that have not yet been tested properly enough to be released. Master however should always be at the latest stable version of NewPipe. If this one brakes due to a shutdown you may therefore want to fix that version.
+Of course you are not allowed to push to master directly so you will have to open up a <strong>hotfix</strong> branch. <em>If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well.</em></p>
+<p><img alt="hotfix_branch" src="../img/hotfix_branch.svg" /></p>
 <h3 id="releasing_1">Releasing</h3>
+<p>If you fixed the issue and found it to be tested and reviewed well enough you man release. Here you don't need to undergo the full release procedure of a regular release, which might take up to a few days.
+Keep in mind that if the hotfix might turn out to be broken after release you want to release another hotfix.
+Here it is important to release fast, and after all a less broken version of NewPipe is better then a full broken version ¯\_(ツ)_/¯.
+This is what you will want to do when releasing a hotfix version.</p>
+<ol>
+<li>Hit merge Pullreqest</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code></li>
+<li>Merge <strong>dev</strong> into master on the extractor</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor</li>
+<li>Create a new release draft and write the down the fix into the release note</li>
+<li>Copy the <a href="#release_notes">release note</a> into the fastlane directory of releases</li>
+<li>Increment the <strong>small minor</strong> version number and the <code>versionCode</code></li>
+<li>Hit <code>Publish Release</code></li>
+<li>Rebase the hotfix back into <strong>dev</strong> branch</li>
+</ol>
+<p><img alt="rebase_back_hotfix" src="../img/rebase_back_hotfix.svg" /></p>
 <h2 id="versioning">Versioning</h2>
 <p>Versioning NewPipe is simple.</p>
 <ul>
 <li><strong>Major</strong>: The <strong>major</strong> version number (the number before the first dot) was 0 for years. The reason for this changed over time. First I wanted this number to
-  switch to 1 once NewPipe was feature complete. Now I rather think of increasing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\_(ツ)_/¯ .</li>
-<li><strong>Minor</strong>: The <strong>minor</strong> version number (the number after the first dot) will be increased if there is a major feature added to the app.</li>
-<li><strong>Small Minor</strong>: The small minor (the number after the second dot) will be increased if there are just smaller bug fixes or features added to the app.</li>
+  switch to 1 once NewPipe was feature complete. Now I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\_(ツ)_/¯ .</li>
+<li><strong>Minor</strong>: The <strong>minor</strong> version number (the number after the first dot) will be incremented if there is a major feature added to the app.</li>
+<li><strong>Small Minor</strong>: The small minor (the number after the second dot) will be incremented if there are just smaller bug fixes or features added to the app.</li>
 </ul>
 <h4 id="versioning-the-extractor">Versioning the extractor</h4>
 <p>The extractor is always released together with the app, therefore the version number of the extractor is the same as the one of the app.</p>
 <h4 id="version-code">Version code</h4>
-<p>In android an app can also have a <a href="https://developer.android.com/studio/publish/versioning">versionCode</a>. This code is a <code>long integer</code> and can be increased by any value to show a device that a new version is there.
-For NewPipe the version code will be increased by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
+<p>In android an app can also have a <a href="https://developer.android.com/studio/publish/versioning">versionCode</a>. This code is a <code>long integer</code> and can be incremented by any value to show a device that a new version is there.
+For NewPipe the version code will be incremented by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
 are reserved for our internal fdroid build server.</p>
 <h2 id="release-notes">Release notes</h2>
 <p>Release notes should give the user an idea of what was changed on the app. The release nodes for NewPipe are stored in the <a href="https://github.com/TeamNewPipe/NewPipe/releases/tag/v0.14.0">github draft for a new release</a>. When a maintainer wants to add change to the release note, but there is no draft for a new version he should create one.</p>
