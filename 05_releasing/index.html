@@ -155,20 +155,24 @@ god as possible. Our whole release cycle is therefore designed around this issue
 and a version that fixes an issue that occurred because Youtube (or some other service) suddenly changed their website (mostly call this a shutdown).
 Lets first have a look how a regular release work, and then how the hotfix release work.</p>
 <h2 id="regular-releases">Regular releases</h2>
-<p>Regular releases are normal releases like they are done like in any other app. Releases are always stored on <strong>master</strong> branch. By means the latest commit on
-<strong>master</strong> is always equal to the current releases. No development is done on master. This ensures that we always have one
+<p>Regular releases are normal releases like they are done in any other app. Releases are always stored on <strong>master</strong> branch. By means the latest commit on
+<strong>master</strong> is always equal to the currently released version. No development is done on master. This ensures that we always have one
 branch with a stable/releasable version.</p>
 <h3 id="feature-branching">Feature branching</h3>
-<p>For development the <strong>dev</strong> branch is used. Pushing to <strong>dev</strong> directly however is also not allowed since QA and testing should be done before pushing to <strong>dev</strong>.
+<p>For development the <strong>dev</strong> branch is used. Pushing to <strong>dev</strong> directly however is also not allowed since QA and testing should be done before adding something to it.
 This ensures that also the dev version works as good a possible.
 So in order to change something on the app one may want to <strong>fork</strong> the dev branch and develop the changes in his own branch (this is called feature branching).</p>
 <p><img alt="feature_branching" src="../img/feature_branch.svg" /></p>
+<p>Make sure that both the dev branches as well as the master branches of the extractor and the frontend are compatible to each other.
+If a change is done on the API to the extractor make sure that frontend is being made compatible to these changes. If the PR that should make the frontend compatible
+again can not be merged please do not merge the corresponding PR on the extractor as well. This should make sure that any developer can run his changes
+on the fronted at any time.</p>
 <h3 id="merging-featuresbugfixes">Merging features/bugfixes</h3>
 <p>After being done with the feature one should open up a <strong>Pull Reuqest</strong> to the dev branch here a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
-If you are a maintainer please take care about the code architecture so corrosion or code shifting can be prevented. Please also preface core quality over functionality.
+If you are a maintainer please take care about the code architecture so <strong>corrosion</strong> or <strong>code shifting</strong> can be prevented. Please also prefare code quality over functionality.
 So in short: cool function but bad code -&gt; no merge. We should focus on leaving the code as clean as possible.</p>
 <p><img alt="merge_feature_into_dev" src="../img/merge_into_dev.svg" /></p>
-<p>At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA.</p>
+<p>At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA. <em>You may not need to do this every time. It is enough to do it on bigger pull requests.</em></p>
 <p>After the maintainer merged the new feature into the dev branch he should add the title of the pullrequest or a summary of the changes into the <a href="#release-notes">release note</a>.</p>
 <h3 id="creating-a-new-release">Creating a new release</h3>
 <p>Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.
