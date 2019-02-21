@@ -17,26 +17,31 @@ Lets first have a look how a regular release work, and then how the hotfix relea
 
 ## Regular releases
 
-Regular releases are normal releases like they are done like in any other app. Releases are always stored on __master__ branch. By means the latest commit on
-__master__ is always equal to the current releases. No development is done on master. This ensures that we always have one
+Regular releases are normal releases like they are done in any other app. Releases are always stored on __master__ branch. By means the latest commit on
+__master__ is always equal to the currently released version. No development is done on master. This ensures that we always have one
 branch with a stable/releasable version.
 
 ### Feature branching
-For development the __dev__ branch is used. Pushing to __dev__ directly however is also not allowed since QA and testing should be done before pushing to __dev__.
+For development the __dev__ branch is used. Pushing to __dev__ directly however is also not allowed since QA and testing should be done before adding something to it.
 This ensures that also the dev version works as good a possible.
 So in order to change something on the app one may want to __fork__ the dev branch and develop the changes in his own branch (this is called feature branching).
 
 ![feature_branching](img/feature_branch.svg)
 
+Make sure that both the dev branches as well as the master branches of the extractor and the frontend are compatible to each other.
+If a change is done on the API to the extractor make sure that frontend is being made compatible to these changes. If the PR that should make the frontend compatible
+again can not be merged please do not merge the corresponding PR on the extractor as well. This should make sure that any developer can run his changes
+on the fronted at any time.
+
 ### Merging features/bugfixes
 
 After being done with the feature one should open up a __Pull Reuqest__ to the dev branch here a maintainer can do __Code review__ and __Quality Assurance (QA)__.
-If you are a maintainer please take care about the code architecture so corrosion or code shifting can be prevented. Please also preface core quality over functionality.
+If you are a maintainer please take care about the code architecture so __corrosion__ or __code shifting__ can be prevented. Please also prefare code quality over functionality.
 So in short: cool function but bad code -> no merge. We should focus on leaving the code as clean as possible.
 
 ![merge_feature_into_dev](img/merge_into_dev.svg)
 
-At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA.
+At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA. _You may not need to do this every time. It is enough to do it on bigger pull requests._
 
 After the maintainer merged the new feature into the dev branch he should add the title of the pullrequest or a summary of the changes into the [release note](#release-notes).
 
