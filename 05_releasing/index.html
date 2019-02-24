@@ -180,6 +180,7 @@ Be aware of the rule that a release should never be done on a frieday. For NewPi
 <ol>
 <li>Fork the <strong>dev</strong> branch into a new <strong>release_x.y.z</strong> branch.</li>
 <li>Increase the <a href="#versioning">version number</a></li>
+<li>Merge <a href="https://hosted.weblate.org/projects/newpipe/">weblate</a> changes from <code>dev</code> branch at <code>https://hosted.weblate.org/git/newpipe/strings/</code>.</li>
 <li>Copy the <a href="#release-notes">release note</a> from the github version draft into the corresponding fastlane file (see <a href="#release-notes">release note</a>).</li>
 <li>Open up a pullrequest form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
 <li>Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.</li>
