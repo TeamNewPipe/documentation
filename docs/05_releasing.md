@@ -52,13 +52,14 @@ Be aware of the rule that a release should never be done on a frieday. For NewPi
 
 1. Fork the __dev__ branch into a new __release_x.y.z__ branch.
 2. Increase the [version number](#versioning)
-3. Copy the [release note](#release-notes) from the github version draft into the corresponding fastlane file (see [release note](#release-notes)).
-4. Open up a pullrequest form the new __release_x.y.z__ branch into the __master__ branch.
-5. Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.
-6. Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file `NewPipe_<versionNumber>_RC1.apk`.
+3. Merge [weblate](https://hosted.weblate.org/projects/newpipe/) changes from `dev` branch at `https://hosted.weblate.org/git/newpipe/strings/`.
+4. Copy the [release note](#release-notes) from the github version draft into the corresponding fastlane file (see [release note](#release-notes)).
+5. Open up a pullrequest form the new __release_x.y.z__ branch into the __master__ branch.
+6. Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.
+7. Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file `NewPipe_<versionNumber>_RC1.apk`.
    Zip it and post it into the head of the release issue. This way other people can test the release candidate.
-7. Test and QA the new version with the help of other people
-8. Leave the PR open for a few days and advertise people to help testing.
+8. Test and QA the new version with the help of other people
+9. Leave the PR open for a few days and advertise people to help testing.
 
 While being in release phase no new pullrequests must be merged into __dev__ branch.
 
