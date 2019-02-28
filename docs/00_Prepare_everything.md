@@ -77,6 +77,6 @@ After creating you own service, you will need to submit it to our [NewPipeExtrac
 ## Content That is NOT Permitted:
 
 - Content that is considered NSFL (Not Safe For Life)
-- Content that is prohibited by US federal law (Sexualization of minors, etc).
+- Content that is prohibited by US federal law (Sexualization of minors, any form of violence, violations of human rights, etc).
 - Copyrighted media, without the consent of the copyright holder/publisher.
 
