@@ -89,7 +89,7 @@ this is what you should do when releasing:
 3. Merge __dev__ into master on the extractor.
 4. Create a GPG signed tag with the name `v0.x.y` on the extractor.
 5. Make sure the draft name equals the tag name. ![draft_name](img/draft_name.png)
-6. Make sure to not have forgotten enything
+ 6. Make sure to not have forgotten anything.
 7. Click "Publish Release".
 8. Rebase quickfix changes back into __dev__ if quickfixes were made.
 
