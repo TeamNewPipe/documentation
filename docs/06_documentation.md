@@ -51,7 +51,7 @@ From herein, everything will be the same as on Desktop. If you want to edit the 
 ![termux_files](img/termux_files.png)
 
 ## Updating
-Sometimes, mkdocs changes the way of how it serves, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To check. simply run `pip3 install --upgrade mkdocs` or `sudo pip3 install --upgrade mkdocs` if you installed pip system wide on a Linux/BSD* system.
+Sometimes, mkdocs changes the way of how it serves, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To check, simply run `pip3 install --upgrade mkdocs` or `sudo pip3 install --upgrade mkdocs` if you installed pip system wide on a Linux/BSD* system.
 
 ## Using mkdocs
 In order to extend this documentation, you have to clone it from its [GitHub repository](https://github.com/TeamNewPipe/documentation). When you clone it, you will find a [mkdocs.yml](https://github.com/TeamNewPipe/documentation/blob/master/mkdocs.yml) file, and a [docs](https://github.com/TeamNewPipe/documentation/tree/master/docs) directory inside. The yaml file is the [config file](https://www.mkdocs.org/user-guide/configuration/) while in the directory docs the documentation files are stored. [here](https://www.mkdocs.org/user-guide/writing-your-docs/) is a guide about how to use mkdocs.
