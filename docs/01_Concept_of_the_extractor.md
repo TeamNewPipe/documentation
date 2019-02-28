@@ -1,19 +1,19 @@
 # Concept of the Extractor
 
-## Collector/Extractor pattern
+## The Collector/Extractor Pattern
 
-Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
-you will find all over the code. It is called the __extractor/collector__ pattern. The idea behind it is that
+Before you start coding your own service, you need to understand the basic concept of the extractor itself. There is a pattern
+you will find all over the code, called the __extractor/collector__ pattern. The idea behind it is that
 the [extractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)
-would produce single pieces of data, and the collector would collect it to form usable data for the front end.
-The collector also controls the parsing process, and takes care of error handling. So if the extractor fails at any
+would produce fragments of data, and the collector would collect them and assemble that data into a readable format for the front end.
+The collector also controls the parsing process, and takes care of error handling. So, if the extractor fails at any
 point, the collector will decide whether or not it should continue parsing. This requires the extractor to be made out of
-many small methods. One method for every data field the collector wants to have. The collectors are provided by NewPipe.
+multiple methods, one method for every data field the collector wants to have. The collectors are provided by NewPipe.
 You need to take care of the extractors.
 
-### Usage in the front end
+### Usage in the Front End
 
-So typical call for retrieving data from a website would look like this:
+A typical call for retrieving data from a website would look like this:
 ``` java
 Info info;
 try {
@@ -26,9 +26,9 @@ try {
 }
 ```
 
-### Typical implementation of a single data extractor
+### Typical Implementation of a Single Data Extractor
 
-The typical implementation of a single data extractor on the other hand would look like this:
+The typical implementation of a single data extractor, on the other hand, would look like this:
 ``` java
 class MyExtractor extends FutureExtractor {
 
@@ -53,20 +53,20 @@ class MyExtractor extends FutureExtractor {
 }
 ```
 
-## Collector/Extractor pattern for lists
+## Collector/Extractor Pattern for Lists
 
-Sometimes information can be represented as a list. In NewPipe a list is represented by a
+Information can be represented as a list. In NewPipe, a list is represented by a
 [InfoItemsCollector](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html).
 A InfoItemCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
-For each item that should be extracted a new Extractor must be created, and given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
+For each item that should be extracted, a new Extractor must be created, and given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
 
 ![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
 
-If you are implementing a list for your service you need to extend InfoItem containing the extracted information,
-and implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html)
+If you are implementing a list for your service you need to extend InfoItem containing the extracted information
+and implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html),
 that will return the data of one InfoItem.
 
-A common Implementation would look like this:
+A common implementation would look like this:
 ```
 private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
     MyInfoItemCollector collector = new MyInfoItemCollector(getServiceId());
@@ -90,19 +90,18 @@ private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
 
 ```
 
-## InfoItems encapsulated in pages
+## InfoItems Encapsulated in Pages
 
-When a streaming site shows a list of items it usually offers some additional information about that list, like it's title, a thumbnail,
-or its creator. Such info can be called __list header__.
+When a streaming site shows a list of items, it usually offers some additional information about that list like its title, a thumbnail,
+and its creator. Such info can be called __list header__.
 
 When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down. 
 
 This is why a list in NewPipe lists are chopped down into smaller lists called [InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html)s. Each page has its own URL, and needs to be extracted separately.
 
-Additional metainformation about the list such as its title a thumbnail
-or its creator, and extracting multiple pages can be handled by a
+Additional metadata about the list and extracting multiple pages can be handled by a
 [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html),
-and it's [ListExtractor.InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html).
+and its [ListExtractor.InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html).
 
 For extracting list header information it behaves like a regular extractor. For handling `InfoItemsPages` it adds methods
 such as:
@@ -116,7 +115,7 @@ such as:
 
 
 The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
-items like a regular webpage, but all the others as an AJAX request.
+items like a regular web page, but all the others as an AJAX request.
 
 
 
