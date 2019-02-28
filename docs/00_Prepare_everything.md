@@ -46,7 +46,7 @@ If you use IntelliJ IDEA, you should know the easy way of importing the NewPipe 
 1. `git clone` the extractor onto your computer locally.
 2. Start IntelliJ Idea and click `Import Project`.
 3. Select the root directory of the NewPipe Extractor
-4. Select "__Import Project form external Model__" and then choose __Gradle__.
+4. Select "__Import Project from external Model__" and then choose __Gradle__.
 ![import from gradle image](img/select_gradle.png)
 5. In the next window, select "__Use gradle 'wrapper' task configuration__".
 ![use gradle 'wrapper' task configuration checkbox](img/select_gradle_wrapper.png)
