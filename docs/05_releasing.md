@@ -127,7 +127,7 @@ Here's what you do when releasing a hotfix:
 3. Merge __dev__ into master on the extractor.
 4. Create a GPG signed tag with the name `v0.x.y` on the extractor.
 5. Create a new release draft and write the down the fix into the release notes.
-6. Copy the [release note](#release_notes) into the fastlane directory of releases.
+6. Copy the [release note](#release-notes) into the fastlane directory of releases.
 7. Increment the __small minor__ version number and the `versionCode`.
 8. Click "Publish Release".
 9. Rebase the hotfix back into __dev__ branch.
