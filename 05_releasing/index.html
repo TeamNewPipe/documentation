@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Releasing a new NewPipe version - NewPipe Documentation</title>
+  <title>Releasing a New NewPipe Version - NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Releasing a new NewPipe version";
+    var mkdocs_page_name = "Releasing a New NewPipe Version";
     var mkdocs_page_input_path = "05_releasing.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,12 +53,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -68,37 +68,37 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Releasing a new NewPipe version</a>
+    <a class="current" href="./">Releasing a New NewPipe Version</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#releasing-a-new-newpipe-version">Releasing a new NewPipe version</a></li>
+    <li class="toctree-l2"><a href="#releasing-a-new-newpipe-version">Releasing a New NewPipe Version</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#difference-between-regular-and-hotfix-release">Difference between regular and hotfix release</a></li>
+            <li><a class="toctree-l3" href="#differences-between-regular-and-hotfix-releases">Differences Between Regular and Hotfix Releases</a></li>
         
-            <li><a class="toctree-l3" href="#regular-releases">Regular releases</a></li>
+            <li><a class="toctree-l3" href="#regular-releases">Regular Releases</a></li>
         
-            <li><a class="toctree-l3" href="#hotfix-releases">Hotfix releases</a></li>
+            <li><a class="toctree-l3" href="#hotfix-releases">Hotfix Releases</a></li>
         
-            <li><a class="toctree-l3" href="#versioning">Versioning</a></li>
+            <li><a class="toctree-l3" href="#version-nomenclature">Version Nomenclature</a></li>
         
-            <li><a class="toctree-l3" href="#release-notes">Release notes</a></li>
+            <li><a class="toctree-l3" href="#release-notes">Release Notes</a></li>
         
         </ul>
     
@@ -108,7 +108,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../06_documentation/">Documentation</a>
+    <a class="" href="../06_documentation/">About This Documentation</a>
 	    </li>
           
         </ul>
@@ -133,7 +133,7 @@
     
       
     
-    <li>Releasing a new NewPipe version</li>
+    <li>Releasing a New NewPipe Version</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -143,132 +143,133 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="releasing-a-new-newpipe-version">Releasing a new NewPipe version</h1>
-<p>This site is ment for those who want to maintain NewPipe, or just want to know how releasing work.</p>
+                <h1 id="releasing-a-new-newpipe-version">Releasing a New NewPipe Version</h1>
+<p>This site is meant for those who want to maintain NewPipe, or just want to know how releasing works.</p>
 <p><img alt="one does not simply push to master" src="../img/onedoes.jpg" /></p>
-<h2 id="difference-between-regular-and-hotfix-release">Difference between regular and hotfix release</h2>
+<h2 id="differences-between-regular-and-hotfix-releases">Differences Between Regular and Hotfix Releases</h2>
 <p>NewPipe is a web crawler. That means it does not use a web API, but instead tries to scrape the data from the website,
-this however has the disadvantage of the app to brake instantly when Youtube changes something.
-We can not know when this happen therefore we need to be prepared when it happens, and at lease reduce our downtime as
-god as possible. Our whole release cycle is therefore designed around this issue.</p>
-<p>So there is a difference between a release that is meant to introduce new features or fix minor bugs,
-and a version that fixes an issue that occurred because Youtube (or some other service) suddenly changed their website (mostly call this a shutdown).
-Lets first have a look how a regular release work, and then how the hotfix release work.</p>
-<h2 id="regular-releases">Regular releases</h2>
-<p>Regular releases are normal releases like they are done in any other app. Releases are always stored on <strong>master</strong> branch. By means the latest commit on
+this however has the disadvantage of the app to break instantly when YouTube changes something.
+We do not know when this happen. Therefore, maintainers need to act quickly when it happens, and reduce our downtime as
+much as possible. The entire release cycle is therefore designed around this issue.</p>
+<p>There is a difference between a release that introduces new features
+and a release that fixes an issue that occurred because YouTube, or some other service, changed their website (typically called a shutdown).
+Lets have a look at the characteristics of a <strong>regular release</strong>, and then the characteristics of a <strong>hotfix release</strong>.</p>
+<h2 id="regular-releases">Regular Releases</h2>
+<p>Regular releases are normal releases like they are done in any other app. Releases are always stored on <strong>master</strong> branch. The latest commit on
 <strong>master</strong> is always equal to the currently released version. No development is done on master. This ensures that we always have one
 branch with a stable/releasable version.</p>
-<h3 id="feature-branching">Feature branching</h3>
-<p>For development the <strong>dev</strong> branch is used. Pushing to <strong>dev</strong> directly however is also not allowed since QA and testing should be done before adding something to it.
-This ensures that also the dev version works as good a possible.
-So in order to change something on the app one may want to <strong>fork</strong> the dev branch and develop the changes in his own branch (this is called feature branching).</p>
+<h3 id="feature-branching">Feature Branching</h3>
+<p>When developing, the <strong>dev</strong> branch is used. Pushing to <strong>dev</strong> directly, however, is not allowed, since QA and testing should be done first before adding something to it.
+This ensures that the dev version works as stable a possible.
+In order to change something on the app, one may want to <strong>fork</strong> the dev branch and develop the changes in their own branch (this is called feature branching).</p>
 <p><img alt="feature_branching" src="../img/feature_branch.svg" /></p>
-<p>Make sure that both the dev branches as well as the master branches of the extractor and the frontend are compatible to each other.
-If a change is done on the API to the extractor make sure that frontend is being made compatible to these changes. If the PR that should make the frontend compatible
-again can not be merged please do not merge the corresponding PR on the extractor as well. This should make sure that any developer can run his changes
+<p>Make sure that both the dev branches, as well as the master branches of the extractor and the frontend, are compatible with each other.
+If a change is done on the API to the extractor, make sure that frontend is compatible, or changed to become compatible, with these changes. If the PR that should make the frontend compatible
+again can not be merged, please do not merge the corresponding PR on the extractor either. This should make sure that any developer can run his changes
 on the fronted at any time.</p>
-<h3 id="merging-featuresbugfixes">Merging features/bugfixes</h3>
-<p>After being done with the feature one should open up a <strong>Pull Reuqest</strong> to the dev branch here a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
-If you are a maintainer please take care about the code architecture so <strong>corrosion</strong> or <strong>code shifting</strong> can be prevented. Please also prefare code quality over functionality.
-So in short: cool function but bad code -&gt; no merge. We should focus on leaving the code as clean as possible.</p>
+<h3 id="merging-featuresbugfixes">Merging Features/Bugfixes</h3>
+<p>After finishing a feature, one should open up a <strong>Pull Reuqest</strong> to the dev branch. From here, a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
+If you are a maintainer, please take care about the code architecture so <strong>corrosion</strong> or <strong>code shifting</strong> can be prevented. Please also prioritize code quality over functionality.
+In short: cool function but bad code = no merge. Focus on leaving the code as clean as possible.</p>
 <p><img alt="merge_feature_into_dev" src="../img/merge_into_dev.svg" /></p>
-<p>At best you as a maintainer should build the app and put the signed apk into the description of that new pullrequest. This way other people can test the feature/bugfix and therefore help with QA. <em>You may not need to do this every time. It is enough to do it on bigger pull requests.</em></p>
-<p>After the maintainer merged the new feature into the dev branch he should add the title of the pullrequest or a summary of the changes into the <a href="#release-notes">release note</a>.</p>
-<h3 id="creating-a-new-release">Creating a new release</h3>
-<p>Once there are enough features together, and the maintainer feels like releasing he should create a new release. Here is a list of things he will want to do then.
-Be aware of the rule that a release should never be done on a frieday. For NewPipe this mean don't do a release if you don't have time for it!!!</p>
+<p>You, as a maintainer, should build the app and put the signed APK into the description of that new pull request. This way, other people can test the feature/bugfix and help with QA. <em>You may not need to do this every time. It is enough to do it on bigger pull requests.</em></p>
+<p>After the maintainer merges the new feature into the dev branch, he should add the title of the pull request or a summary of the changes into the <a href="#release-notes">release notes</a>.</p>
+<h3 id="creating-a-new-release">Creating a New Release</h3>
+<p>Once there are enough features together, and the maintainers believe that NewPipe is ready for a new release, they should create a new release.
+Be aware of the rule that a release should never be done on a Friday. For NewPipe, this means: <strong>Don't do a release if you don't have time for it!!!</strong>
+Below is a list of things you will want to do:</p>
 <ol>
 <li>Fork the <strong>dev</strong> branch into a new <strong>release_x.y.z</strong> branch.</li>
-<li>Increase the <a href="#versioning">version number</a></li>
-<li>Merge <a href="https://hosted.weblate.org/projects/newpipe/">weblate</a> changes from <code>dev</code> branch at <code>https://hosted.weblate.org/git/newpipe/strings/</code>.</li>
-<li>Copy the <a href="#release-notes">release note</a> from the github version draft into the corresponding fastlane file (see <a href="#release-notes">release note</a>).</li>
-<li>Open up a pullrequest form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
-<li>Create an Issue pointing to the new Pullrequest. The reason for opening an issue is that from my perception more people are reading issues then they read pullrequests. Put the release-note into this pull request.</li>
+<li>Increase the <a href="#version-nomenclature">version number</a></li>
+<li>Merge <a href="https://hosted.weblate.org/projects/newpipe/">weblate</a> changes from the <code>dev</code> branch at <code>https://hosted.weblate.org/git/newpipe/strings/</code>.</li>
+<li>Copy the <a href="#release-notes">release notes</a> from the GitHub version draft into the corresponding fastlane file (see <a href="#release-notes">release notes</a>).</li>
+<li>Open up a pull request form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
+<li>Create an issue pointing to the new pull request. The reason for opening an issue is that from my perception, people read issues more than pull requests. Put the release-note into this pull request.</li>
 <li>Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file <code>NewPipe_&lt;versionNumber&gt;_RC1.apk</code>.
-   Zip it and post it into the head of the release issue. This way other people can test the release candidate.</li>
-<li>Test and QA the new version with the help of other people</li>
-<li>Leave the PR open for a few days and advertise people to help testing.</li>
+   Zip it and post it to the head of the release issue. This way, others can test the release candidate.</li>
+<li>Test and QA the new version with the help of others.</li>
+<li>Leave the PR open for a few days and advertise it to help testing.</li>
 </ol>
-<p>While being in release phase no new pullrequests must be merged into <strong>dev</strong> branch.</p>
+<p>While being in release phase no new pull requests must be merged into <strong>dev</strong> branch.</p>
 <p>This procedure does not have to be done for the extractor as extractor will be tested together with the fronted.</p>
-<h3 id="quckfixes">Quckfixes</h3>
-<p>When issuing a new release you will most likely encounter new bugs. These bugs are called <strong>regressions</strong> as they where not there before.
-If you notice a regression during release phase you are allowed to push fixes directly into the release branch without having to fork a branch away from it.
-All maintainers (people who have write access to the release branch) have to be aware that they might be required to fix regressions so plan your release on a time when
-you have time for coding. Do not introduce new features while being in release phase.</p>
-<p>When you have pushed a quickfix you will want to updated the <strong>release candidate</strong> you put into the <strong>issue</strong> corresponding to the <strong>release pull request</strong>.
-Increment the version number in the filename of the Release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc. <em>Don't update the actuall version number however :P</em>.</p>
+<h3 id="quickfixes">Quickfixes</h3>
+<p>When issuing a new release, you will most likely encounter bugs that might not have existed in previous versions. These are called <strong>regressions</strong>.
+If you find a regression during release phase, you are allowed to push fixes directly into the release branch without having to fork a branch away from it.
+All maintainers have to be aware that they might be required to fix regressions, so plan your release at a time when
+you are available. Do not introduce new features during the release phase.</p>
+<p>When you have pushed a quickfix, you will want to update the <strong>release candidate</strong> you put into the <strong>issue</strong> corresponding to the <strong>release pull request</strong>.
+Increment the version number in the filename of the release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc. <em>Don't update the actual version number. :P</em></p>
 <p><img alt="release_branch" src="../img/release_branch.svg" /></p>
 <h3 id="releasing">Releasing</h3>
-<p>Once the glories day of all days has come, and you feel like fulfilling the ceremony of releasing. This is what you will want to do.
-After going through the release procedure of having <a href="#create_a_new_release">created a new release</a> and maybe having done <a href="#quickfixes">quickfixes</a> on the new release,
-you will want to do these steps:</p>
+<p>Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
+After going through the release procedure of <a href="#create_a_new_release">creating a new release</a> and maybe a few <a href="#quickfixes">quickfixes</a> on the new release,
+this is what you should do when releasing:</p>
 <ol>
-<li>Hit merge Pullreqest</li>
-<li>Create a GPG signed tag with the name <code>v0.x.y</code></li>
-<li>Merge <strong>dev</strong> into master on the extractor</li>
-<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor</li>
-<li>Make sure the draft name equals the tag name <img alt="draft_name" src="../img/draft_name.png" /></li>
-<li>Make sure to not have forgotten enything</li>
-<li>Hit <code>Publish Release</code></li>
-<li>Rebase quickfix changes back into <strong>dev</strong> if quickfixes where made</li>
+<li>Click "Merge Pull Request".</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code>.</li>
+<li>Merge <strong>dev</strong> into master on the extractor.</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor.</li>
+<li>Make sure the draft name equals the tag name. <img alt="draft_name" src="../img/draft_name.png" /></li>
+<li>Make sure to not have forgotten anything.</li>
+<li>Click "Publish Release".</li>
+<li>Rebase quickfix changes back into <strong>dev</strong> if quickfixes were made.</li>
 </ol>
 <p><img alt="rebase_back" src="../img/rebase_back_release.svg" /></p>
-<h2 id="hotfix-releases">Hotfix releases</h2>
+<h2 id="hotfix-releases">Hotfix Releases</h2>
 <p><img alt="this_is_fine" src="../img/could_not_decrypt.png" /></p>
-<p>As described aboth NewPipe is a web crawler, and therefore might brake randomly. In order to keep the downtime of NewPipe as low as possible when such a shutdown happens
-we allow so called <strong>hotfixes</strong>.</p>
+<p>As aforementioned, NewPipe is a web crawler and could break at any moment. In order to keep the downtime of NewPipe as low as possible, when such a shutdown happens,
+we allow <strong>hotfixes</strong>.</p>
 <ul>
 <li>A hotfix allows work on the master branch instead of the dev branch.</li>
-<li>A hotfix MUST <strong>NOT</strong> contain any features or other bugfixes.</li>
-<li>A hotfix may only focus on fixing what has caused the shutdown.</li>
+<li>A hotfix MUST <strong>NOT</strong> contain any features or unrelated bugfixes.</li>
+<li>A hotfix may only focus on fixing what caused the shutdown.</li>
 </ul>
-<h3 id="hotfix-branch">Hotfix branch</h3>
-<p>Hotfixes work on the master branch. The reason for this is because dev branch might have experimental changes that have not yet been tested properly enough to be released. Master however should always be at the latest stable version of NewPipe. If this one brakes due to a shutdown you may therefore want to fix that version.
+<h3 id="hotfix-branch">Hotfix Branch</h3>
+<p>Hotfixes work on the master branch. The dev branch has experimental changes that might have not been tested properly enough to be released, if at all. The master branch should always be the latest stable version of NewPipe. If the master branch breaks due to a shutdown, you should fix the master branch.
 Of course you are not allowed to push to master directly so you will have to open up a <strong>hotfix</strong> branch. <em>If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well.</em></p>
 <p><img alt="hotfix_branch" src="../img/hotfix_branch.svg" /></p>
 <h3 id="releasing_1">Releasing</h3>
-<p>If you fixed the issue and found it to be tested and reviewed well enough you man release. Here you don't need to undergo the full release procedure of a regular release, which might take up to a few days.
-Keep in mind that if the hotfix might turn out to be broken after release you want to release another hotfix.
-Here it is important to release fast, and after all a less broken version of NewPipe is better then a full broken version ¯\_(ツ)_/¯.
-This is what you will want to do when releasing a hotfix version.</p>
+<p>If you fixed the issue and found it to be tested and reviewed well enough, you may release it. You don't need to undergo the full release procedure of a regular release, which takes more time to release.
+Keep in mind that if the hotfix might turn out to be broken after release, you should release another hotfix.
+It is important to release quickly for the sake of keeping NewPipe alive, and after all, a slightly broken version of NewPipe is better then a non-functional version ¯\_(ツ)_/¯.
+Here's what you do when releasing a hotfix:</p>
 <ol>
-<li>Hit merge Pullreqest</li>
-<li>Create a GPG signed tag with the name <code>v0.x.y</code></li>
-<li>Merge <strong>dev</strong> into master on the extractor</li>
-<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor</li>
-<li>Create a new release draft and write the down the fix into the release note</li>
-<li>Copy the <a href="#release_notes">release note</a> into the fastlane directory of releases</li>
-<li>Increment the <strong>small minor</strong> version number and the <code>versionCode</code></li>
-<li>Hit <code>Publish Release</code></li>
-<li>Rebase the hotfix back into <strong>dev</strong> branch</li>
+<li>Click "Merge Pull Request"</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code>.</li>
+<li>Merge <strong>dev</strong> into master on the extractor.</li>
+<li>Create a GPG signed tag with the name <code>v0.x.y</code> on the extractor.</li>
+<li>Create a new release draft and write the down the fix into the release notes.</li>
+<li>Copy the <a href="#release-notes">release note</a> into the fastlane directory of releases.</li>
+<li>Increment the <strong>small minor</strong> version number and the <code>versionCode</code>.</li>
+<li>Click "Publish Release".</li>
+<li>Rebase the hotfix back into <strong>dev</strong> branch.</li>
 </ol>
 <p><img alt="rebase_back_hotfix" src="../img/rebase_back_hotfix.svg" /></p>
-<h2 id="versioning">Versioning</h2>
-<p>Versioning NewPipe is simple.</p>
+<h2 id="version-nomenclature">Version Nomenclature</h2>
+<p>The version nomenclature of NewPipe is simple.</p>
 <ul>
-<li><strong>Major</strong>: The <strong>major</strong> version number (the number before the first dot) was 0 for years. The reason for this changed over time. First I wanted this number to
-  switch to 1 once NewPipe was feature complete. Now I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this (2 and beyond) well god knows what happens if we ever reach 1 ¯\_(ツ)_/¯ .</li>
+<li><strong>Major</strong>: The <strong>major</strong> version number (the number before the first dot) was 0 for years. The reason for this changed over time. First, I wanted this number to
+  switch to 1 once NewPipe was feature complete. Now, I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this, well, God knows what happens if we ever reach 1. ¯\_(ツ)_/¯ </li>
 <li><strong>Minor</strong>: The <strong>minor</strong> version number (the number after the first dot) will be incremented if there is a major feature added to the app.</li>
-<li><strong>Small Minor</strong>: The small minor (the number after the second dot) will be incremented if there are just smaller bug fixes or features added to the app.</li>
+<li><strong>Small Minor</strong>: The small minor (the number after the second dot) will be incremented if there are bug fixes or minor features added to the app.</li>
 </ul>
-<h4 id="versioning-the-extractor">Versioning the extractor</h4>
-<p>The extractor is always released together with the app, therefore the version number of the extractor is the same as the one of the app.</p>
-<h4 id="version-code">Version code</h4>
-<p>In android an app can also have a <a href="https://developer.android.com/studio/publish/versioning">versionCode</a>. This code is a <code>long integer</code> and can be incremented by any value to show a device that a new version is there.
-For NewPipe the version code will be incremented by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
-are reserved for our internal fdroid build server.</p>
-<h2 id="release-notes">Release notes</h2>
-<p>Release notes should give the user an idea of what was changed on the app. The release nodes for NewPipe are stored in the <a href="https://github.com/TeamNewPipe/NewPipe/releases/tag/v0.14.0">github draft for a new release</a>. When a maintainer wants to add change to the release note, but there is no draft for a new version he should create one.</p>
-<p>Changes can be categorized into three types.</p>
+<h4 id="version-nomenclature-of-the-extractor">Version Nomenclature of the Extractor</h4>
+<p>The extractor is always released together with the app, therefore the version number of the extractor is identical to the one of NewPipe itself.</p>
+<h4 id="version-code">Version Code</h4>
+<p>In Android, an app can also have a <a href="https://developer.android.com/studio/publish/versioning">versionCode</a>. This code is a <code>long integer</code> and can be incremented by any value to show a device that a new version is there.
+For NewPipe, the version code will be incremented by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
+are reserved for our internal F-Droid build server.</p>
+<h2 id="release-notes">Release Notes</h2>
+<p>Release notes should tell what was changed in the new version of the app. The release nodes for NewPipe are stored in the <a href="https://github.com/TeamNewPipe/NewPipe/releases/tag/v0.14.0">GitHub draft for a new release</a>. When a maintainer wants to add changes to the release note, but there is no draft for a new version, they should create one.</p>
+<p>Changes can be categorized into three types:</p>
 <ul>
 <li><strong>New</strong>: New features that god added to the app.</li>
-<li><strong>Improved</strong>: Improvements to the app, or already existing features</li>
+<li><strong>Improved</strong>: Improvements to the app or existing features</li>
 <li><strong>Fixes</strong>: Bugfixes</li>
 </ul>
-<p>When releasing a new version of NewPipe, before actually hitting release the maintainer should copy the release note from the draft and put it into a file called
-<code>&lt;versionCode&gt;.txt</code> (whereas <code>&lt;versionCode&gt;</code> needs to be the version code of the comming release). This file must be stored in the direcotry <a href="https://github.com/teamnewpipe/newpipe/tree/dev/fastlane/metadata/android/en-US/changelogs"><code>/fastlane/metadata/android/en-US/changelogs</code></a>. This way fdroid will later be able to show the
-changes done on the app.</p>
+<p>When releasing a new version of NewPipe, before actually clicking "Release", the maintainer should copy the release notes from the draft and put it into a file called
+<code>&lt;versionCode&gt;.txt</code> (whereas <code>&lt;versionCode&gt;</code> needs to be the version code of the incoming release). This file must be stored in the directory <a href="https://github.com/teamnewpipe/newpipe/tree/dev/fastlane/metadata/android/en-US/changelogs"><code>/fastlane/metadata/android/en-US/changelogs</code></a>. This way, F-Droid will be able to show the
+changes done to the app.</p>
               
             </div>
           </div>
@@ -276,10 +277,10 @@ changes done on the app.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../06_documentation/" class="btn btn-neutral float-right" title="Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../06_documentation/" class="btn btn-neutral float-right" title="About This Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../04_Run_changes_in_App/" class="btn btn-neutral" title="Run the changes in the App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../04_Run_changes_in_App/" class="btn btn-neutral" title="Testing Your Changes in the App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

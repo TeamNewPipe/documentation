@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Documentation - NewPipe Documentation</title>
+  <title>About This Documentation - NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Documentation";
+    var mkdocs_page_name = "About This Documentation";
     var mkdocs_page_input_path = "06_documentation.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,12 +53,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -68,30 +68,30 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../05_releasing/">Releasing a new NewPipe version</a>
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Documentation</a>
+    <a class="current" href="./">About This Documentation</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#documentation">Documentation</a></li>
+    <li class="toctree-l2"><a href="#about-this-documentation">About This Documentation</a></li>
     
         <ul>
         
@@ -105,7 +105,7 @@
         
             <li><a class="toctree-l3" href="#androidchromeos">Android/ChromeOS</a></li>
         
-            <li><a class="toctree-l3" href="#update">Update</a></li>
+            <li><a class="toctree-l3" href="#updating">Updating</a></li>
         
             <li><a class="toctree-l3" href="#using-mkdocs">Using mkdocs</a></li>
         
@@ -139,7 +139,7 @@
     
       
     
-    <li>Documentation</li>
+    <li>About This Documentation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -149,29 +149,29 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="documentation">Documentation</h1>
-<p>The Documentation you are currently reading is written using <a href="https://www.mkdocs.org/">mkdocs</a>. It is a tool that will generate a static website based on <a href="https://www.markdownguide.org/">markdown</a> files. Markdown has the advantage that it is simple to read and write, and that there are several tools that can translate a markdown file into languages like html or latex.</p>
+                <h1 id="about-this-documentation">About This Documentation</h1>
+<p>The documentation you are currently reading was written using <a href="https://www.mkdocs.org/">mkdocs</a>. It is a tool that will generate a static website based on <a href="https://www.markdownguide.org/">markdown</a> files. Markdown has the advantage that it is simple to read and write, and that there are several tools that can translate a markdown file into languages like HTML or LaTeX.</p>
 <h2 id="installation">Installation</h2>
-<p>Mkdos is written in <a href="https://www.python.org/">python</a> and is distributed through the python internal package manager <a href="https://pypi.org/project/pip/">pip</a>, thus you need to get python and pip running on your operating system first.</p>
+<p>Mkdocs is written in <a href="https://www.python.org/">Python</a> and is distributed through the Python internal package manager <a href="https://pypi.org/project/pip/">pip</a>, thus you need to get python and pip running on your operating system first.</p>
 <h2 id="windows">Windows</h2>
 <ol>
-<li>Download the latest <a href="https://www.python.org/downloads/windows/">Python3</a>.</li>
-<li>When running the setup program make sure to check <code>Add Python 3.x to PATH</code>.
+<li>Download the latest <a href="https://www.python.org/downloads/windows/">Python3</a> version.</li>
+<li>When running the setup program, make sure to tick, "Add Python 3.x to PATH".
 <img alt="check_path" src="../img/check_path.png" /></li>
-<li>Install python</li>
-<li>Open powershell or cmd, and type: <code>pip3 install mkdocs</code>.</li>
+<li>Install Python.</li>
+<li>Open PowerShell or cmd.exe and type: <code>pip3 install mkdocs</code>.</li>
 </ol>
 <h2 id="macos">MacOS</h2>
-<p>MacOS already comes along with python, however pip is still missing. The easyest, and most nondistructive way is to install the MacOS package manager <a href="https://brew.sh/index_de">homebrew</a> first. The advantage of homebrew are that it will only modify your home directory, but not the root dir. So your OS will not be touched by this.</p>
+<p>MacOS already includes Python, however, pip is still missing. The easiest and most nondestructive way is to install the MacOS package manager, <a href="https://brew.sh/index_de">homebrew</a>, first. The advantage of homebrew is that it will only modify your home directory, and not the root dir, so your OS will not be tampered with.</p>
 <ol>
-<li>Install <a href="https://brew.sh/index_de">homebrew</a></li>
-<li>Install Python from homebrew, which will also install pip. Run this command:
+<li>Install <a href="https://brew.sh/index_de">homebrew</a>.</li>
+<li>Install Python from homebrew, which will also install pip. Enter this command:
 <code>brew install python</code>.</li>
 <li>Install mkdocs:
 <code>pip3 install mkdocs</code></li>
 </ol>
 <h2 id="linuxbsd">Linux/*BSD</h2>
-<p>Also Linux/*BSD comes pre installed with python. Most distributions also deliver pip by default. If its not installed you may need to figure out how to install pip3 through the package manager of your system.</p>
+<p>Linux/*BSD also has Python preinstalled. Most distributions also contain pip by default. If it is not installed, you may need to figure out how to install pip3 through the package manager of your system.</p>
 <ol>
 <li>Install pip3 with these commands according to distributions: <ul>
 <li><strong>Ubuntu/Mint</strong>: <code>apt install python3-pip</code></li>
@@ -185,22 +185,22 @@
 or run <code>sudo pip3 install mkdocs</code> to install mkdocs systemwide. Last one has the higher chance to work properly.</li>
 </ol>
 <h2 id="androidchromeos">Android/ChromeOS</h2>
-<p>This might sound funny, but according to the growing amount of ChromeBooks and Android tablets with keyboard this might actually be useful.</p>
+<p>This might sound funny, but according to the growing amount of Chromebooks and Android tablets with keyboards, this might actually be useful.</p>
 <ol>
-<li>Install the <a href="https://termux.com/">Tremux App</a> from <a href="https://f-droid.org/packages/com.termux/">f-droid</a>.</li>
+<li>Install the <a href="https://termux.com/">Termux App</a> from <a href="https://f-droid.org/packages/com.termux/">f-droid</a>.</li>
 <li>Launch Termux and type <code>apt update</code></li>
-<li>Install python and git with the command: <code>apt install git python</code></li>
-<li>Now install mkdocs with <code>pip install mkdocs</code>.</li>
+<li>Install Python and git with the command: <code>apt install git python</code></li>
+<li>Install mkdocs with <code>pip install mkdocs</code>.</li>
 </ol>
-<p>From here on everything will be the same as on Desktop. If you want to edit the files you can (besides vim or emacs which are available through Termux) use your favourite text editor on android. This is possible by opening the files with the Termux integration of the build in android file manager:</p>
+<p>From herein, everything will be the same as on Desktop. If you want to edit the files, you can (besides vim or emacs which are available through Termux) use your preferred text editor on Android. This is possible by opening the files with the Termux integration of the build in android file manager:</p>
 <p><img alt="termux_files" src="../img/termux_files.png" /></p>
-<h2 id="update">Update</h2>
-<p>Sometimes mkdocs changes the way how to serve, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To ensure this simply run <code>pip3 install --upgrade mkdocs</code> or <code>sudo pip3 install --upgrade mkdocs</code> if you installed pip system wide on a linux/bsd system.</p>
+<h2 id="updating">Updating</h2>
+<p>Sometimes, mkdocs changes the way of how it serves, or the syntax will differ. This is why you should make sure to always run the latest version of mkdocs. To check, simply run <code>pip3 install --upgrade mkdocs</code> or <code>sudo pip3 install --upgrade mkdocs</code> if you installed pip system wide on a Linux/BSD* system.</p>
 <h2 id="using-mkdocs">Using mkdocs</h2>
-<p>In order to extend this documentation you have to clone it from its <a href="https://github.com/TeamNewPipe/documentation">git repository</a>. When you cloned it, you will find a <a href="https://github.com/TeamNewPipe/documentation/blob/master/mkdocs.yml">mkdocs.yml</a> file, and a <a href="https://github.com/TeamNewPipe/documentation/tree/master/docs">docs</a> directory inside. The yaml file is the <a href="https://www.mkdocs.org/user-guide/configuration/">config file</a> while in the directory docs the documentation files are stored. <a href="https://www.mkdocs.org/user-guide/writing-your-docs/">here</a> is a guide about how to use mkdocs.</p>
+<p>In order to extend this documentation, you have to clone it from its <a href="https://github.com/TeamNewPipe/documentation">GitHub repository</a>. When you clone it, you will find a <a href="https://github.com/TeamNewPipe/documentation/blob/master/mkdocs.yml">mkdocs.yml</a> file, and a <a href="https://github.com/TeamNewPipe/documentation/tree/master/docs">docs</a> directory inside. The yaml file is the <a href="https://www.mkdocs.org/user-guide/configuration/">config file</a> while in the directory docs the documentation files are stored. <a href="https://www.mkdocs.org/user-guide/writing-your-docs/">Here</a> is a guide about how to use mkdocs.</p>
 <h2 id="write-and-deploy">Write and Deploy</h2>
-<p>If you are writing a documentation page, and want a live preview of it you can enter the root directory of this documentation project, and then run <code>mkdocs serve</code> this will start the mkdocs internal webserver on port <code>8000</code>. So all you have to do is type <code>localhost:8000</code> into the addressbar of your browser, and here you go. If you modify a file, and save it, mkdocs will reload the page and show you the new content.</p>
-<p>If you want to deploy the page, so it will be up to date at the <a href="https://teamnewpipe.github.io/documentation/">github pages</a> simply type <code>mkdocs gh-deploy</code>. However please be aware that this will not push your changes to the <code>master</code> branch of the repository. So you still have to commit and push your changes to the actual git repository of this documentation. <em>Please be aware that only priviliged maintainers can do this.</em></p>
+<p>If you are writing a documentation page and want a live preview of it, you can enter the root directory of this documentation project, and then run <code>mkdocs serve</code> this will start the mkdocs internal web server on port <code>8000</code>. So all you have to do is type <code>localhost:8000</code> into the address bar of your browser, and here you go. If you modify a file, and save it, mkdocs will reload the page and show you the new content.</p>
+<p>If you want to deploy the page so it will be up to date at the <a href="https://teamnewpipe.github.io/documentation/">GitHub pages</a>, simply type <code>mkdocs gh-deploy</code>. However, please be aware that this will not push your changes to the <code>master</code> branch of the repository. So, you still have to commit and push your changes to the actual git repository of this documentation. <em>Please be aware that only privileged maintainers can do this.</em></p>
               
             </div>
           </div>
@@ -209,7 +209,7 @@ or run <code>sudo pip3 install mkdocs</code> to install mkdocs systemwide. Last 
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../05_releasing/" class="btn btn-neutral" title="Releasing a new NewPipe version"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../05_releasing/" class="btn btn-neutral" title="Releasing a New NewPipe Version"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

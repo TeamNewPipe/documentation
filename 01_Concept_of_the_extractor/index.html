@@ -53,12 +53,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -70,11 +70,11 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#collectorextractor-pattern">Collector/Extractor pattern</a></li>
+            <li><a class="toctree-l3" href="#the-collectorextractor-pattern">The Collector/Extractor Pattern</a></li>
         
-            <li><a class="toctree-l3" href="#collectorextractor-pattern-for-lists">Collector/Extractor pattern for lists</a></li>
+            <li><a class="toctree-l3" href="#collectorextractor-pattern-for-lists">Collector/Extractor Pattern for Lists</a></li>
         
-            <li><a class="toctree-l3" href="#infoitems-encapsulated-in-pages">InfoItems encapsulated in pages</a></li>
+            <li><a class="toctree-l3" href="#infoitems-encapsulated-in-pages">InfoItems Encapsulated in Pages</a></li>
         
         </ul>
     
@@ -84,27 +84,27 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../05_releasing/">Releasing a new NewPipe version</a>
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../06_documentation/">Documentation</a>
+    <a class="" href="../06_documentation/">About This Documentation</a>
 	    </li>
           
         </ul>
@@ -140,17 +140,17 @@
             <div class="section">
               
                 <h1 id="concept-of-the-extractor">Concept of the Extractor</h1>
-<h2 id="collectorextractor-pattern">Collector/Extractor pattern</h2>
-<p>Before we can start coding our own service we need to understand the basic concept of the extractor. There is a pattern
-you will find all over the code. It is called the <strong>extractor/collector</strong> pattern. The idea behind it is that
+<h2 id="the-collectorextractor-pattern">The Collector/Extractor Pattern</h2>
+<p>Before you start coding your own service, you need to understand the basic concept of the extractor itself. There is a pattern
+you will find all over the code, called the <strong>extractor/collector</strong> pattern. The idea behind it is that
 the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">extractor</a>
-would produce single pieces of data, and the collector would collect it to form usable data for the front end.
-The collector also controls the parsing process, and takes care of error handling. So if the extractor fails at any
+would produce fragments of data, and the collector would collect them and assemble that data into a readable format for the front end.
+The collector also controls the parsing process, and takes care of error handling. So, if the extractor fails at any
 point, the collector will decide whether or not it should continue parsing. This requires the extractor to be made out of
-many small methods. One method for every data field the collector wants to have. The collectors are provided by NewPipe.
+multiple methods, one method for every data field the collector wants to have. The collectors are provided by NewPipe.
 You need to take care of the extractors.</p>
-<h3 id="usage-in-the-front-end">Usage in the front end</h3>
-<p>So typical call for retrieving data from a website would look like this:</p>
+<h3 id="usage-in-the-front-end">Usage in the Front End</h3>
+<p>A typical call for retrieving data from a website would look like this:</p>
 <pre><code class="java">Info info;
 try {
     // Create a new Extractor with a given context provided as parameter.
@@ -162,8 +162,8 @@ try {
 }
 </code></pre>
 
-<h3 id="typical-implementation-of-a-single-data-extractor">Typical implementation of a single data extractor</h3>
-<p>The typical implementation of a single data extractor on the other hand would look like this:</p>
+<h3 id="typical-implementation-of-a-single-data-extractor">Typical Implementation of a Single Data Extractor</h3>
+<p>The typical implementation of a single data extractor, on the other hand, would look like this:</p>
 <pre><code class="java">class MyExtractor extends FutureExtractor {
 
     public MyExtractor(RequiredInfo requiredInfo, ForExtraction forExtraction) {
@@ -187,16 +187,16 @@ try {
 }
 </code></pre>
 
-<h2 id="collectorextractor-pattern-for-lists">Collector/Extractor pattern for lists</h2>
-<p>Sometimes information can be represented as a list. In NewPipe a list is represented by a
+<h2 id="collectorextractor-pattern-for-lists">Collector/Extractor Pattern for Lists</h2>
+<p>Information can be represented as a list. In NewPipe, a list is represented by a
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html">InfoItemsCollector</a>.
 A InfoItemCollector will collect and assemble a list of <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html">InfoItem</a>.
-For each item that should be extracted a new Extractor must be created, and given to the InfoItemCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-">commit()</a>.</p>
+For each item that should be extracted, a new Extractor must be created, and given to the InfoItemCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-">commit()</a>.</p>
 <p><img alt="InfoItemsCollector_objectdiagram.svg" src="../img/InfoItemsCollector_objectdiagram.svg" /></p>
-<p>If you are implementing a list for your service you need to extend InfoItem containing the extracted information,
-and implement an <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">InfoItemExtractor</a>
+<p>If you are implementing a list for your service you need to extend InfoItem containing the extracted information
+and implement an <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">InfoItemExtractor</a>,
 that will return the data of one InfoItem.</p>
-<p>A common Implementation would look like this:</p>
+<p>A common implementation would look like this:</p>
 <pre><code>private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
     MyInfoItemCollector collector = new MyInfoItemCollector(getServiceId());
 
@@ -219,15 +219,14 @@ that will return the data of one InfoItem.</p>
 
 </code></pre>
 
-<h2 id="infoitems-encapsulated-in-pages">InfoItems encapsulated in pages</h2>
-<p>When a streaming site shows a list of items it usually offers some additional information about that list, like it's title, a thumbnail,
-or its creator. Such info can be called <strong>list header</strong>.</p>
+<h2 id="infoitems-encapsulated-in-pages">InfoItems Encapsulated in Pages</h2>
+<p>When a streaming site shows a list of items, it usually offers some additional information about that list like its title, a thumbnail,
+and its creator. Such info can be called <strong>list header</strong>.</p>
 <p>When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down. </p>
 <p>This is why a list in NewPipe lists are chopped down into smaller lists called <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">InfoItemsPage</a>s. Each page has its own URL, and needs to be extracted separately.</p>
-<p>Additional metainformation about the list such as its title a thumbnail
-or its creator, and extracting multiple pages can be handled by a
+<p>Additional metadata about the list and extracting multiple pages can be handled by a
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a>,
-and it's <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">ListExtractor.InfoItemsPage</a>.</p>
+and its <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">ListExtractor.InfoItemsPage</a>.</p>
 <p>For extracting list header information it behaves like a regular extractor. For handling <code>InfoItemsPages</code> it adds methods
 such as:</p>
 <ul>
@@ -239,7 +238,7 @@ such as:</p>
    returns a ListExtractor.InfoItemsPage by its URL which was retrieved by the <code>getNextPageUrl()</code> method of the previous page.</li>
 </ul>
 <p>The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
-items like a regular webpage, but all the others as an AJAX request.</p>
+items like a regular web page, but all the others as an AJAX request.</p>
               
             </div>
           </div>
@@ -247,10 +246,10 @@ items like a regular webpage, but all the others as an AJAX request.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../02_Concept_of_LinkHandler/" class="btn btn-neutral float-right" title="Concept of LinkHandler">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../02_Concept_of_LinkHandler/" class="btn btn-neutral float-right" title="Concept of the LinkHandler">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../00_Prepare_everything/" class="btn btn-neutral" title="Prepare everything"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../00_Prepare_everything/" class="btn btn-neutral" title="Before You Start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

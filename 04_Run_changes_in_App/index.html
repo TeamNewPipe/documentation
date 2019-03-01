@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Run the changes in the App - NewPipe Documentation</title>
+  <title>Testing Your Changes in the App - NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Run the changes in the App";
+    var mkdocs_page_name = "Testing Your Changes in the App";
     var mkdocs_page_input_path = "04_Run_changes_in_App.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,12 +53,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -68,28 +68,28 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Run the changes in the App</a>
+    <a class="current" href="./">Testing Your Changes in the App</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#run-the-changes-in-the-app">Run the changes in the App</a></li>
+    <li class="toctree-l2"><a href="#testing-your-changes-in-the-app">Testing Your Changes in the App</a></li>
     
         <ul>
         
             <li><a class="toctree-l3" href="#setup-android-studio">Setup Android Studio</a></li>
         
-            <li><a class="toctree-l3" href="#get-the-newpipe-code-and-run-it">Get the NewPipe code and run it.</a></li>
+            <li><a class="toctree-l3" href="#get-the-newpipe-code-and-run-it">Get the NewPipe Code and Run it.</a></li>
         
-            <li><a class="toctree-l3" href="#run-your-changes-on-the-extractor">Run your changes on the Extractor</a></li>
+            <li><a class="toctree-l3" href="#run-your-changes-on-the-extractor">Run Your Changes on the Extractor</a></li>
         
             <li><a class="toctree-l3" href="#troubleshooting">Troubleshooting</a></li>
         
@@ -101,12 +101,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../05_releasing/">Releasing a new NewPipe version</a>
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../06_documentation/">Documentation</a>
+    <a class="" href="../06_documentation/">About This Documentation</a>
 	    </li>
           
         </ul>
@@ -131,7 +131,7 @@
     
       
     
-    <li>Run the changes in the App</li>
+    <li>Testing Your Changes in the App</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,30 +141,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="run-the-changes-in-the-app">Run the changes in the App</h1>
+                <h1 id="testing-your-changes-in-the-app">Testing Your Changes in the App</h1>
 <p>You should develop and test your changes with the JUnit environment that is
-provided by the NewPipe Extractor and IDEA. If you want to try it then with
-the actual fronted you need to follow these steps.</p>
+provided by the NewPipe Extractor and IDEA. If you want to try it with
+the actual fronted, you need to follow these steps.</p>
 <h3 id="setup-android-studio">Setup Android Studio</h3>
-<p>First of all you want to setup a working Android Studio environment. For this please
+<p>First, you'll want to set up a working Android Studio environment. To do this,
 download Studio from <a href="https://developer.android.com/studio/">developer.android.com</a>,
-and follow the <a href="https://developer.android.com/studio/install">instructions</a> about how to set it up.</p>
-<h3 id="get-the-newpipe-code-and-run-it">Get the NewPipe code and run it.</h3>
-<p>In order to get it you must simply clone or download from the current <code>dev</code> branch
+and follow the <a href="https://developer.android.com/studio/install">instructions</a> on how to set it up.</p>
+<h3 id="get-the-newpipe-code-and-run-it">Get the NewPipe Code and Run it.</h3>
+<p>In order to get it, you simply clone or download it from the current <code>dev</code> branch
 <a href="https://github.com/TeamNewPipe/NewPipe/archive/dev.zip">github.com/TeamNewPipe/NewPipe.git</a>.
 You can then build and run it following <a href="https://developer.android.com/studio/run/">these instructions</a>.
-Please also make sure you are comfortable with <a href="https://en.droidwiki.org/wiki/Android_Debug_Bridge">adb</a> since
-you might experience some trouble running your compiled app on a real device, especially under linux where you
+Also, make sure you are comfortable with <a href="https://en.droidwiki.org/wiki/Android_Debug_Bridge">adb</a> since
+you might experience some trouble running your compiled app on a real device, especially under Linux, where you
 sometimes have to adjust the udev rules in order to
-<a href="https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device be accessible</a>.</p>
-<h3 id="run-your-changes-on-the-extractor">Run your changes on the Extractor</h3>
-<p>In order to use the extractor in our app we use <a href="https://jitpack.io">jitpack</a>. This is a build service that can build
-maven *.jar packages for android and java based on a github or gitlab repositories. </p>
-<p>To the extractor through jitpack, you need to push them to your online repository of
-your copy that you host either on <a href="https://github.com">github</a> or <a href="https://gitlab.com">gitlab</a>. It's important to host
-it on one of both. Now copy your repository url in Http format, go to <a href="https://jitpack.io/">jitpack</a>, and past it there.
-From here you can grab the latest commit via <code>GET IT</code> button.
-I recomend not to use SNAPSHOT, since I am not sure when snapshot is build. An "implementation" string will be generated
+<a href="https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device accessible</a>.</p>
+<h3 id="run-your-changes-on-the-extractor">Run Your Changes on the Extractor</h3>
+<p>In order to use the extractor in our app, we use <a href="https://jitpack.io">jitpack</a>. This is a build service that can build
+maven *.jar packages for Android and Java based on GitHub or GitLab repositories. </p>
+<p>To use the extractor through jitpack, you need to push it to your online repository of
+your copy that you host either on <a href="https://github.com">GitHub</a> or <a href="https://gitlab.com">GitLab</a>. It's important to host
+it on one of both. To copy your repository URL in HTTP format, go to <a href="https://jitpack.io/">jitpack</a> and paste it there.
+From here, you can grab the latest commit via <code>GET IT</code> button.
+I recomend not to use a SNAPSHOT, since I am not sure when snapshot is built. An "implementation" string will be generated
 for you. Copy this string and replace the <code>implementation 'com.github.TeamNewPipe:NewPipeExtractor:&lt;commit&gt;'</code> line in
 the file <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58">/app/build.gradle</a> with it.</p>
 <video width="600" controls>
@@ -172,12 +172,12 @@ the file <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.grad
 Your browser does not support the video tag.
 </video>
 
-<p>If everything synced well then you should only see a screen with OK signs. Now you can go on an compile and run NewPipe
+<p>If everything synced well, then you should only see a screen with OK signs. Now you can compile and run NewPipe
 with the new extractor.</p>
 <p><img alt="image_sync_ok" src="../img/sync_ok.png" /></p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
-click on that little paper symbol next to the <code>GET IT</code> button. If it is red it already shows that the build failed.
+click on that little paper symbol next to the <code>GET IT</code> button. If it's red, it means that the build failed.
 <img alt="jitpack failed to build" src="../img/jitpack_fail.png" /></p>
               
             </div>
@@ -186,10 +186,10 @@ click on that little paper symbol next to the <code>GET IT</code> button. If it 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../05_releasing/" class="btn btn-neutral float-right" title="Releasing a new NewPipe version">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../05_releasing/" class="btn btn-neutral float-right" title="Releasing a New NewPipe Version">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../03_Implement_a_service/" class="btn btn-neutral" title="Implement a service"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../03_Implement_a_service/" class="btn btn-neutral" title="Implementing a Service"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

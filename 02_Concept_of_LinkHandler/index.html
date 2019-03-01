@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Concept of LinkHandler - NewPipe Documentation</title>
+  <title>Concept of the LinkHandler - NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Concept of LinkHandler";
+    var mkdocs_page_name = "Concept of the LinkHandler";
     var mkdocs_page_input_path = "02_Concept_of_LinkHandler.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,12 +53,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../00_Prepare_everything/">Prepare everything</a>
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -68,10 +68,10 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Concept of LinkHandler</a>
+    <a class="current" href="./">Concept of the LinkHandler</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#concept-of-linkhandler">Concept of LinkHandler</a></li>
+    <li class="toctree-l2"><a href="#concept-of-the-linkhandler">Concept of the LinkHandler</a></li>
     
         <ul>
         
@@ -91,22 +91,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../05_releasing/">Releasing a new NewPipe version</a>
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../06_documentation/">Documentation</a>
+    <a class="" href="../06_documentation/">About This Documentation</a>
 	    </li>
           
         </ul>
@@ -131,7 +131,7 @@
     
       
     
-    <li>Concept of LinkHandler</li>
+    <li>Concept of the LinkHandler</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,34 +141,34 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="concept-of-linkhandler">Concept of LinkHandler</h1>
-<p><a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandler.html">LinkHandler</a>
-represent Links to resources like videos, search requests, channels, etc.
-The idea behind them is that a video can have multiple links pointing to it, but it has
+                <h1 id="concept-of-the-linkhandler">Concept of the LinkHandler</h1>
+<p>The <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandler.html">LinkHandler</a>
+represent links to resources like videos, search requests, channels, etc.
+The idea is that a video can have multiple links pointing to it, but it has
 one unique ID that represents it, like this example:</p>
 <p><a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">oHg5SJYRHA0</a> can be represented as:</p>
 <ul>
-<li>https://www.youtube.com/watch?v=oHg5SJYRHA0 (default URL for YouTube)</li>
-<li>https://youtu.be/oHg5SJYRHA0</li>
-<li>https://m.youtube.com/watch?v=oHg5SJYRHA0</li>
+<li><a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">https://www.youtube.com/watch?v=oHg5SJYRHA0</a> (the default URL for YouTube)</li>
+<li><a href="https://youtu.be/oHg5SJYRHA0">https://youtu.be/oHg5SJYRHA0</a> (the shortened link)</li>
+<li><a href="https://m.youtube.com/watch?v=oHg5SJYRHA0">https://m.youtube.com/watch?v=oHg5SJYRHA0</a> (the link for mobile devices)</li>
 </ul>
 <h3 id="importand-notes-about-linkhandler">Importand notes about LinkHandler:</h3>
 <ul>
-<li>A simple <code>LinkHandler</code> will contain the default URL, the ID and the original URL.</li>
-<li><code>LinkHandler</code>s are ReadOnly</li>
+<li>A simple <code>LinkHandler</code> will contain the default URL, the ID, and the original URL.</li>
+<li><code>LinkHandler</code>s are read only.</li>
 <li><code>LinkHandler</code>s are also used to determine which part of the extractor can handle a certain link.</li>
 <li>In order to get one you must either call
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromUrl-java.lang.String-">fromUrl()</a> or <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/LinkHandlerFactory.html#fromId-java.lang.String-">fromId()</a> of the the corresponding <code>LinkHandlerFactory</code>.</li>
-<li>Every type of Type of Resource has its own <code>LinkHandlerFactory</code>. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
+<li>Every type of resource has its own <code>LinkHandlerFactory</code>. Eg. YoutubeStreamLinkHandler, YoutubeChannelLinkHandler, etc.</li>
 </ul>
 <h3 id="usage">Usage</h3>
-<p>So the typical usage for getting a LinkHandler would look like this.</p>
+<p>The typical usage for obtaining a LinkHandler would look like this:</p>
 <pre><code class="java">LinkHandlerFactory myLinkHandlerFactory = new MyStreamLinkHandlerFactory();
 LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/the_video&quot;);
 </code></pre>
 
 <h3 id="implementation">Implementation</h3>
-<p>In order to Use LinkHandler for your service you must override the appropriate LinkHandlerFactory. eg:</p>
+<p>In order to use LinkHandler for your service, you must override the appropriate LinkHandlerFactory. eg:</p>
 <pre><code class="java">class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
 
     @Override
@@ -189,14 +189,15 @@ LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/
 </code></pre>
 
 <h3 id="listlinkhandler-and-searchqueryhandler">ListLinkHandler and SearchQueryHandler</h3>
-<p>List based resources like channels and playlists can be sorted, and filtered.
+<p>List based resources, like channels and playlists, can be sorted and filtered.
 Therefore these type of resources don't just use a LinkHandler, but a class called
-<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html">ListLinkHandler</a>
-which inherits from LinkHandler and adds the fields <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#contentFilters">ContentFilter</a>
-which is used to filter by resource type like stream or playlist, and
-<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter">SortFilter</a>
-which is used to sort by name, date or view count.</p>
-<p><strong>!!ATENTION!!</strong> Be careful when you implement content filter: No selected filter equals all filters selected. So if your get an empty content filter list in your extractor make sure you return everything. By means use if statements like this <code>contentFilter.contains("video") || contentFilter.isEmpty()</code>.</p>
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html">ListLinkHandler</a>,
+which inherits from LinkHandler and adds the field <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#contentFilters">ContentFilter</a>,
+which is used to filter by resource type, like stream or playlist, and
+<a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandler.html#sortFilter">SortFilter</a>,
+which is used to sort by name, date, or view count.</p>
+<p><strong>!!ATTENTION!!</strong> Be careful when you implement a content filter: No selected filter equals all filters selected. If your get an empty content filter list in your extractor, make sure you return everything. By all means, use "if" 
+statements like <code>contentFilter.contains("video") || contentFilter.isEmpty()</code>.</p>
 <p>ListLinkHandler are also created by overriding the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html">ListLinkHandlerFactory</a>
 additionally to the abstract methods this factory inherits from the LinkHandlerFactory you can override
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/ListLinkHandlerFactory.html#getAvailableContentFilter--">getAvailableContentFilter()</a>
@@ -215,7 +216,7 @@ and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../03_Implement_a_service/" class="btn btn-neutral float-right" title="Implement a service">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../03_Implement_a_service/" class="btn btn-neutral float-right" title="Implementing a Service">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../01_Concept_of_the_extractor/" class="btn btn-neutral" title="Concept of the Extractor"><span class="icon icon-circle-arrow-left"></span> Previous</a>

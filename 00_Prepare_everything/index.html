@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Prepare everything - NewPipe Documentation</title>
+  <title>Before You Start - NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Prepare everything";
+    var mkdocs_page_name = "Before You Start";
     var mkdocs_page_input_path = "00_Prepare_everything.md";
     var mkdocs_page_url = null;
   </script>
@@ -53,30 +53,30 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to the NewPipe Documentation.</a>
+    <a class="" href="..">Welcome to NewPipe.</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Prepare everything</a>
+    <a class="current" href="./">Before You Start</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#prepare-everything">Prepare everything</a></li>
+    <li class="toctree-l2"><a href="#before-you-start">Before You Start</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#setup-your-dev-environment">Setup your dev environment</a></li>
+            <li><a class="toctree-l3" href="#setting-up-your-dev-environment">Setting Up Your Dev Environment</a></li>
         
         </ul>
     
 
-    <li class="toctree-l2"><a href="#inclusion-criteria-for-services">Inclusion criteria for services</a></li>
+    <li class="toctree-l2"><a href="#inclusion-criteria-for-services">Inclusion Criteria for Services</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#allowed-content">Allowed Content</a></li>
+            <li><a class="toctree-l3" href="#content-that-is-permitted">Content That is Permitted:</a></li>
         
-            <li><a class="toctree-l3" href="#not-allowed-content">NOT allowed Content</a></li>
+            <li><a class="toctree-l3" href="#content-that-is-not-permitted">Content That is NOT Permitted:</a></li>
         
         </ul>
     
@@ -91,27 +91,27 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of LinkHandler</a>
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../03_Implement_a_service/">Implement a service</a>
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../04_Run_changes_in_App/">Run the changes in the App</a>
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../05_releasing/">Releasing a new NewPipe version</a>
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../06_documentation/">Documentation</a>
+    <a class="" href="../06_documentation/">About This Documentation</a>
 	    </li>
           
         </ul>
@@ -136,7 +136,7 @@
     
       
     
-    <li>Prepare everything</li>
+    <li>Before You Start</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,83 +146,79 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="prepare-everything">Prepare everything</h1>
-<p>Welcome to the NewPipeExtractor documentation. This tutorial will guide you through the process of creating your own Extractor
-service with which NewPipe will gain support for a dedicated streaming service like YouTube, Vimeo or SoundCloud.
+                <h1 id="before-you-start">Before You Start</h1>
+<p>These documents will guide you through the process of creating your own Extractor
+service of which will enable NewPipe to access additional streaming services, such as the currently supported YouTube and SoundCloud.
 The whole documentation consists of this page, which explains the general concept of the NewPipeExtractor, as well as our
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/">Jdoc</a> setup.</p>
-<p><strong>IMPORTANT!!!</strong> this is likely to be the worst documentation you have ever read, so do not hesitate to
+<p><strong>IMPORTANT!!!</strong> This is likely to be the worst documentation you have ever read, so do not hesitate to
 <a href="https://github.com/teamnewpipe/documentation/issues">report</a> if
 you find any spelling errors, incomplete parts or you simply don't understand something. We are an open community
 and are open for everyone to help :)</p>
-<h2 id="setup-your-dev-environment">Setup your dev environment</h2>
-<p>First and foremost you need to meet certain conditions in order to write your own service.</p>
-<h3 id="what-you-need-to-know">What you need to know</h3>
+<h2 id="setting-up-your-dev-environment">Setting Up Your Dev Environment</h2>
+<p>First and foremost, you need to meet the following conditions in order to write your own service.</p>
+<h3 id="what-you-need-to-know">What You Need to Know:</h3>
 <ul>
-<li>Basic understanding of <strong><a href="https://try.github.io">git</a></strong></li>
+<li>A basic understanding of <strong><a href="https://try.github.io">git</a></strong></li>
 <li>Good <strong><a href="https://whatpixel.com/best-java-books/">Java</a></strong> knowledge</li>
-<li>Good understanding of <strong><a href="https://www.w3schools.com/">web technology</a></strong></li>
-<li>Basic understanding of <strong><a href="https://www.vogella.com/tutorials/JUnit/article.html">unit testing</a></strong> and <strong><a href="https://junit.org/">JUnit</a></strong></li>
-<li>Flawless understanding of how to <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution">contribute</a> to the <strong>NewPipe project</strong></li>
+<li>A good understanding of <strong><a href="https://www.w3schools.com/">web technology</a></strong></li>
+<li>A basic understanding of <strong><a href="https://www.vogella.com/tutorials/JUnit/article.html">unit testing</a></strong> and <strong><a href="https://junit.org/">JUnit</a></strong></li>
+<li>A thorough understanding of how to <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution">contribute</a> to the <strong>NewPipe project</strong></li>
 </ul>
-<h3 id="what-you-need-to-have">What you need to have</h3>
+<h3 id="toolsprograms-you-will-need">Tools/Programs You Will Need:</h3>
 <ul>
 <li>A dev environment/ide that supports:<ul>
 <li><strong><a href="https://git-scm.com/downloads/guis">git</a></strong></li>
-<li><strong><a href="https://www.java.com/en/download/faq/java8.xml">java 8</a></strong></li>
-<li><strong><a href="https://gradle.org/">gradle</a></strong></li>
-<li><strong><a href="https://junit.org/junit5/">unit testing</a></strong></li>
-<li>I highly recommend <a href="https://www.jetbrains.com/idea/">IDEA Community</a> since it has everything we need.</li>
+<li><strong><a href="https://www.java.com/en/download/faq/java8.xml">Java 8</a></strong></li>
+<li><strong><a href="https://gradle.org/">Gradle</a></strong></li>
+<li><strong><a href="https://junit.org/junit5/">Unit testing</a></strong></li>
+<li><a href="https://www.jetbrains.com/idea/">IDEA Community</a> (Strongly recommended, but not required)</li>
 </ul>
 </li>
 <li>A <strong><a href="https://github.com/">Github</a></strong> account</li>
 <li>A lot of patience and excitement ;D</li>
 </ul>
-<p>After making sure all these conditions are provided fork the <a href="https://github.com/TeamNewPipe/NewPipeExtractor">NewPipeExtractor</a>,
+<p>After making sure all these conditions are provided, fork the <a href="https://github.com/TeamNewPipe/NewPipeExtractor">NewPipeExtractor</a>
 using the <a href="https://github.com/TeamNewPipe/NewPipeExtractor#fork-destination-box">fork button</a>.
-This way you have your own working repository. Now clone this repository into your local folder in which you want to work in.
-Next import the cloned project into your <a href="https://www.jetbrains.com/help/idea/configuring-projects.html#importing-project">IDE</a>
-and <a href="https://www.jetbrains.com/help/idea/performing-tests.html">run</a> it.
-If all the checks are green you did everything right, and you are good to go to move on to the next chapter.</p>
+This is so you have a personal repository to develop on. Next, clone this repository into your local folder in which you want to work in.
+Then, import the cloned project into your <a href="https://www.jetbrains.com/help/idea/configuring-projects.html#importing-project">IDE</a>
+and <a href="https://www.jetbrains.com/help/idea/performing-tests.html">run it.</a>
+If all the checks are green, you did everything right! You can proceed to the next chapter.</p>
 <h3 id="importing-the-newpipe-extractor-in-intellij-idea">Importing the NewPipe Extractor in IntelliJ IDEA</h3>
-<p>If you use IntelliJ IDEA you might want to know how to import the NewPipe extractor painlessly. This is what you want to do.</p>
+<p>If you use IntelliJ IDEA, you should know the easy way of importing the NewPipe extractor. If you don't, here's how to do it:</p>
 <ol>
 <li><code>git clone</code> the extractor onto your computer locally.</li>
-<li>Start IntelliJ Idea, and click on <code>Import Project</code>.</li>
+<li>Start IntelliJ Idea and click <code>Import Project</code>.</li>
 <li>Select the root directory of the NewPipe Extractor</li>
-<li>Now it's important to select "<strong>Import Project form external Model</strong>" and then choose <strong>Gradle</strong>.
+<li>Select "<strong>Import Project from external Model</strong>" and then choose <strong>Gradle</strong>.
 <img alt="import from gradle image" src="../img/select_gradle.png" /></li>
-<li>In the next window make sure "<strong>Use grale 'wrapper' task configuration</strong>" is selected.
+<li>In the next window, select "<strong>Use gradle 'wrapper' task configuration</strong>".
 <img alt="use gradle 'wrapper' task configuration checkbox" src="../img/select_gradle_wrapper.png" /></li>
 </ol>
-<h3 id="running-test-in-android-studiointellij-idea">Running test in Android Studio/IntelliJ IDEA</h3>
-<p>Go to <em>run</em> &gt; <em>edit configurations</em> &gt; <em>add new configuration</em> and select "Gradle".
-As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you should be able to run.</p>
+<h3 id="running-test-in-android-studiointellij-idea">Running "test" in Android Studio/IntelliJ IDEA</h3>
+<p>Go to <em>Run</em> &gt; <em>Edit Configurations</em> &gt; <em>Add New Configuration</em> and select "Gradle".
+As Gradle Project, select NewPipeExtractor. As a task, add "test". Now save and you should be able to run.</p>
 <p><img alt="tests passed on idea" src="../img/prepare_tests_passed.png" /></p>
-<h1 id="inclusion-criteria-for-services">Inclusion criteria for services</h1>
-<p>After creating you own service you will need to submit it to our <a href="https://github.com/teamnewpipe/newpipeextractor">NewPipeExtractor</a>
- repository. However in order to include your changes you need to follow these rules:</p>
+<h1 id="inclusion-criteria-for-services">Inclusion Criteria for Services</h1>
+<p>After creating you own service, you will need to submit it to our <a href="https://github.com/teamnewpipe/newpipeextractor">NewPipeExtractor</a>
+ repository. However, in order to include your changes, you need to follow these rules:</p>
 <ol>
 <li>Stick to our <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution">Code contribution guidelines</a></li>
-<li>Do not send services that present content we <a href="#not-allowed-content">don't allow</a> on NewPipe.</li>
-<li>You need to be willing to keep on maintaining your service after submission.</li>
-<li>Be patient and do the requested changes when one of our maintainers rejects your code.</li>
+<li>Do not send services that present content we <a href="#content-that-is-not-permitted">don't allow</a> on NewPipe.</li>
+<li>You must be willing to maintain your service after submission.</li>
+<li>Be patient and make the requested changes when one of our maintainers rejects your code.</li>
 </ol>
-<h2 id="allowed-content">Allowed Content</h2>
+<h2 id="content-that-is-permitted">Content That is Permitted:</h2>
 <ul>
-<li>Basically anything except <a href="#not-allowed-content">NOT allowed content</a>.</li>
-<li>Any kind of porn/NSFW that is allowed according to the <a href="https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm">US Porn act</a>.</li>
-<li>Advertisement (may be handled specially though)</li>
+<li>Any content that is not in the <a href="#content-that-is-not-permitted">list of prohibited content</a>.</li>
+<li>Any kind of pornography or NSFW content that does not violate US law.</li>
+<li>Advertising, which may need to be approved beforehand.</li>
 </ul>
-<h2 id="not-allowed-content">NOT allowed Content</h2>
+<h2 id="content-that-is-not-permitted">Content That is NOT Permitted:</h2>
 <ul>
-<li>NSFL (Not Safe For Life)</li>
-<li>Porn that is not allowed according to <a href="https://www.justice.gov/archive/opa/pr/2003/April/03_ag_266.htm">US Porn act</a>.</li>
-<li>Any form of violence</li>
-<li>Child pornography</li>
-<li>Media that harms others</li>
-<li>Media that violates human rights</li>
-<li>Copyright infringement/pirated media</li>
+<li>Content that is considered NSFL (Not Safe For Life)</li>
+<li>Content that is prohibited by US federal law (Sexualization of minors, any form of violence, violations of human rights, etc).</li>
+<li>Copyrighted media, without the consent of the copyright holder/publisher.</li>
 </ul>
               
             </div>
@@ -234,7 +230,7 @@ As Gradle Project, select NewPipeExtractor. As task add "test". Now save and you
         <a href="../01_Concept_of_the_extractor/" class="btn btn-neutral float-right" title="Concept of the Extractor">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Welcome to the NewPipe Documentation."><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Welcome to NewPipe."><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
