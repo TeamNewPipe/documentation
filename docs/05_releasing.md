@@ -52,7 +52,7 @@ Be aware of the rule that a release should never be done on a Friday. For NewPip
 Below is a list of things you will want to do:
 
 1. Fork the __dev__ branch into a new __release_x.y.z__ branch.
-2. Increase the [version number](#versioning)
+2. Increase the [version number](#version-nomenclature)
 3. Merge [weblate](https://hosted.weblate.org/projects/newpipe/) changes from the `dev` branch at `https://hosted.weblate.org/git/newpipe/strings/`.
 4. Copy the [release notes](#release-notes) from the GitHub version draft into the corresponding fastlane file (see [release notes](#release-notes)).
 5. Open up a pull request form the new __release_x.y.z__ branch into the __master__ branch.
