@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Maintainers View - NewPipe Documentation</title>
+  <!-- local fonts -->
+  <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="../css/github.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Maintainers View";
+    var mkdocs_page_input_path = "maintainers_view_07.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> NewPipe Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Welcome to NewPipe.</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../00_Prepare_everything/">Before You Start</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06_documentation/">About This Documentation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Maintainers View</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#maintainers-view">Maintainers View</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#keep-it-streamlined">Keep it Streamlined</a></li>
+        
+            <li><a class="toctree-l3" href="#bugfixes">Bugfixes</a></li>
+        
+            <li><a class="toctree-l3" href="#features">Features</a></li>
+        
+            <li><a class="toctree-l3" href="#prs">PRs</a></li>
+        
+            <li><a class="toctree-l3" href="#comunity">Comunity</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">NewPipe Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Maintainers View</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="maintainers-view">Maintainers View</h1>
+<p>So I want to document some of the views i have when maintaining NewPipe.</p>
+<h3 id="keep-it-streamlined">Keep it Streamlined</h3>
+<p>NewPipe is a Player for online videos on a smart phone, by means it is used
+for entertainment reason. This means it does not have to be some professional
+application, and it does not have to be complicated to be used.
+However NewPipe might not focus on the casual user completely as there are
+many features that are a bit more "tecki" and may require some knowledge about
+technology, however all in all NewPipe should be easy to use, even for not teck
+guys.</p>
+<ol>
+<li>NewPipe does not have to be a air plane cockpit: <strong>Don't add to much special
+  features</strong>. If people want to do professionally things with Videos they
+  might use professional tools.</li>
+<li><strong>Design the UI so it does make sense to the user</strong>. Try to make it comply with
+  <a href="https://material.io/design/guidelines-overview/">material design guidelines</a>.</li>
+<li><strong>Don't add to much features</strong>: Think about the Betamax vs. VHS phenomena
+  or the unix principle of having one program designed for one specific task:
+  If you add to much functionality you add complexity and this is not appealing
+  to the user. Focus on what NewPipe should be, and make it be only that.</li>
+</ol>
+<h3 id="bugfixes">Bugfixes</h3>
+<p><a href="https://www.reddit.com/r/linuxmemes/comments/auacha/kde_devs_in_a_nutshell/"><img alt="kde_in_a_nutshell" src="../img/kde_in_a_nutshell.jpg" /></a></p>
+<p><em>Disclaimer: This is a meme maybe in real live it is different. Pleas no shit storm.</em></p>
+<p><strong>Always go for Bugfixes</strong>, as the best application with the bes features
+   does not help much if it is broken, or annoying to use. Now if a program
+   is in an early stage it is quite understandable that many things brake. This
+   is one reason why NewPipe still has no 1 in the beginning of its version
+   number.
+   However by now NewPipe is in a stage where there should be a strong focus on
+   stability.</p>
+<ol>
+<li>If there are multiple Pull requests open, check the ones with the bugfixes first.</li>
+<li>Do not add to much features every version, as every feature will inevitable
+    introduce more bugs. It is quite ok, if PRs stay open for a while (not to long though).</li>
+<li>If there are bugs that are stale, or open for a while bump them from time
+   to time, so devs know that there is still something left to fix.</li>
+<li>Never accept bugs. From my perception the community does not like to fix bugs, this is why you as a maintainer should
+   especially focus on perusing bugs. </li>
+</ol>
+<h3 id="features">Features</h3>
+<p>Well Features are also something that can cause headteachers. You should always see adding features critical and question
+weather that features does make sense, is useful and would actually be an advantage for the app. You should not blindly
+say yes to features even if they are small, however you should also not directly say no as well. Think about it, may
+be even for days before deciding weather you wan to accept a feature or not. If you are not sure, try it, look into the
+code, speak with the developer, and then make a decision and justify it. The criteria weather to add a feature or not
+should be:</p>
+<ul>
+<li>Is the features just requested by one or two people or was the feature requested by multiple people?</li>
+<li>Is the code of the feature written well?</li>
+<li>Is it a quick and hacky solution and could a proper solution be implemented later on?</li>
+<li>Does the amount of code justify the outcome?</li>
+</ul>
+<p>Maybe people will send a pull request that will add a frequently requested feature, but is implemented in a hacky way,
+than don't add it, as you might get into trouble with that solution later on. Either through proplems of extending the
+feature, by introducing to much bugs or simply by braking the architecture or the philosophy of NewPipe. If so don't add it.</p>
+<h3 id="prs">PRs</h3>
+<p>If a PR contains one or more features/bugs be curious. The more stuff a PR changes the longer it will take to be added.
+Also there might be things you are ok with, but then there are other parts that are not ok with and because of these you
+can't merge it. This is why you should insist to make the dev chop down the PR into multiple smaller PRs if its possible.</p>
+<h3 id="comunity">Comunity</h3>
+<p>When you talk to the community stay friendly and respectful, and make sure a friendly and respectful tone will stay.
+When you have a bad day just don't go to github (an advice from my experience ;D ).</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../06_documentation/" class="btn btn-neutral" title="About This Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../06_documentation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
