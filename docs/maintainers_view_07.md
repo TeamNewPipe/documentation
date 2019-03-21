@@ -24,7 +24,7 @@ guys.
 
 ### Bugfixes
 
-[![kde_in_a_nutshell](img/kde_in_a_nutshell.jpg)](https://www.reddit.com/r/linuxmemes/comments/auacha/kde_devs_in_a_nutshell/)
+![kde_in_a_nutshell](img/kde_in_a_nutshell.jpg)]
 
 *Disclaimer: This is a meme maybe in real live it is different. Pleas no shit storm.*
 
