@@ -18,7 +18,7 @@ guys.
 2. __Design the UI so it does make sense to the user__. Try to make it comply with
   [material design guidelines](https://material.io/design/guidelines-overview/).
 3. __Don't add to much features__: Think about the Betamax vs. VHS phenomena
-  or the unix principle of having one program designed for one specific task:
+  or the Unix principle of having one program designed for one specific task:
   If you add to much functionality you add complexity and this is not appealing
   to the user. Focus on what NewPipe should be, and make it be only that.
 
@@ -28,7 +28,7 @@ guys.
 
 *Disclaimer: This is a meme maybe in real live it is different. Pleas no shit storm.*
 
- __Always go for Bugfixes__, as the best application with the bes features
+ __Always go for Bugfixes__, as the best application with the best features
    does not help much if it is broken, or annoying to use. Now if a program
    is in an early stage it is quite understandable that many things brake. This
    is one reason why NewPipe still has no 1 in the beginning of its version
@@ -47,11 +47,11 @@ guys.
 
 ### Features
 
-Well Features are also something that can cause headteachers. You should always see adding features critical and question
-weather that features does make sense, is useful and would actually be an advantage for the app. You should not blindly
+Well features are also something that can cause a headache. You should always see adding features critical and question
+whether that features does make sense, is useful and would actually be an advantage for the app. You should not blindly
 say yes to features even if they are small, however you should also not directly say no as well. Think about it, may
-be even for days before deciding weather you wan to accept a feature or not. If you are not sure, try it, look into the
-code, speak with the developer, and then make a decision and justify it. The criteria weather to add a feature or not
+be even for days before deciding whether you want to accept a feature or not. If you are not sure, try it, look into the
+code, speak with the developer, and then make a decision and justify it. The criteria whether to add a feature or not
 should be:
 
 - Is the features just requested by one or two people or was the feature requested by multiple people?
@@ -60,19 +60,19 @@ should be:
 - Does the amount of code justify the outcome?
 
 Maybe people will send a pull request that will add a frequently requested feature, but is implemented in a hacky way,
-than don't add it, as you might get into trouble with that solution later on. Either through proplems of extending the
+than don't add it, as you might get into trouble with that solution later on. Either through problems of extending the
 feature, by introducing to much bugs or simply by braking the architecture or the philosophy of NewPipe. If so don't add it.
 
 ### PRs
 
 If a PR contains one or more features/bugs be curious. The more stuff a PR changes the longer it will take to be added.
 Also there might be things you are ok with, but then there are other parts that are not ok with and because of these you
-can't merge it. This is why you should insist to make the dev chop down the PR into multiple smaller PRs if its possible.
+can't merge it. This is why you should insist to make the dev chop down the PR into multiple smaller PRs if it's possible.
 
-### Comunity
+### Community
 
 When you talk to the community stay friendly and respectful, and make sure a friendly and respectful tone will stay.
-When you have a bad day just don't go to github (an advice from my experience ;D ).
+When you have a bad day just don't go to GitHub (an advice from my experience ;D ).
 
 
 
