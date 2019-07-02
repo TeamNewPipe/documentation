@@ -1,9 +1,8 @@
 # Before You Start
 
-These documents will guide you through the process of creating your own Extractor
-service of which will enable NewPipe to access additional streaming services, such as the currently supported YouTube and SoundCloud.
-The whole documentation consists of this page, which explains the general concept of the NewPipeExtractor, as well as our
-[Jdoc](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/) setup.
+These documents will guide you through the process of understanding or creating your own Extractor
+service of which will enable NewPipe to access additional streaming services, such as the currently supported YouTube, SoundCloud and MediaCCC.
+The whole documentation consists of this page and [Jdoc](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/) setup, which explains the general concept of the NewPipeExtractor.
 
 __IMPORTANT!!!__ This is likely to be the worst documentation you have ever read, so do not hesitate to
 [report](https://github.com/teamnewpipe/documentation/issues) if
