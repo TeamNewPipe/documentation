@@ -11,7 +11,7 @@ some features designed for more experienced users which may require some knowled
 code, however in essence NewPipe should be easy to use, even for your average Android user.
 
 1. __Don't add too many special
-  features.__ NewPipe does not have to be an air plane cockpit. Do not try to fill every single niche that might exist. If people want more advanced features, they
+  features.__ NewPipe does not have to be an air plane cockpit. Do not try to fill every single niche that might exist. If people wanted more advanced features, they
   would use professional tools. If you add too much functionality, you add complexity, and complexity scares away the average user. Focus on NewPipe's scope as a **media player** for the end user, and only as such. 
 2. __Usability of the user interface should be priorized.__. Try to make it comply with
   [material design guidelines](https://material.io/design/guidelines-overview/).
