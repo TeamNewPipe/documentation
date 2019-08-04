@@ -57,19 +57,20 @@ class MyExtractor extends FutureExtractor {
 
 Information can be represented as a list. In NewPipe, a list is represented by a
 [InfoItemsCollector](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html).
-A InfoItemCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
-For each item that should be extracted, a new Extractor must be created, and given to the InfoItemCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
+A InfoItemsCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
+For each item that should be extracted, a new Extractor must be created, and given to the InfoItemsCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
 
 ![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
 
-If you are implementing a list for your service you need to extend InfoItem containing the extracted information
-and implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html),
-that will return the data of one InfoItem.
+If you are implementing a list in your service you need to implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html),
+that will be able to retreve data for one and only one InfoItem. This extractor will then be _comitted_ to the __InfoItemsCollector__ that can collect the type of InfoItems you want to generate.
 
 A common implementation would look like this:
 ```
-private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
-    MyInfoItemCollector collector = new MyInfoItemCollector(getServiceId());
+private SomeInfoItemCollector collectInfoItemsFromElement(Element e) {
+    // See *Some* as something like Stream or Channel
+    // e.g. StreamInfoItemsCollector, and ChannelInfoItemsCollector are provided by NP
+    SomeInfoItemCollector collector = new SomeInfoItemCollector(getServiceId());
 
     for(final Element li : element.children()) {
         collector.commit(new InfoItemExtractor() {
@@ -90,20 +91,21 @@ private MyInfoItemCollector collectInfoItemsFromElement(Element e) {
 
 ```
 
-## InfoItems Encapsulated in Pages
+## ListExtractor
 
-When a streaming site shows a list of items, it usually offers some additional information about that list like its title, a thumbnail,
+There is more to know about lists:
+
+1. When a streaming site shows a list of items, it usually offers some additional information about that list like its title, a thumbnail,
 and its creator. Such info can be called __list header__.
 
-When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down. 
+2. When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down.
 
-This is why a list in NewPipe lists are chopped down into smaller lists called [InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html)s. Each page has its own URL, and needs to be extracted separately.
+Both of these Problems are fixed by the [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html) which takes care about extracting additional metadata about the liast,
+and by chopping down lists into several pages, so called [InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html)s.
+Each page has its own URL, and needs to be extracted separately.
 
-Additional metadata about the list and extracting multiple pages can be handled by a
-[ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html),
-and its [ListExtractor.InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html).
 
-For extracting list header information it behaves like a regular extractor. For handling `InfoItemsPages` it adds methods
+For extracting list header information a `ListExtractor` behaves like a regular extractor. For handling `InfoItemsPages` it adds methods
 such as:
 
  - [getInitialPage()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html#getInitialPage--)
@@ -117,5 +119,46 @@ such as:
 The reason why the first page is handled special is because many Websites such as YouTube will load the first page of
 items like a regular web page, but all the others as an AJAX request.
 
+An InfoItemsPage itself has two constructors which take these parameters:
+- The __InfoitemsCollector__ of the list that the page should represent
+- A __nextPageUrl__ which represents the url of the following page (may be null if not page follows).
+- Optionally __errors__ which is a list of Exceptions that may have happened during extracton.
 
+Here is a simplified reference implementation of a list extractor that only extracts pages, but not metadata:
 
+```
+class MyListExtractor extends ListExtractor {
+    ...
+    private Document document;
+
+    ...
+
+    public InfoItemsPage<SomeInfoItem> getPage(pageUrl)
+        throws ExtractionException {
+        SomeInfoItemCollector collector = new SomeInfoItemCollector(getServiceId());
+        document = myFunctionToGetThePageHTMLWhatever(pageUrl);
+
+        //remember this part from the simple list extraction
+        for(final Element li : document.children()) {
+            collector.commit(new InfoItemExtractor() {
+                @Override
+                public String getName() throws ParsingException {
+                    ...
+                }
+
+                @Override
+                public String getUrl() throws ParsingException {
+                    ...
+                }
+                ...
+        }
+        return new InfoItemsPage<SomeInfoItem>(collector, myFunctionToGetTheNextPageUrl(document));
+    }
+
+    public InfoItemsPage<SomeInfoItem> getInitialPage() {
+        //document here got initialzied by the fetch() function.
+        return getPage(getTheCurrentPageUrl(document));
+    }
+    ... 
+}
+```
