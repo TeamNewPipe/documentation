@@ -7,7 +7,7 @@ These are some basic principles that I want maintainers to follow when maintaini
 NewPipe is a media player for smartphones on the Android platform, thus it is intended to be used for entertainment. This means it does not have to be some professional
 application, and it does not have to be complicated to be used.
 However NewPipe might not focus on the casual user completely as there are
-many features that are a bit more "techy" and may require some knowledge about
+some features designed for more experienced users which may require some knowledge about
 code, however in essence NewPipe should be easy to use, even for your average Android user.
 
 1. __Don't add too many special
