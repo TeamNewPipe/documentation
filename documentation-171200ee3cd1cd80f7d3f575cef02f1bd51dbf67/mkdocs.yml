@@ -1,4 +1,0 @@
-site_name: NewPipe Documentation
-theme:
-    name: readthedocs
-    custom_dir: theme
