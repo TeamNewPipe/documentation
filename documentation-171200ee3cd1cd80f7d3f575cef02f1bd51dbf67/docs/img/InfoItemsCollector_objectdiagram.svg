@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="22cm" height="8cm" viewBox="199 199 435 159" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="200" y="260" width="141.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="260" width="141.3" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="270.65" y="281.9">
+      <tspan x="270.65" y="281.9">:InfoItemsCollector</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="210" y1="284.9" x2="331.3" y2="284.9"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="400" y="200" width="232.65" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="400" y="200" width="232.65" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.325" y="221.9">
+      <tspan x="516.325" y="221.9">itemExtractor1:InfoItemExtractor</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="410" y1="224.9" x2="622.65" y2="224.9"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="400" y="260" width="232.65" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="400" y="260" width="232.65" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.325" y="281.9">
+      <tspan x="516.325" y="281.9">itemExtractor2:InfoItemExtractor</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="410" y1="284.9" x2="622.65" y2="284.9"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="400" y="320" width="232.65" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="400" y="320" width="232.65" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.325" y="341.9">
+      <tspan x="516.325" y="341.9">itemExtractor3:InfoItemExtractor</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="410" y1="344.9" x2="622.65" y2="344.9"/>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="342.309,278 370.651,278 370.651,218 398.993,218 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="342.309,278 343.309,278 397.993,278 398.993,278 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="342.309,278 370.651,278 370.651,338 398.993,338 "/>
+</svg>
