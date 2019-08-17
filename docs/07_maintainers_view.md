@@ -8,7 +8,7 @@ NewPipe is a media player for devices on the Android platform, thus it is intend
 application, and it does not have to be complicated to be used.
 However NewPipe might not focus on the casual user completely as there are
 some features designed for more experienced users which may require some knowledge about
-code, however in essence NewPipe should be easy to use, even for your average Android user.
+code, however in essence NewPipe should be easy to use, even for an average Android user.
 
 1. __Don't add too many special
   features.__ NewPipe does not have to be an airplane cockpit. Do not try to fill every single niche that might exist. If people wanted more advanced features, they
