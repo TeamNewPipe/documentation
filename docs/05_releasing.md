@@ -158,7 +158,7 @@ Release notes should tell what was changed in the new version of the app. The re
 
 Changes can be categorized into three types:
 
-- __New__: New features that god added to the app.
+- __New__: New features that got added to the app.
 - __Improved__: Improvements to the app or existing features
 - __Fixes__: Bugfixes
 
