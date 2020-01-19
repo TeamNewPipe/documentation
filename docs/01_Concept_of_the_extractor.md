@@ -63,7 +63,7 @@ For each item that should be extracted, a new Extractor must be created, and giv
 ![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
 
 If you are implementing a list in your service you need to implement an [InfoItemExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html),
-that will be able to retreve data for one and only one InfoItem. This extractor will then be _comitted_ to the __InfoItemsCollector__ that can collect the type of InfoItems you want to generate.
+that will be able to retrieve data for one and only one InfoItem. This extractor will then be _comitted_ to the __InfoItemsCollector__ that can collect the type of InfoItems you want to generate.
 
 A common implementation would look like this:
 ```
@@ -100,7 +100,7 @@ and its creator. Such info can be called __list header__.
 
 2. When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down.
 
-Both of these Problems are fixed by the [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html) which takes care about extracting additional metadata about the liast,
+Both of these Problems are fixed by the [ListExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html) which takes care about extracting additional metadata about the list,
 and by chopping down lists into several pages, so called [InfoItemsPage](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html)s.
 Each page has its own URL, and needs to be extracted separately.
 
