@@ -200,7 +200,7 @@ A InfoItemsCollector will collect and assemble a list of <a href="https://teamne
 For each item that should be extracted, a new Extractor must be created, and given to the InfoItemsCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-">commit()</a>.</p>
 <p><img alt="InfoItemsCollector_objectdiagram.svg" src="../img/InfoItemsCollector_objectdiagram.svg" /></p>
 <p>If you are implementing a list in your service you need to implement an <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">InfoItemExtractor</a>,
-that will be able to retreve data for one and only one InfoItem. This extractor will then be <em>comitted</em> to the <strong>InfoItemsCollector</strong> that can collect the type of InfoItems you want to generate.</p>
+that will be able to retrieve data for one and only one InfoItem. This extractor will then be <em>comitted</em> to the <strong>InfoItemsCollector</strong> that can collect the type of InfoItems you want to generate.</p>
 <p>A common implementation would look like this:</p>
 <pre><code>private SomeInfoItemCollector collectInfoItemsFromElement(Element e) {
     // See *Some* as something like Stream or Channel
@@ -237,7 +237,7 @@ and its creator. Such info can be called <strong>list header</strong>.</p>
 <p>When a website shows a long list of items it usually does not load the whole list, but only a part of it. In order to get more items you may have to click on a next page button, or scroll down.</p>
 </li>
 </ol>
-<p>Both of these Problems are fixed by the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a> which takes care about extracting additional metadata about the liast,
+<p>Both of these Problems are fixed by the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.html">ListExtractor</a> which takes care about extracting additional metadata about the list,
 and by chopping down lists into several pages, so called <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/ListExtractor.InfoItemsPage.html">InfoItemsPage</a>s.
 Each page has its own URL, and needs to be extracted separately.</p>
 <p>For extracting list header information a <code>ListExtractor</code> behaves like a regular extractor. For handling <code>InfoItemsPages</code> it adds methods
