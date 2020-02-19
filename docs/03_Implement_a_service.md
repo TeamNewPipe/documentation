@@ -30,7 +30,7 @@ The NewPipe Extractor already includes a lot of usable tools and external librar
 For some specific (tiny) tasks, Regex is allowed. Here you can take a look at the
 [Parser](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/utils/Parser.html),
 which will give you a little help with that. __Use Regex with care!!!__ Avoid it as often as possible. It's better to
-ask us to introduce a new library than start using Regex to often.
+ask us to introduce a new library than start using Regex too often.
 
 - Html/XML Parsing: [jsoup](https://jsoup.org/apidocs/overview-summary.html)
 - JSON Parsing: [nanojson](https://github.com/mmastrac/nanojson#parser-example)

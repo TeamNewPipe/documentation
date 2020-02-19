@@ -45,7 +45,7 @@ class MyExtractor extends FutureExtractor {
 
     @Override
     public String someDataFiled() 
-        throws ExtractionException {    //The exception needs to be thrown if someting failed
+        throws ExtractionException {    //The exception needs to be thrown if something failed
         // get piece of information and return it
     }
 
@@ -55,9 +55,9 @@ class MyExtractor extends FutureExtractor {
 
 ## Collector/Extractor Pattern for Lists
 
-Information can be represented as a list. In NewPipe, a list is represented by a
+Information can be represented as a list. In NewPipe, a list is represented by an
 [InfoItemsCollector](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html).
-A InfoItemsCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
+An InfoItemsCollector will collect and assemble a list of [InfoItem](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html).
 For each item that should be extracted, a new Extractor must be created, and given to the InfoItemsCollector via [commit()](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-).
 
 ![InfoItemsCollector_objectdiagram.svg](img/InfoItemsCollector_objectdiagram.svg)
@@ -156,7 +156,7 @@ class MyListExtractor extends ListExtractor {
     }
 
     public InfoItemsPage<SomeInfoItem> getInitialPage() {
-        //document here got initialzied by the fetch() function.
+        //document here got initialized by the fetch() function.
         return getPage(getTheCurrentPageUrl(document));
     }
     ... 

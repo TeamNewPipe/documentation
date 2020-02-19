@@ -11,7 +11,7 @@ one unique ID that represents it, like this example:
 - [https://youtu.be/oHg5SJYRHA0](https://youtu.be/oHg5SJYRHA0) (the shortened link)
 - [https://m.youtube.com/watch?v=oHg5SJYRHA0](https://m.youtube.com/watch?v=oHg5SJYRHA0) (the link for mobile devices)
 
-### Importand notes about LinkHandler: 
+### Important notes about LinkHandler
 - A simple `LinkHandler` will contain the default URL, the ID, and the original URL.
 - `LinkHandler`s are read only.
 - `LinkHandler`s are also used to determine which part of the extractor can handle a certain link.
@@ -46,7 +46,7 @@ class MyStreamLinkHandlerFactory extends LinkHandlerFactory {
 
     @Override
     public boolean onAcceptUrl(String url) throws ParsingException {
-        // Return true if this LinkHanlderFactory can handle this type of link
+        // Return true if this LinkHandlerFactory can handle this type of link.
     }
 }
 ```
@@ -75,14 +75,6 @@ Through these you can tell the front end which kind of filter your service suppo
 
 You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
 same search request might have a different outcome depending on the country or the time you send the request. This is
-why the idea of an "ID" is replaced by a "SearchString" in the [SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html)
+why the idea of an "ID" is replaced by a "SearchString" in the [SearchQueryHandler](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html).
 These work like regular ListLinkHandler, except that you don't have to implement the methods `onAcceptUrl()`
 and `getId()` when overriding [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html).
-
-
-
-
-
-
-
-

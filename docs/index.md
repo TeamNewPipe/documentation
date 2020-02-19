@@ -1,10 +1,10 @@
-# Welcome to NewPipe.
+# Welcome to NewPipe
 
 <img width=150 src="https://raw.githubusercontent.com/TeamNewPipe/NewPipe/dev/assets/new_pipe_icon_5.png"/>
 
 
 This site is/should be a beginner friendly tutorial and documentation for people who want to use or write services for the [NewPipe Extractor](https://github.com/TeamNewPipe/NewPipeExtractor). However, it also contains several notes about how to maintain NewPipe.
-It is an addition to our auto generated [jdoc documentation](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/).
+It is an addition to our auto generated [Jdoc documentation](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/).
 
 Please be aware that it is in its early stages, so help and [feedback](https://github.com/TeamNewPipe/documentation/issues) is always appreciated :D
 

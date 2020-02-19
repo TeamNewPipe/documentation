@@ -35,7 +35,7 @@ on the fronted at any time.
 
 ### Merging Features/Bugfixes
 
-After finishing a feature, one should open up a __Pull Reuqest__ to the dev branch. From here, a maintainer can do __Code review__ and __Quality Assurance (QA)__.
+After finishing a feature, one should open up a __Pull Request__ to the dev branch. From here, a maintainer can do __Code review__ and __Quality Assurance (QA)__.
 If you are a maintainer, please take care about the code architecture so __corrosion__ or __code shifting__ can be prevented. Please also prioritize code quality over functionality.
 In short: cool function but bad code = no merge. Focus on leaving the code as clean as possible.
 
@@ -53,7 +53,7 @@ Below is a list of things you will want to do:
 
 1. Fork the __dev__ branch into a new __release_x.y.z__ branch.
 2. Increase the [version number](#version-nomenclature)
-3. Merge [weblate](https://hosted.weblate.org/projects/newpipe/) changes from the `dev` branch at `https://hosted.weblate.org/git/newpipe/strings/`.
+3. Merge [Weblate](https://hosted.weblate.org/projects/newpipe/) changes from the `dev` branch at `https://hosted.weblate.org/git/newpipe/strings/`.
 4. Copy the [release notes](#release-notes) from the GitHub version draft into the corresponding fastlane file (see [release notes](#release-notes)).
 5. Open up a pull request form the new __release_x.y.z__ branch into the __master__ branch.
 6. Create an issue pointing to the new pull request. The reason for opening an issue is that from my perception, people read issues more than pull requests. Put the release-note into this pull request.
