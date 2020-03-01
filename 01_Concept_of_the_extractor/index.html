@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to NewPipe.</a>
+    <a class="" href="..">Welcome to NewPipe</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -185,7 +185,7 @@ try {
 
     @Override
     public String someDataFiled() 
-        throws ExtractionException {    //The exception needs to be thrown if someting failed
+        throws ExtractionException {    //The exception needs to be thrown if something failed
         // get piece of information and return it
     }
 
@@ -194,9 +194,9 @@ try {
 </code></pre>
 
 <h2 id="collectorextractor-pattern-for-lists">Collector/Extractor Pattern for Lists</h2>
-<p>Information can be represented as a list. In NewPipe, a list is represented by a
+<p>Information can be represented as a list. In NewPipe, a list is represented by an
 <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html">InfoItemsCollector</a>.
-A InfoItemsCollector will collect and assemble a list of <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html">InfoItem</a>.
+An InfoItemsCollector will collect and assemble a list of <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItem.html">InfoItem</a>.
 For each item that should be extracted, a new Extractor must be created, and given to the InfoItemsCollector via <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/InfoItemsCollector.html#commit-E-">commit()</a>.</p>
 <p><img alt="InfoItemsCollector_objectdiagram.svg" src="../img/InfoItemsCollector_objectdiagram.svg" /></p>
 <p>If you are implementing a list in your service you need to implement an <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/Extractor.html">InfoItemExtractor</a>,
@@ -286,7 +286,7 @@ items like a regular web page, but all the others as an AJAX request.</p>
     }
 
     public InfoItemsPage&lt;SomeInfoItem&gt; getInitialPage() {
-        //document here got initialzied by the fetch() function.
+        //document here got initialized by the fetch() function.
         return getPage(getTheCurrentPageUrl(document));
     }
     ... 

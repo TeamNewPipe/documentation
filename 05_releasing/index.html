@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to NewPipe.</a>
+    <a class="" href="..">Welcome to NewPipe</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -174,7 +174,7 @@ If a change is done on the API to the extractor, make sure that frontend is comp
 again can not be merged, please do not merge the corresponding PR on the extractor either. This should make sure that any developer can run his changes
 on the fronted at any time.</p>
 <h3 id="merging-featuresbugfixes">Merging Features/Bugfixes</h3>
-<p>After finishing a feature, one should open up a <strong>Pull Reuqest</strong> to the dev branch. From here, a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
+<p>After finishing a feature, one should open up a <strong>Pull Request</strong> to the dev branch. From here, a maintainer can do <strong>Code review</strong> and <strong>Quality Assurance (QA)</strong>.
 If you are a maintainer, please take care about the code architecture so <strong>corrosion</strong> or <strong>code shifting</strong> can be prevented. Please also prioritize code quality over functionality.
 In short: cool function but bad code = no merge. Focus on leaving the code as clean as possible.</p>
 <p><img alt="merge_feature_into_dev" src="../img/merge_into_dev.svg" /></p>
@@ -187,7 +187,7 @@ Below is a list of things you will want to do:</p>
 <ol>
 <li>Fork the <strong>dev</strong> branch into a new <strong>release_x.y.z</strong> branch.</li>
 <li>Increase the <a href="#version-nomenclature">version number</a></li>
-<li>Merge <a href="https://hosted.weblate.org/projects/newpipe/">weblate</a> changes from the <code>dev</code> branch at <code>https://hosted.weblate.org/git/newpipe/strings/</code>.</li>
+<li>Merge <a href="https://hosted.weblate.org/projects/newpipe/">Weblate</a> changes from the <code>dev</code> branch at <code>https://hosted.weblate.org/git/newpipe/strings/</code>.</li>
 <li>Copy the <a href="#release-notes">release notes</a> from the GitHub version draft into the corresponding fastlane file (see <a href="#release-notes">release notes</a>).</li>
 <li>Open up a pull request form the new <strong>release_x.y.z</strong> branch into the <strong>master</strong> branch.</li>
 <li>Create an issue pointing to the new pull request. The reason for opening an issue is that from my perception, people read issues more than pull requests. Put the release-note into this pull request.</li>

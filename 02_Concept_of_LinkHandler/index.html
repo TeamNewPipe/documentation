@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to NewPipe.</a>
+    <a class="" href="..">Welcome to NewPipe</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -76,7 +76,7 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#importand-notes-about-linkhandler">Importand notes about LinkHandler:</a></li>
+            <li><a class="toctree-l3" href="#important-notes-about-linkhandler">Important notes about LinkHandler</a></li>
         
             <li><a class="toctree-l3" href="#usage">Usage</a></li>
         
@@ -158,7 +158,7 @@ one unique ID that represents it, like this example:</p>
 <li><a href="https://youtu.be/oHg5SJYRHA0">https://youtu.be/oHg5SJYRHA0</a> (the shortened link)</li>
 <li><a href="https://m.youtube.com/watch?v=oHg5SJYRHA0">https://m.youtube.com/watch?v=oHg5SJYRHA0</a> (the link for mobile devices)</li>
 </ul>
-<h3 id="importand-notes-about-linkhandler">Importand notes about LinkHandler:</h3>
+<h3 id="important-notes-about-linkhandler">Important notes about LinkHandler</h3>
 <ul>
 <li>A simple <code>LinkHandler</code> will contain the default URL, the ID, and the original URL.</li>
 <li><code>LinkHandler</code>s are read only.</li>
@@ -189,7 +189,7 @@ LinkHandler myVideo = myLinkHandlerFactory.fromUrl(&quot;https://my.service.com/
 
     @Override
     public boolean onAcceptUrl(String url) throws ParsingException {
-        // Return true if this LinkHanlderFactory can handle this type of link
+        // Return true if this LinkHandlerFactory can handle this type of link.
     }
 }
 </code></pre>
@@ -212,7 +212,7 @@ Through these you can tell the front end which kind of filter your service suppo
 <h4 id="searchqueryhandler">SearchQueryHandler</h4>
 <p>You cannot point to a search request with an ID like you point to a playlist or a channel, simply because one and the
 same search request might have a different outcome depending on the country or the time you send the request. This is
-why the idea of an "ID" is replaced by a "SearchString" in the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html">SearchQueryHandler</a>
+why the idea of an "ID" is replaced by a "SearchString" in the <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandler.html">SearchQueryHandler</a>.
 These work like regular ListLinkHandler, except that you don't have to implement the methods <code>onAcceptUrl()</code>
 and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html">SearchQueryHandlerFactory</a>.</p>
               

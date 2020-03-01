@@ -54,7 +54,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">Welcome to NewPipe.</a>
+    <a class="" href="..">Welcome to NewPipe</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -164,13 +164,13 @@ you might experience some trouble running your compiled app on a real device, es
 sometimes have to adjust the udev rules in order to
 <a href="https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device accessible</a>.</p>
 <h3 id="run-your-changes-on-the-extractor">Run Your Changes on the Extractor</h3>
-<p>In order to use the extractor in our app, we use <a href="https://jitpack.io">jitpack</a>. This is a build service that can build
+<p>In order to use the extractor in our app, we use <a href="https://jitpack.io">JitPack</a>. This is a build service that can build
 maven *.jar packages for Android and Java based on GitHub or GitLab repositories. </p>
-<p>To use the extractor through jitpack, you need to push it to your online repository of
+<p>To use the extractor through JitPack, you need to push it to your online repository of
 your copy that you host either on <a href="https://github.com">GitHub</a> or <a href="https://gitlab.com">GitLab</a>. It's important to host
-it on one of both. To copy your repository URL in HTTP format, go to <a href="https://jitpack.io/">jitpack</a> and paste it there.
+it on one of both. To copy your repository URL in HTTP format, go to <a href="https://jitpack.io/">JitPack</a> and paste it there.
 From here, you can grab the latest commit via <code>GET IT</code> button.
-I recomend not to use a SNAPSHOT, since I am not sure when snapshot is built. An "implementation" string will be generated
+I recommend not to use a SNAPSHOT, since I am not sure when snapshot is built. An "implementation" string will be generated
 for you. Copy this string and replace the <code>implementation 'com.github.TeamNewPipe:NewPipeExtractor:&lt;commit&gt;'</code> line in
 the file <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58">/app/build.gradle</a> with it.</p>
 <video width="600" controls>
@@ -182,7 +182,7 @@ Your browser does not support the video tag.
 with the new extractor.</p>
 <p><img alt="image_sync_ok" src="../img/sync_ok.png" /></p>
 <h3 id="troubleshooting">Troubleshooting</h3>
-<p>If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
+<p>If something went wrong on JitPack site, you can check their build log, by selecting the commit you tried to build and
 click on that little paper symbol next to the <code>GET IT</code> button. If it's red, it means that the build failed.
 <img alt="jitpack failed to build" src="../img/jitpack_fail.png" /></p>
               
