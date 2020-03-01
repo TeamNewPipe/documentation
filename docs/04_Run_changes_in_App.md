@@ -22,14 +22,14 @@ sometimes have to adjust the udev rules in order to
 
 ### Run Your Changes on the Extractor
 
-In order to use the extractor in our app, we use [jitpack](https://jitpack.io). This is a build service that can build
+In order to use the extractor in our app, we use [JitPack](https://jitpack.io). This is a build service that can build
 maven *.jar packages for Android and Java based on GitHub or GitLab repositories. 
 
-To use the extractor through jitpack, you need to push it to your online repository of
+To use the extractor through JitPack, you need to push it to your online repository of
 your copy that you host either on [GitHub](https://github.com) or [GitLab](https://gitlab.com). It's important to host
-it on one of both. To copy your repository URL in HTTP format, go to [jitpack](https://jitpack.io/) and paste it there.
+it on one of both. To copy your repository URL in HTTP format, go to [JitPack](https://jitpack.io/) and paste it there.
 From here, you can grab the latest commit via `GET IT` button.
-I recomend not to use a SNAPSHOT, since I am not sure when snapshot is built. An "implementation" string will be generated
+I recommend not to use a SNAPSHOT, since I am not sure when snapshot is built. An "implementation" string will be generated
 for you. Copy this string and replace the `implementation 'com.github.TeamNewPipe:NewPipeExtractor:<commit>'` line in
 the file [/app/build.gradle](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle#L58) with it.
 
@@ -45,6 +45,6 @@ with the new extractor.
 
 ### Troubleshooting
 
-If something went wrong on jitpack site, you can check their build log, by selecting the commit you tried to build and
+If something went wrong on JitPack site, you can check their build log, by selecting the commit you tried to build and
 click on that little paper symbol next to the `GET IT` button. If it's red, it means that the build failed.
 ![jitpack failed to build](img/jitpack_fail.png)

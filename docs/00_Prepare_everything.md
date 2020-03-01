@@ -15,7 +15,7 @@ First and foremost, you need to meet the following conditions in order to write 
 
 ### What You Need to Know:
 
-- A basic understanding of __[git](https://try.github.io)__
+- A basic understanding of __[Git](https://try.github.io)__
 - Good __[Java](https://whatpixel.com/best-java-books/)__ knowledge
 - A good understanding of __[web technology](https://www.w3schools.com/)__
 - A basic understanding of __[unit testing](https://www.vogella.com/tutorials/JUnit/article.html)__ and __[JUnit](https://junit.org/)__
@@ -23,8 +23,8 @@ First and foremost, you need to meet the following conditions in order to write 
 
 ### Tools/Programs You Will Need:
 
-- A dev environment/ide that supports:
-    - __[git](https://git-scm.com/downloads/guis)__
+- A dev environment/IDE that supports:
+    - __[Git](https://git-scm.com/downloads/guis)__
     - __[Java 8](https://www.java.com/en/download/faq/java8.xml)__
     - __[Gradle](https://gradle.org/)__
     - __[Unit testing](https://junit.org/junit5/)__
@@ -44,7 +44,7 @@ If you use IntelliJ IDEA, you should know the easy way of importing the NewPipe 
 
 1. `git clone` the extractor onto your computer locally.
 2. Start IntelliJ Idea and click `Import Project`.
-3. Select the root directory of the NewPipe Extractor
+3. Select the root directory of the NewPipe Extractor.
 4. Select "__Import Project from external Model__" and then choose __Gradle__.
 ![import from gradle image](img/select_gradle.png)
 5. In the next window, select "__Use gradle 'wrapper' task configuration__".
@@ -62,20 +62,19 @@ As Gradle Project, select NewPipeExtractor. As a task, add "test". Now save and 
 After creating you own service, you will need to submit it to our [NewPipeExtractor](https://github.com/teamnewpipe/newpipeextractor)
  repository. However, in order to include your changes, you need to follow these rules:
 
-1. Stick to our [Code contribution guidelines](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution)
+1. Stick to our [code contribution guidelines](https://github.com/TeamNewPipe/NewPipe/blob/dev/.github/CONTRIBUTING.md#code-contribution).
 2. Do not send services that present content we [don't allow](#content-that-is-not-permitted) on NewPipe.
 3. You must be willing to maintain your service after submission.
 4. Be patient and make the requested changes when one of our maintainers rejects your code.
 
-## Content That is Permitted:
+## Content That is Permitted
 
 - Any content that is not in the [list of prohibited content](#content-that-is-not-permitted).
 - Any kind of pornography or NSFW content that does not violate US law.
 - Advertising, which may need to be approved beforehand.
 
-## Content That is NOT Permitted:
+## Content That is NOT Permitted
 
-- Content that is considered NSFL (Not Safe For Life)
+- Content that is considered NSFL (Not Safe For Life).
 - Content that is prohibited by US federal law (Sexualization of minors, any form of violence, violations of human rights, etc).
 - Copyrighted media, without the consent of the copyright holder/publisher.
-
