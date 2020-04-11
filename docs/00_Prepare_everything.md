@@ -70,7 +70,7 @@ After creating you own service, you will need to submit it to our [NewPipeExtrac
 ## Content That is Permitted
 
 - Any content that is not in the [list of prohibited content](#content-that-is-not-permitted).
-- Any kind of pornography or NSFW content that does not violate US law.
+- Any kind of pornography or NSFW content that does not violate US law. However, porn services will not be added to the official NewPipe app.
 - Advertising, which may need to be approved beforehand.
 
 ## Content That is NOT Permitted
