@@ -22,7 +22,24 @@ sometimes have to adjust the udev rules in order to
 
 ### Run Your Changes on the Extractor
 
-In order to use the extractor in our app, we use [JitPack](https://jitpack.io). This is a build service that can build
+There are several ways to test your extractor version in NewPipe. We will show you the most convenient ones:
+
+#### Using local folder
+
+In NewPipe app root folder, edit [settings.gradle](https://github.com/TeamNewPipe/NewPipe/blob/dev/settings.gradle) file and add this:
+```
+includeBuild('../NewPipeExtractor') {
+    dependencySubstitution {
+        substitute module('com.github.TeamNewPipe:NewPipeExtractor') with project(':extractor')
+    }
+}
+```
+`includeBuild` should be the relative path. `../NewPipeExtractor` means one folder back in hierarchy,
+and the folder is name exactly `NewPipeExtractor`. If it's not the case, edit this part.
+
+#### Using JitPack
+
+Another way is to use [JitPack](https://jitpack.io). This is a build service that can build
 maven *.jar packages for Android and Java based on GitHub or GitLab repositories. 
 
 To use the extractor through JitPack, you need to push it to your online repository of
