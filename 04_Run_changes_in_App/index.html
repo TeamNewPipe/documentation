@@ -164,7 +164,20 @@ you might experience some trouble running your compiled app on a real device, es
 sometimes have to adjust the udev rules in order to
 <a href="https://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">make your device accessible</a>.</p>
 <h3 id="run-your-changes-on-the-extractor">Run Your Changes on the Extractor</h3>
-<p>In order to use the extractor in our app, we use <a href="https://jitpack.io">JitPack</a>. This is a build service that can build
+<p>There are several ways to test your extractor version in NewPipe. We will show you the most convenient ones:</p>
+<h4 id="using-local-folder">Using local folder</h4>
+<p>In NewPipe app root folder, edit <a href="https://github.com/TeamNewPipe/NewPipe/blob/dev/settings.gradle">settings.gradle</a> file and add this:</p>
+<pre><code>includeBuild('../NewPipeExtractor') {
+    dependencySubstitution {
+        substitute module('com.github.TeamNewPipe:NewPipeExtractor') with project(':extractor')
+    }
+}
+</code></pre>
+
+<p><code>includeBuild</code> should have the relative path as argument. <code>../NewPipeExtractor</code> means one folder up in hierarchy,
+and the folder is exactly named <code>NewPipeExtractor</code>. If that's not the case, edit this part.</p>
+<h4 id="using-jitpack">Using JitPack</h4>
+<p>Another way is to use <a href="https://jitpack.io">JitPack</a>. This is a build service that can build
 maven *.jar packages for Android and Java based on GitHub or GitLab repositories. </p>
 <p>To use the extractor through JitPack, you need to push it to your online repository of
 your copy that you host either on <a href="https://github.com">GitHub</a> or <a href="https://gitlab.com">GitLab</a>. It's important to host
