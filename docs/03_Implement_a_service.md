@@ -91,7 +91,7 @@ __Parts Required to be Implemented:__
 
 - [SearchExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/search/SearchExtractor.html)
 - [SearchQueryHandlerFactory](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/linkhandler/SearchQueryHandlerFactory.html)
-- [SuggestionExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/SuggestionExtractor.html) _(optional)_
+- [SuggestionExtractor](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/org/schabi/newpipe/extractor/suggestion/SuggestionExtractor.html) _(optional)_
 
 ### Playlist
 Playlists are lists of streams provided by the service (you might not have to be concerned over locally saved playlists, those will be handled by the frontend).
