@@ -34,7 +34,7 @@ includeBuild('../NewPipeExtractor') {
     }
 }
 ```
-`includeBuild` should have the relative path as argument. `../NewPipeExtractor` means one folder back in hierarchy,
+`includeBuild` should have the relative path as argument. `../NewPipeExtractor` means one folder up in hierarchy,
 and the folder is exactly named `NewPipeExtractor`. If that's not the case, edit this part.
 
 #### Using JitPack
