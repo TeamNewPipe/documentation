@@ -89,9 +89,13 @@ this is what you should do when releasing:
 3. Merge __dev__ into master on the extractor.
 4. Create a GPG signed tag with the name `v0.x.y` on the extractor.
 5. Make sure the draft name equals the tag name. ![draft_name](img/draft_name.png)
- 6. Make sure to not have forgotten anything.
+6. Make sure to not have forgotten anything.
 7. Click "Publish Release".
-8. Rebase quickfix changes back into __dev__ if quickfixes were made.
+8. Clone [F-Droid / Data](https://gitlab.com/fdroid/fdroiddata).
+9. Add the new version in `metadata/org.schabi.newpipe.yml`.
+10. Run `fdroid signatures /path/to/newpipe.apk`.
+11. Create a MR.
+12. Rebase quickfix changes back into __dev__ if quickfixes were made.
 
 ![rebase_back](img/rebase_back_release.svg)
 
@@ -130,7 +134,11 @@ Here's what you do when releasing a hotfix:
 6. Copy the [release note](#release-notes) into the fastlane directory of releases.
 7. Increment the __small minor__ version number and the `versionCode`.
 8. Click "Publish Release".
-9. Rebase the hotfix back into __dev__ branch.
+9. Clone [F-Droid / Data](https://gitlab.com/fdroid/fdroiddata).
+10. Add the new version in `metadata/org.schabi.newpipe.yml`.
+11. Run `fdroid signatures /path/to/newpipe.apk`.
+12. Create a MR.
+13. Rebase the hotfix back into __dev__ branch.
 
 ![rebase_back_hotfix](img/rebase_back_hotfix.svg)
 
