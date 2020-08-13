@@ -96,6 +96,7 @@ this is what you should do when releasing:
 10. Run `fdroid signatures /path/to/newpipe.apk`.
 11. Create a MR.
 12. Rebase quickfix changes back into __dev__ if quickfixes were made.
+13. Temporarily: [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
 
 ![rebase_back](img/rebase_back_release.svg)
 
@@ -139,6 +140,7 @@ Here's what you do when releasing a hotfix:
 11. Run `fdroid signatures /path/to/newpipe.apk`.
 12. Create a MR.
 13. Rebase the hotfix back into __dev__ branch.
+14. Temporarily: [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
 
 ![rebase_back_hotfix](img/rebase_back_hotfix.svg)
 
