@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Releasing a New NewPipe Version - NewPipe Documentation</title>
   <!-- local fonts -->
@@ -39,6 +40,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> NewPipe Documentation</a>
         <div role="search">
@@ -49,77 +51,80 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome to NewPipe</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../00_Prepare_everything/">Before You Start</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Releasing a New NewPipe Version</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#releasing-a-new-newpipe-version">Releasing a New NewPipe Version</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NewPipe</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../00_Prepare_everything/">Before You Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03_Implement_a_service/">Implementing a Service</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Releasing a New NewPipe Version</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#differences-between-regular-and-hotfix-releases">Differences Between Regular and Hotfix Releases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#regular-releases">Regular Releases</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#differences-between-regular-and-hotfix-releases">Differences Between Regular and Hotfix Releases</a></li>
-        
-            <li><a class="toctree-l3" href="#regular-releases">Regular Releases</a></li>
-        
-            <li><a class="toctree-l3" href="#hotfix-releases">Hotfix Releases</a></li>
-        
-            <li><a class="toctree-l3" href="#version-nomenclature">Version Nomenclature</a></li>
-        
-            <li><a class="toctree-l3" href="#release-notes">Release Notes</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#feature-branching">Feature Branching</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#merging-featuresbugfixes">Merging Features/Bugfixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-new-release">Creating a New Release</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quickfixes">Quickfixes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#releasing">Releasing</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotfix-releases">Hotfix Releases</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#hotfix-branch">Hotfix Branch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#releasing_1">Releasing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#version-nomenclature">Version Nomenclature</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#version-nomenclature-of-the-extractor">Version Nomenclature of the Extractor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#version-code">Version Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#release-notes">Release Notes</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../06_documentation/">About This Documentation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../07_maintainers_view/">Maintainers' Section</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_documentation/">About This Documentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../07_maintainers_view/">Maintainers' Section</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -144,6 +149,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -223,6 +229,7 @@ this is what you should do when releasing:</p>
 <li>Run <code>fdroid signatures /path/to/newpipe.apk</code>.</li>
 <li>Create a MR.</li>
 <li>Rebase quickfix changes back into <strong>dev</strong> if quickfixes were made.</li>
+<li>Temporarily: <a href="https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html">Update the changelog for the website</a>.</li>
 </ol>
 <p><img alt="rebase_back" src="../img/rebase_back_release.svg" /></p>
 <h2 id="hotfix-releases">Hotfix Releases</h2>
@@ -257,6 +264,7 @@ Here's what you do when releasing a hotfix:</p>
 <li>Run <code>fdroid signatures /path/to/newpipe.apk</code>.</li>
 <li>Create a MR.</li>
 <li>Rebase the hotfix back into <strong>dev</strong> branch.</li>
+<li>Temporarily: <a href="https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html">Update the changelog for the website</a>.</li>
 </ol>
 <p><img alt="rebase_back_hotfix" src="../img/rebase_back_hotfix.svg" /></p>
 <h2 id="version-nomenclature">Version Nomenclature</h2>
@@ -306,7 +314,7 @@ changes done to the app.</p>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -316,7 +324,7 @@ changes done to the app.</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -330,6 +338,11 @@ changes done to the app.</p>
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

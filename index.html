@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="None">
   
+  
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Welcome to NewPipe - NewPipe Documentation</title>
+  <title>NewPipe Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="./css/local_fonts.css" type="text/css" />
 
@@ -39,6 +40,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="." class="icon icon-home"> NewPipe Documentation</a>
         <div role="search">
@@ -49,69 +51,48 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">Welcome to NewPipe</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#welcome-to-newpipe">Welcome to NewPipe</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#introduction">Introduction</a></li>
-        
-        </ul>
-    
-
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Welcome to NewPipe</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="00_Prepare_everything/">Before You Start</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="01_Concept_of_the_extractor/">Concept of the Extractor</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="03_Implement_a_service/">Implementing a Service</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="04_Run_changes_in_App/">Testing Your Changes in the App</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="05_releasing/">Releasing a New NewPipe Version</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="06_documentation/">About This Documentation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="07_maintainers_view/">Maintainers' Section</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="00_Prepare_everything/">Before You Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="01_Concept_of_the_extractor/">Concept of the Extractor</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="03_Implement_a_service/">Implementing a Service</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="05_releasing/">Releasing a New NewPipe Version</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="06_documentation/">About This Documentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="07_maintainers_view/">Maintainers' Section</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -136,6 +117,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -170,7 +152,7 @@ It focuses on making it possible for the creator of a scraper for a streaming se
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -180,7 +162,7 @@ It focuses on making it possible for the creator of a scraper for a streaming se
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -192,11 +174,16 @@ It focuses on making it possible for the creator of a scraper for a streaming se
     <script>var base_url = '.';</script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-05-21 17:17:59
+MkDocs version : 1.1.2
+Build Date UTC : 2020-08-13 00:02:52.633498+00:00
 -->

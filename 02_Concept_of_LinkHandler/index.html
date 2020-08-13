@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Concept of the LinkHandler - NewPipe Documentation</title>
   <!-- local fonts -->
@@ -39,6 +40,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> NewPipe Documentation</a>
         <div role="search">
@@ -49,75 +51,58 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome to NewPipe</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../00_Prepare_everything/">Before You Start</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Concept of the LinkHandler</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#concept-of-the-linkhandler">Concept of the LinkHandler</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NewPipe</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../00_Prepare_everything/">Before You Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Concept of the LinkHandler</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#important-notes-about-linkhandler">Important notes about LinkHandler</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#listlinkhandler-and-searchqueryhandler">ListLinkHandler and SearchQueryHandler</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#important-notes-about-linkhandler">Important notes about LinkHandler</a></li>
-        
-            <li><a class="toctree-l3" href="#usage">Usage</a></li>
-        
-            <li><a class="toctree-l3" href="#implementation">Implementation</a></li>
-        
-            <li><a class="toctree-l3" href="#listlinkhandler-and-searchqueryhandler">ListLinkHandler and SearchQueryHandler</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#searchqueryhandler">SearchQueryHandler</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../03_Implement_a_service/">Implementing a Service</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../05_releasing/">Releasing a New NewPipe Version</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../06_documentation/">About This Documentation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../07_maintainers_view/">Maintainers' Section</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03_Implement_a_service/">Implementing a Service</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../05_releasing/">Releasing a New NewPipe Version</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_documentation/">About This Documentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../07_maintainers_view/">Maintainers' Section</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -142,6 +127,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -237,7 +223,7 @@ and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -247,7 +233,7 @@ and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -261,6 +247,11 @@ and <code>getId()</code> when overriding <a href="https://teamnewpipe.github.io/
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
