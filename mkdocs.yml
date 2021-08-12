@@ -1,4 +1,4 @@
-site_name: NewPipe Documentation
+site_name: NewPipeExtractor Documentation
 theme:
     name: readthedocs
     custom_dir: theme
