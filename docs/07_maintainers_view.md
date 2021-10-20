@@ -66,5 +66,48 @@ There also might be things that seem to not have any issues, but other things wi
 When you talk to the community, stay friendly and respectful with good etiquette.
 When you have a bad day, just don't go to GitHub (advice from our experience ;D ).
 
+### Managing translations via Weblate
+NewPipe is translated via [Weblate](https://hosted.weblate.org/projects/newpipe).
+There are two different components which are open for translation:
 
+- The app [`strings`](https://hosted.weblate.org/projects/newpipe/strings/).
+- The fastlane [metadata](https://hosted.weblate.org/projects/newpipe/metadata/);
+  this includes the F-Droid store description and changelogs.
 
+Maintainers can access more options to handle Weblate via the
+[Manage > Repository Maintenance](https://hosted.weblate.org/projects/newpipe/#repository) button
+or via the [Weblate CLI](https://docs.weblate.org/en/latest/wlc.html#wlc). These options include
+basic access to Git operations like commit and rebase
+as well as locking Weblate to prevent further changes to translations.
+
+[![Weblate Web Interface](img/weblate.png)](https://hosted.weblate.org/projects/newpipe/#repository)
+`HINT: When updating Weblate via the web interface, please use the "Update > Rebase" option.`
+
+#### Update Weblate
+
+Weblate is based on NewPipe's `dev` branch and is configured to automatically update its repository to be in sync with NewPipe.
+However, Weblate does not update its branch often, therefore it is better to update it manually after changing strings in NewPipe.
+
+To do thus manually, commit the Weblate changes and rebase the repository.
+Sometimes conflicts need to be resoled while rebasing the repository.
+Conflicts need to be addressed ASAP, because Weblate is automatically locked once conflicts occur.
+To do so, [merge the changes from Weblate into NewPipe](#merge-changes-from-weblate-into-newpipe).
+If Weblate does not recognize the new commit by itself, ask Weblate to rebase once more.
+Weblate unlocks the translations when all conflicts are resolved and no errors are detected.
+
+#### Merge changes from Weblate into NewPipe
+Weblate does not push the translation changes to NewPipe automatically.
+Doing this manually, allows the maintainers to do a quick review of the changes.
+
+Before merging weblate changes into NewPipe, make sure to commit all Weblate changes and
+lock the Weblate to prevent modifications while you update Weblate.
+To merge the changes into NewPipe, checkout Weblate's `dev` branch.
+You have read access to Weblate's repository via `https://hosted.weblate.org/git/newpipe/strings/`.
+If there are conflicts when rebasing weblate, resolve them.
+
+Check the following things:
+- Is there a translation for a new language? If yes, [register the language with the app's langauge selector](https://github.com/TeamNewPipe/NewPipe/pull/5721)
+- Use `Analyse > Inspect Code` in Android Studio to find unused strings and potential bugs introduced by Weblate.
+  Pay attention to plurals in Asian languages. They are broken by Weblate on a regular basis.
+
+Push the changes to NewPipe's `dev` branch, [update Weblate](#update-weblate) and unlock it.

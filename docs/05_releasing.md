@@ -6,97 +6,137 @@ This site is meant for those who want to maintain NewPipe, or just want to know 
 
 ## Differences Between Regular and Hotfix Releases
 
-NewPipe is a web crawler. That means it does not use a web API, but instead tries to scrape the data from the website,
-this however has the disadvantage of the app to break instantly when YouTube changes something.
-We do not know when this happen. Therefore, maintainers need to act quickly when it happens, and reduce our downtime as
+Depending on the service, NewPipe Extractor uses web crawling or internal APIs.
+Both are subject to arbitrary changes by the service providers, like  YouTube, SoundCloud or PeerTube.
+When they change something, NewPipe Extractor and thus NewPipe break instantly.
+Therefore, maintainers need to act quickly when it happens, and reduce our downtime as
 much as possible. The entire release cycle is therefore designed around this issue.
 
 There is a difference between a release that introduces new features
-and a release that fixes an issue that occurred because YouTube, or some other service, changed their website (typically called a shutdown).
-Lets have a look at the characteristics of a __regular release__, and then the characteristics of a __hotfix release__.
+and a release that fixes an issue that occurred because YouTube, or some other service,
+changed their website (typically called a shutdown).
+Let's have a look at the characteristics of a __regular release__,
+and then the characteristics of a __hotfix release__.
+
 
 ## Regular Releases
 
-Regular releases are normal releases like they are done in any other app. Releases are always stored on __master__ branch. The latest commit on
-__master__ is always equal to the currently released version. No development is done on master. This ensures that we always have one
-branch with a stable/releasable version.
+Regular releases are normal releases as they are done in any other app.
+Releases are always stored and tagged on __master__ branch. The latest commit on
+__master__ is always equal to the currently released version. No development is done on master.
+This ensures that we always have one branch with a stable/releasable version.
 
 ### Feature Branching
-When developing, the __dev__ branch is used. Pushing to __dev__ directly, however, is not allowed, since QA and testing should be done first before adding something to it.
-This ensures that the dev version works as stable a possible.
-In order to change something on the app, one may want to __fork__ the dev branch and develop the changes in their own branch (this is called feature branching).
+The __dev__ branch is used for development. Pushing to __dev__ directly, however, is not allowed,
+since QA and testing should be done _before_ adding something to the branch.
+This ensures that the development version works as stable a possible.
+In order to change something on the app, one may want to __fork__ the dev branch
+and develop the changes in their own branch (this is called feature branching).
 
 ![feature_branching](img/feature_branch.svg)
 
-Make sure that both the dev branches, as well as the master branches of the extractor and the frontend, are compatible with each other.
-If a change is done on the API to the extractor, make sure that frontend is compatible, or changed to become compatible, with these changes. If the PR that should make the frontend compatible
-again can not be merged, please do not merge the corresponding PR on the extractor either. This should make sure that any developer can run his changes
-on the fronted at any time.
+Make sure that both the dev branches, as well as the master branches of the extractor
+and the frontend, are compatible with each other.
+If the extractor's API is modified, make sure that frontend is compatible,
+or changed to become compatible, with these changes.
+If the PR that should make the frontend compatible
+again can not be merged, please do not merge the corresponding PR on the extractor either.
+This should make sure that any developer can run his changes on the fronted at any time.
 
 ### Merging Features/Bugfixes
 
-After finishing a feature, one should open up a __Pull Request__ to the dev branch. From here, a maintainer can do __Code review__ and __Quality Assurance (QA)__.
-If you are a maintainer, please take care about the code architecture so __corrosion__ or __code shifting__ can be prevented. Please also prioritize code quality over functionality.
-In short: cool function but bad code = no merge. Focus on leaving the code as clean as possible.
+After finishing a feature, one should open up a __Pull Request__ to the dev branch.
+From here, a maintainer can do __Code review__ and __Quality Assurance (QA)__.
+If you are a maintainer, please take care about the code architecture
+so __corrosion__ or __code shifting__ can be prevented.
+Please also prioritize code quality over functionality.  
+In short: cool function but bad code = no merge. Focus on keeping the code as clean as possible.
 
 ![merge_feature_into_dev](img/merge_into_dev.svg)
 
-You, as a maintainer, should build the app and put the signed APK into the description of that new pull request. This way, other people can test the feature/bugfix and help with QA. _You may not need to do this every time. It is enough to do it on bigger pull requests._
+An APK for __testing__  is provided by GitHub Actions for every PR.
+Please ensure that this APK is tested thoroughly to prevent introducing regressions.
+Testing features needs to take into account that NewPipe is used on a brought variety
+of Android versions from KitKat to the latest, on custom ROMs like Lineage OS, CalyxOS or /e/
+and different devices like phones, tablets and TVs.
 
-After the maintainer merges the new feature into the dev branch, he should add the title of the pull request or a summary of the changes into the [release notes](#release-notes).
+Sometimes, the content of a PR changes over the time.
+Modify the PR's title if it does not represent the introduced changes anymore.
+After a maintainer merged the new feature into the dev branch,
+they should add the PR's title or a summary of the changes into the [release notes](#release-notes).
 
 ### Creating a New Release
 
-Once there are enough features together, and the maintainers believe that NewPipe is ready for a new release, they should create a new release.
-Be aware of the rule that a release should never be done on a Friday. For NewPipe, this means: __Don't do a release if you don't have time for it!!!__
-Below is a list of things you will want to do:
+Once there are enough changes, and the maintainers believe that NewPipe is ready
+for a new version, they should prepare a new release.  
+Be aware of the rule that a release should never be done on a Friday.
+For NewPipe, this means: __Don't do a release if you don't have time for it!!!__
 
-1. Fork the __dev__ branch into a new __release_x.y.z__ branch.
-2. Increase the [version number](#version-nomenclature)
-3. Merge [Weblate](https://hosted.weblate.org/projects/newpipe/) changes from the `dev` branch at `https://hosted.weblate.org/git/newpipe/strings/`.
-4. Copy the [release notes](#release-notes) from the GitHub version draft into the corresponding fastlane file (see [release notes](#release-notes)).
-5. Open up a pull request form the new __release_x.y.z__ branch into the __master__ branch.
-6. Create an issue pointing to the new pull request. The reason for opening an issue is that from my perception, people read issues more than pull requests. Put the release-note into this pull request.
-7. Build a signed release version of NewPipe using schabis signing keys. This is a release candidate (RC). Name the build apk file `NewPipe_<versionNumber>_RC1.apk`.
-   Zip it and post it to the head of the release issue. This way, others can test the release candidate.
-8. Test and QA the new version with the help of others.
-9. Leave the PR open for a few days and advertise it to help testing.
+By following the steps listed below, you can publish a stable version of NewPipe:
 
-While being in release phase no new pull requests must be merged into __dev__ branch.
+1. [Merge the translations from Weblate into NewPipe](../07_maintainers_view#merge-changes-from-weblate-into-newpipe).
+2. Update your local __dev__ branch and create a [changelog file](#changelog-file).
+   Make sure to push the changes and [update Weblate](../07_maintainers_view#update-weblate).
+3. In your local NewPipe repo, fork the __dev__ branch into a new __release/x.y.z__ branch.   
+4. Increase the [version number](#version-nomenclature) and update the version code in the `build.gradle` file.
+5. Open a pull request form the new __release/x.y.z__ branch into the __master__ branch.
+6. Create an issue pointing to the new pull request.
+   The reason for opening an issue is that from my perception, people read issues more than pull requests.
+   You can also pin this issue to draw more attention to it.
+   Ensure that the discussion about regressions take place in this issue.
+7. Create signed release and debug APKs of the release branch using the `releaseCandidate` and `debug` build types. 
+   Name the build apk files `NewPipe_<versionCode>_RC1.apk` and `NewPipe_<versionCode>_debug_RC1.apk`.
+   Zip and post them to the head of the pull request and issue. This way, others can test the release candidate.
+   Release (candidate) and debug APKs of the latest published NewPipe version
+   should also be provided to allow testing the upgrade process.
+8. Test and QA the new version with the help of others. Keep the PR and issue open for a few days
 
-This procedure does not have to be done for the extractor as extractor will be tested together with the fronted.
+New features can be merged into __dev__ while the release candidate is tested.
+PRs which aim to fix regressions of the upcoming release need to target the __release/x.y.z__ branch.
+Read [Quickfixes](#quickfixes) for more info.
+
+The changelogs are translated during the test phase.
+Therefore, [the translations need to be merged from Weblate](../07_maintainers_view#merge-changes-from-weblate-into-newpipe) once more.
+The translation commit is cherry-picked into the release branch.
+
+Once testing is done and the release branch does not contain critical regressions, and you think the update is ready,
+proceed with [releasing the new version](#releasing).
 
 ### Quickfixes
 
-When issuing a new release, you will most likely encounter bugs that might not have existed in previous versions. These are called __regressions__.
-If you find a regression during release phase, you are allowed to push fixes directly into the release branch without having to fork a branch away from it.
-All maintainers have to be aware that they might be required to fix regressions, so plan your release at a time when
-you are available. Do not introduce new features during the release phase.
+When issuing a new release, you will most likely encounter bugs
+that might not have existed in previous versions.
+These are called __regressions__.
+If you find a regression during release phase,
+you are allowed to push fixes directly into the release branch
+without having to fork a branch away from it.
+Maintainers have to be aware that they might be required to fix regressions,
+so plan your release at a time when you are available.
 
-When you have pushed a quickfix, you will want to update the __release candidate__ you put into the __issue__ corresponding to the __release pull request__.
-Increment the version number in the filename of the release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc. _Don't update the actual version number. :P_
+When you have pushed a quickfix, you need to provide an updated __release candidate__.
+Increment the version number in the filename of the release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc.
+_Don't update the actual version number. :P_
 
 ![release_branch](img/release_branch.svg)
 
 ### Releasing
 
 Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
-After going through the release procedure of [creating a new release](#create_a_new_release) and maybe a few [quickfixes](#quickfixes) on the new release,
+After going through the release procedure of [creating a new release](#create_a_new_release)
+and maybe a few [quickfixes](#quickfixes) on the new release,
 this is what you should do when releasing:
 
 1. Click "Merge Pull Request".
-2. Create a GPG signed tag with the name `v0.x.y`.
-3. Merge __dev__ into master on the extractor.
-4. Create a GPG signed tag with the name `v0.x.y` on the extractor.
-5. Make sure the draft name equals the tag name. ![draft_name](img/draft_name.png)
-6. Make sure to not have forgotten anything.
-7. Click "Publish Release".
-8. Clone [F-Droid / Data](https://gitlab.com/fdroid/fdroiddata).
-9. Add the new version in `metadata/org.schabi.newpipe.yml`.
-10. Run `fdroid signatures /path/to/newpipe.apk`.
-11. Create a MR.
-12. Rebase quickfix changes back into __dev__ if quickfixes were made.
-13. Temporarily: [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
+2. Checkout the __master__ branch locally and create an unsigned APK.
+3. Send this APK to TheAssassin for signing and publishing in an encrypted and signed E-Mail. He'll check your APK, too.
+4. Once you received a signed APK, upgrade the version on your device and look for any crashes and regressions.
+5. In the GitHub releases section, make sure the draft name equals the tag name. ![draft_name](img/draft_name.png)
+6. Add the signed APK to the draft. 
+7. Make sure to not have forgotten anything.
+8. Click "Publish Release".
+9. [Publish the new version on F-Droid](#publish-on-f-droid).
+10. Merge __master__ into __dev__ or fast-forward if possible. Push.
+11. [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
 
 ![rebase_back](img/rebase_back_release.svg)
 
@@ -104,9 +144,9 @@ this is what you should do when releasing:
 
 ![this_is_fine](img/could_not_decrypt.png)
 
-As aforementioned, NewPipe is a web crawler and could break at any moment. In order to keep the downtime of NewPipe as low as possible, when such a shutdown happens,
+As aforementioned, NewPipe heavily relies on external components and might break at a random point of time.
+In order to keep the NewPipe's downtime as low as possible, when such a shutdown happens,
 we allow __hotfixes__.
-
 
 
 - A hotfix allows work on the master branch instead of the dev branch.
@@ -115,63 +155,155 @@ we allow __hotfixes__.
 
 ### Hotfix Branch
 
-Hotfixes work on the master branch. The dev branch has experimental changes that might have not been tested properly enough to be released, if at all. The master branch should always be the latest stable version of NewPipe. If the master branch breaks due to a shutdown, you should fix the master branch.
-Of course you are not allowed to push to master directly so you will have to open up a __hotfix__ branch. _If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well._
+Hotfixes work on the master branch.
+The dev branch has experimental changes that might have not been tested properly enough to be released,
+if at all. The master branch should always be the latest stable version of NewPipe.
+If the master branch breaks due to a shutdown, you should fix the master branch.
+Of course, you are not allowed to push to master directly,
+so you need to create a __hotfix__ branch. 
+_If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well._
 
 ![hotfix_branch](img/hotfix_branch.svg)
 
 ### Releasing
 
-If you fixed the issue and found it to be tested and reviewed well enough, you may release it. You don't need to undergo the full release procedure of a regular release, which takes more time to release.
+If you fixed the issue and found it to be tested and reviewed well enough, you may publish a new version.
+You don't need to undergo the full release procedure of a regular release, which takes too much time.
 Keep in mind that if the hotfix might turn out to be broken after release, you should release another hotfix.
-It is important to release quickly for the sake of keeping NewPipe alive, and after all, a slightly broken version of NewPipe is better then a non-functional version ¯\\\_(ツ)\_/¯.
+It is important to release quickly for the sake of keeping NewPipe alive, and after all,
+a slightly broken version of NewPipe is better than a non-functional version ¯\\\_(ツ)\_/¯.
 Here's what you do when releasing a hotfix:
 
-1. Click "Merge Pull Request"
-2. Create a GPG signed tag with the name `v0.x.y`.
-3. Merge __dev__ into master on the extractor.
-4. Create a GPG signed tag with the name `v0.x.y` on the extractor.
-5. Create a new release draft and write the down the fix into the release notes.
-6. Copy the [release note](#release-notes) into the fastlane directory of releases.
-7. Increment the __small minor__ version number and the `versionCode`.
-8. Click "Publish Release".
-9. Clone [F-Droid / Data](https://gitlab.com/fdroid/fdroiddata).
-10. Add the new version in `metadata/org.schabi.newpipe.yml`.
-11. Run `fdroid signatures /path/to/newpipe.apk`.
-12. Create a MR.
-13. Rebase the hotfix back into __dev__ branch.
-14. Temporarily: [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
+1. Merge the corresponding pull request in the extractor.
+2. [Publish the new extractor version](#extractor-releases).
+3. Update the extractor version in the app's `build.gradle` file.
+4. Create a new release draft and put some info on the fix into the [release note](#release-notes).
+5. Copy the release notes into the fastlane directory to create a [changelog file](#changelog-file).
+6. Increment the __small minor__ version number and the `versionCode`.
+7. Generate a release APK (`gradlew assembleRelease`) and sign it (or get it signed by one of the other maintainers).
+8. Add the signed APK to the GitHub release notes.
+9. Click "Publish Release" .
+10. [Publish the new version on F-Droid](#publish-on-f-droid).
+11. Merge the changes from __master__ into __dev__.
+12. [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
 
 ![rebase_back_hotfix](img/rebase_back_hotfix.svg)
+
+## Extractor releases
+In general, the release process for extractor versions is not that complicated compared to app releases.
+The extractor has (in difference to the app) a decent test coverage.
+Additionally, the latest extractor version is typically tested in the app's latest __dev__ version.
+Therefore, a long test phase is not needed when creating extractor releases.
+
+To create a new [extractor version](#version-nomenclature-of-the-extractor), update the __version__ in the extractor's `build.gradle` file
+as well as the version names in the README.
+Merge the __dev__ branch into __master__.
+The same that applies the app's [release notes](#release-notes) also applies to the extractor's release notes.
+
+When publishing an extractor release via GitHub on the __master__ branch,
+a new [JavaDoc version](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/)
+is generated and published automatically.
+Pleas keep an eye on the GitHub Action which is responsible for that.
+If changes in that release introduced invalid JavaDoc, the build fails and needs to be fixed.
+For this reason, you should check locally if there are any problems with the JavaDoc generation before publishing the new version.
+
 
 ## Version Nomenclature
 
 The version nomenclature of NewPipe is simple.
 
-- __Major__: The __major__ version number (the number before the first dot) was 0 for years. The reason for this changed over time. First, I wanted this number to
-  switch to 1 once NewPipe was feature complete. Now, I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable (part of which this documentation should help). After this, well, God knows what happens if we ever reach 1. ¯\\\_(ツ)\_/¯ 
-- __Minor__: The __minor__ version number (the number after the first dot) will be incremented if there is a major feature added to the app.
-- __Small Minor__: The small minor (the number after the second dot) will be incremented if there are bug fixes or minor features added to the app.
+- __Major__: The __major__ version number (the number before the first dot) was 0 for years.
+  The reason for this changed over time. First, I wanted this number to
+  switch to 1 once NewPipe was feature complete.
+  Now, I rather think of incrementing this number to 1 once we can ensure that NewPipe runs stable
+  (part of which this documentation should help).
+  After this, well, God knows what happens if we ever reach 1. ¯\\\_(ツ)\_/¯ 
+- __Minor__: The __minor__ version number (the number after the first dot)
+  will be incremented if there is a major feature added to the app.
+- __Small Minor__: The small minor (the number after the second dot)
+  is incremented when bug fixes or minor features are added to the app.
 
 
 #### Version Nomenclature of the Extractor
 
-The extractor is always released together with the app, therefore the version number of the extractor is identical to the one of NewPipe itself.
+Previously, the extractor was released together with the app,
+therefore the version number of the extractor was identical to the one of NewPipe itself.
 
-#### Version Code
-In Android, an app can also have a [versionCode](https://developer.android.com/studio/publish/versioning). This code is a `long integer` and can be incremented by any value to show a device that a new version is there.
-For NewPipe, the version code will be incremented by 10 regardless of the change of the major or minor version number. The version codes between the 10 steps
-are reserved for our internal F-Droid build server.
+We try to combine efforts to make NewPipe Extractor more independent of the app.
+The extractor is used by multiple other applications
+and therefore releasing extractor updates should not be coupled to app releases.
+However, maintainers need to keep an eye on making the app compatible with extractor changes.
 
 ## Release Notes
-Release notes should tell what was changed in the new version of the app. The release nodes for NewPipe are stored in the [GitHub draft for a new release](https://github.com/TeamNewPipe/NewPipe/releases/tag/v0.14.0). When a maintainer wants to add changes to the release note, but there is no draft for a new version, they should create one.
+Release notes should tell what was changed in the new version of the app.
+The release notes for NewPipe are stored in the
+[GitHub draft for a new release](https://github.com/TeamNewPipe/NewPipe/releases).
+When a maintainer wants to add changes to the release notes,
+but there is no draft for a new version, they should create one.
 
-Changes can be categorized into three types:
+Changes can be categorized into five basic types:
 
 - __New__: New features that got added to the app.
 - __Improved__: Improvements to the app or existing features
-- __Fixes__: Bugfixes
+- __Fixed__: Bugfixes
+- __Translation__: New translations
+- __Development__: Changes which address things "under the hood",
+  which do not have any recognizable effect to the user; e.g. dependency updates or changes to the build process
 
-When releasing a new version of NewPipe, before actually clicking "Release", the maintainer should copy the release notes from the draft and put it into a file called
-`<versionCode>.txt` (whereas `<versionCode>` needs to be the version code of the incoming release). This file must be stored in the directory [`/fastlane/metadata/android/en-US/changelogs`](https://github.com/teamnewpipe/newpipe/tree/dev/fastlane/metadata/android/en-US/changelogs). This way, F-Droid will be able to show the
-changes done to the app.
+When adding a PR to the release notes, increase the PR counter at the top of the draft
+and put the number before the PR summary / title.
+This helps the blog post authors to keep easily track of  new PRs.
+Remove the numbers before publishing a new version :)
+
+If there is a blog post covering the changes in more detail,
+make sure to link it on the top of the release notes.
+It would be a pity, if only a few people read the blog post
+after our wonderful writers put so much effort into creating it.
+
+### Changelog file
+
+Maintainers need to provide a changelog file for each release.
+A changelog file is used by F-Droid to give a quick summary of the most important changes for a release.
+This file is placed in the 
+[`/fastlane/metadata/android/en-US/changelogs`](https://github.com/teamnewpipe/newpipe/tree/dev/fastlane/metadata/android/en-US/changelogs)
+directory and named `<versionCode>.txt` (whereas `<versionCode>` is the version code of the incoming release).
+Changelog files *must not* exceed 500 bytes.
+Be aware that the changelog is translated into multiple languages.
+A changelog written in English which almost hits 500 bytes can hardly be translated completely within this limit.
+This causes troubles for translators, because Weblate enforces the 500 bytes limit, too.
+For this reason it is recommended to keep the changelog at 400 bytes.
+
+When creating the changelog file be aware of changes which were done in the extractor as well.  
+Before pushing the changelog to NewPipe's repo, ask other maintainers to review it.  
+After pushing the changelog to NewPipe's GitHub repo, [updating Weblate](07_maintainers_view/#update-webalte) is necessary.
+This enables translators to work on localized versions of the changelog before a release is tagged and published.
+
+## Publish on F-Droid
+
+NewPipe is and supports open source software.
+For this reason, the preferred way to distribute the app is [F-Droid](https://f-droid.org).
+F-Droid is a catalogue of FOSS apps and also comes with an Android client which handles app updates.
+There are two ways to install NewPipe via F-Droid.
+
+1. **Through the main F-Droid repository**  
+    NewPipe's metadata file can be found in F-Droid's data repository on GitLab:
+    [https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/org.schabi.newpipe.yml](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/org.schabi.newpipe.yml)  
+    This file is automatically updated by a bot when a new release is published on GitHub.
+    It can take a few days until all new apps on F-Droid are built, signed and published.  
+    [F-Droid also supports reproducible builds](https://f-droid.org/docs/Reproducible_Builds/).
+    Reproducible builds or deterministic builds allow someone else to retrieve the exact same binary
+    as we get when building the app (except the signing of course).  
+    When the reproducible build feature is enabled for an app in F-Droid, they compare their binary to one provided by the author.
+    If both are identical, F-Droid does not only publish the binary signed by themselves, but also the one signed by the author.  
+    Currently, NewPipe's builds are not deterministic, and we therefore cannot use that feature.
+    Once the builds are deterministic again, the following steps need to be done to publish a new version on F-Droid:
+    1. [Install `fdroidserver` on your device](https://f-droid.org/docs/Installing_the_Server_and_Repo_Tools/).
+    * Clone the F-Droid Data repo from `https://gitlab.com/fdroid/fdroiddata`
+    * Add the new version to `metadata/org.schabi.newpipe.yml`
+    * Run `fdroid signatures /path/to/newpipe.apk` on the signed APK from within the repo.
+    * Create a MR on GitLab.
+    An example commit containing all required changes can be found [here](https://gitlab.com/fdroid/fdroiddata/-/commit/393bbb756d5bed4134eb147f411a9d9aa1d47386).
+3. **Through NewPipe's F-Droid repository**  
+    F-Droid needs 
+    NewPipe's own F-Droid repo is available at [https://archive.newpipe.net/fdroid/repo](https://archive.newpipe.net/fdroid/repo/?fingerprint=E2402C78F9B97C6C89E97DB914A2751FDA1D02FE2039CC0897A462BDB57E7501)
+    It is updated and maintained by [@TheAssassin](https://github.com/TheAssassin).
