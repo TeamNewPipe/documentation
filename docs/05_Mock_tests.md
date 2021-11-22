@@ -10,7 +10,7 @@ These can then be used in CI to reliably test changes made to the Extractor and 
 There are multiple implementations of the abstract class `Downloader`
 
 1. `DownloaderTestImpl` is used for running the test against the actual service.
-2. `RecordingDownloader` is used the save the request and response to the disk, thus creating the mock.
+2. `RecordingDownloader` is used to save the request and response to the disk, thus creating the mock.
 3. `MockDownloader` is used to answer requests with the saved mocks.
 
 ### Usage
@@ -20,7 +20,7 @@ There are 2 ways to specify which downloader should be used.
 First one is passing the `-Ddownloader=<value>` argument from the command line, where `value` can be one of
 [DownloaderType](https://github.com/TeamNewPipe/NewPipeExtractor/blob/dev/extractor/src/test/java/org/schabi/newpipe/downloader/DownloaderType.java)
 . The main usecase is in the CI pipeline like this: `./gradlew check --stacktrace -Ddownloader=MOCK`.  
-Other than that it can also be used to mass generate mocks by specifying which package should be tested. As example if
+Other than that it can also be used to mass generate mocks by specifying which package should be tested. For example, if
 one wanted to update all YouTube mocks:
 `gradle clean test --tests 'org.schabi.newpipe.extractor.services.youtube.*' -Ddownloader=RECORDING`
 
