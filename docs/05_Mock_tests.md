@@ -3,7 +3,7 @@
 A web crawler is by nature dependant on the external service which it is crawling.
 In order to have a reliable CI pipeline, this external dependency needs to be removed.
 For this there is a system in place to automatically save the requests made to a service and their responses.
-These can then be used in CI to reliably test changes made to the Extractor and not have test failures due to API changes on the side of the service.
+These can then be used in the CI pipeline to reliably test changes made to the Extractor and not have test failures due to API changes on the side of the service.
 
 ## Multiple downloader implementations
 
