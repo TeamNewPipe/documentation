@@ -1,0 +1,25 @@
+name: linkcheck
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+          
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Verify links
+        run: python linkcheck.py
