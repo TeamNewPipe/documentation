@@ -20,7 +20,7 @@ for filename in os.listdir():
                     checkstring = "# " + link.replace("#", "").replace("-", " ")
                     if not checkstring in filedata.lower():
                         RETURN_VALUE = 1
-                        print(filename + ": Could not find target for" + link)
+                        print(filename + ": Could not find target for " + link)
                 else:
                     if link.startswith("img/"):
                         link = BASE_URL + "/" + link
@@ -31,7 +31,7 @@ for filename in os.listdir():
                         RETURN_VALUE = 1
                         print(filename + ": " + link + " is not https")
                     else:
-                        res = requests.get(link)
+                        res = requests.get(link, timeout=5)
                         if res.status_code != 200:
                             RETURN_VALUE = 1
                             print(filename + ": " + link + " returns " + str(res.status_code))
