@@ -74,9 +74,9 @@ For NewPipe, this means: __Don't do a release if you don't have time for it!!!__
 
 By following the steps listed below, you can publish a stable version of NewPipe:
 
-1. [Merge the translations from Weblate into NewPipe](../07_maintainers_view#merge-changes-from-weblate-into-newpipe).
+1. [Merge the translations from Weblate into NewPipe](../08_maintainers_view#merge-changes-from-weblate-into-newpipe).
 2. Update your local __dev__ branch and create a [changelog file](#changelog-file).
-   Make sure to push the changes and [update Weblate](../07_maintainers_view#update-weblate).
+   Make sure to push the changes and [update Weblate](../08_maintainers_view#update-weblate).
 3. In your local NewPipe repo, fork the __dev__ branch into a new __release/x.y.z__ branch.   
 4. Increase the [version number](#version-nomenclature) and update the version code in the `build.gradle` file.
 5. Open a pull request form the new __release/x.y.z__ branch into the __master__ branch.
@@ -96,7 +96,7 @@ PRs which aim to fix regressions of the upcoming release need to target the __re
 Read [Quickfixes](#quickfixes) for more info.
 
 The changelogs are translated during the test phase.
-Therefore, [the translations need to be merged from Weblate](../07_maintainers_view#merge-changes-from-weblate-into-newpipe) once more.
+Therefore, [the translations need to be merged from Weblate](../08_maintainers_view#merge-changes-from-weblate-into-newpipe) once more.
 The translation commit is cherry-picked into the release branch.
 
 Once testing is done and the release branch does not contain critical regressions, and you think the update is ready,
@@ -122,7 +122,7 @@ _Don't update the actual version number. :P_
 ### Releasing
 
 Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
-After going through the release procedure of [creating a new release](#create_a_new_release)
+After going through the release procedure of [creating a new release](#creating-a-new-release)
 and maybe a few [quickfixes](#quickfixes) on the new release,
 this is what you should do when releasing:
 
@@ -275,7 +275,7 @@ For this reason it is recommended to keep the changelog at 400 bytes.
 
 When creating the changelog file be aware of changes which were done in the extractor as well.  
 Before pushing the changelog to NewPipe's repo, ask other maintainers to review it.  
-After pushing the changelog to NewPipe's GitHub repo, [updating Weblate](07_maintainers_view/#update-webalte) is necessary.
+After pushing the changelog to NewPipe's GitHub repo, [updating Weblate](../08_maintainers_view#update-weblate) is necessary.
 This enables translators to work on localized versions of the changelog before a release is tagged and published.
 
 ## Publish on F-Droid

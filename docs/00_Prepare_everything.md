@@ -25,7 +25,7 @@ First and foremost, you need to meet the following conditions in order to write 
 
 - A dev environment/IDE that supports:
     - __[Git](https://git-scm.com/downloads/guis)__
-    - __[Java 8](https://www.java.com/en/download/faq/java8.xml)__
+    - __[Java 8](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot)__
     - __[Gradle](https://gradle.org/)__
     - __[Unit testing](https://junit.org/junit5/)__
     - [IDEA Community](https://www.jetbrains.com/idea/) (Strongly recommended, but not required)

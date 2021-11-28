@@ -18,7 +18,7 @@ for filename in os.listdir():
             for link in re.findall('\[.*\]\(([^\)]*)\)', filedata):
                 if link.startswith("#"):
                     checkstring = "# " + link.replace("#", "").replace("-", " ")
-                    if not checkstring in filedata.lower():
+                    if not checkstring in filedata.lower().replace("-", " "):
                         RETURN_VALUE = 1
                         print(filename + ": Could not find target for " + link)
                 else:

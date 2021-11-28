@@ -34,7 +34,7 @@ ask us to introduce a new library than start using Regex too often.
 
 - Html/XML Parsing: [jsoup](https://jsoup.org/apidocs/overview-summary.html)
 - JSON Parsing: [nanojson](https://github.com/mmastrac/nanojson#parser-example)
-- JavaScript Parsing/Execution: [Mozilla Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Documentation)
+- JavaScript Parsing/Execution: [Mozilla Rhino](https://github.com/mozilla/rhino)
 - Link detection in strings: [AutoLink](https://github.com/robinst/autolink-java)
 
 If you need to introduce new libraries, please tell us before you do so.
