@@ -1,4 +1,4 @@
-name: linkcheck
+name: CI
 
 on:
   push:
@@ -8,9 +8,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  linkcheck:
+  build:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Build docs
+        run: bash ci/docker-build.sh
+
+
+  linkcheck:
+     runs-on: ubuntu-latest
+
+     steps:
       - uses: actions/checkout@v2
 
       - name: Verify links
