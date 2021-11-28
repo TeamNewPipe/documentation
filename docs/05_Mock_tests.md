@@ -25,7 +25,7 @@ one wanted to update all YouTube mocks:
 `gradle clean test --tests 'org.schabi.newpipe.extractor.services.youtube.*' -Ddownloader=RECORDING`
 
 The second way is changing the field `DownloaderFactory.DEFAULT_DOWNLOADER`.
-The default value is `DownloaderType.REAL` which should be changed on the master branch.
+The default value is `DownloaderType.REAL` which should not be changed on the master branch.
 Locally one can change this to `DownloaderType.RECORDING`, run the tests and commit
 the generated mocks.  
 This is the main use case for when developing locally.
