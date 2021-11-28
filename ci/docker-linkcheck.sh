@@ -11,6 +11,6 @@ image="python:3-alpine"
 # turns out that combining -i with --init solves that problem
 # see https://stackoverflow.com/a/60812082
 docker run --rm -i -v "$this_dir"/..:/ws -w /ws --init "$image" sh <<\EOF
-    pip install -r requirements.txt
+    pip install -r ci/linkcheck-requirements.txt
     python linkcheck.py
 EOF

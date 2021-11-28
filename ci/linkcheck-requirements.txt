@@ -1,2 +1,1 @@
-App
 Requests>=2.19.1
