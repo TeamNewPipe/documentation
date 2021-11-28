@@ -1,0 +1,17 @@
+name: linkcheck
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Verify links
+        run: bash ci/docker-linkcheck.sh
