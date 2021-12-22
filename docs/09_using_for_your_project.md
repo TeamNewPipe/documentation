@@ -1,39 +1,22 @@
-= Using Newpipe Extractor
+# Using Newpipe Extractor in android app
 
 
-== Add dependencies to gradle:
+## Add dependencies to gradle:
 
-- *project* build.gradle:
+1. **project** build.gradle:
 
-[,gradle]
-----
+```gradle
 repositories {
     ...
     maven { url 'https://jitpack.io' }
 }
-----
+```
 
-.or in settings.build
-[%collapsible]
-======
-this is properly for android ;)
-[,gradle]
-----
-repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-}
-----
-======
+2. **module**/app build.gradle:
 
+![](https://img.shields.io/github/v/release/TeamNewPipe/NewPipeExtractor.svg)
 
-
-- *module*/app build.gradle:
-
-image:https://img.shields.io/github/v/release/TeamNewPipe/NewPipeExtractor.svg[]
-
-[,gradle]
-----
+```gradle
 // NewPipe Libraries
 implementation 'com.github.TeamNewPipe:NewPipeExtractor:0.21.12'
 implementation 'com.github.TeamNewPipe:nanojson:1d9e1aea9049fc9f85e68b43ba39fe7be1c1f751'
@@ -43,16 +26,16 @@ implementation 'com.github.TeamNewPipe:nanojson:1d9e1aea9049fc9f85e68b43ba39fe7b
 //noinspection GradleDependency --> do not update okhttp to keep supporting Android 4.4 users
 implementation "com.squareup.okhttp3:okhttp:3.12.13"
 
-----
+```
 
-NOTE: You could really use any http client other than okhttp.
+**NOTE**: You could really use any http client other than okhttp.
 
 
-== Configure for android projects:
+## Configure for android projects:
 
 Make sure you are using Java 11.
-[,gradle]
-```
+
+```gradle
 android {
     ...
     compileOptions {
@@ -77,11 +60,11 @@ dependencies {
 }
 ```
 
-=== Proguard rules if you've [minify] enable:
+## Proguard rules if you've [minify] enable:
 
 the `proguard-rules.pro` file:
 
-```
+```pro
 ...
 
 # For NewPipeExtractor
@@ -115,11 +98,11 @@ the `proguard-rules.pro` file:
 ```
 
 
-=== Implementing [Downloader] (okhttp)
+## Implementing [Downloader] (okhttp)
 
 Copy paste from Newpipe ;)
 
-```
+```kotlin
 package com.mycompany.hello
 
 import okhttp3.OkHttpClient
@@ -190,10 +173,10 @@ class DownloaderImpl(
 
 
 
-== Using the library!
+## Using the library!
 
-[,kotlin]
-```
+
+```kotlin
 // init Okhttp client
 val okhttp = OkHttpClient.Builder()
         .readTimeout(30, TimeUnit.SECONDS)
@@ -207,19 +190,16 @@ val extractor = ServiceList.Youtube
 ```
 
 
-=== Getting suggestions:
+### Getting suggestions:
 
-[,kotlin]
-```
+```kotlin
 extractor.suggestionExtractor.suggestionList("Hello")
 ```
 
 
+### Search for videos:
 
-=== Search for videos:
-
-[,kotlin]
-```
+```kotlin
 val search = extractor.getSearchExtractor("Hello")
 search.fetchPage()
 
@@ -229,10 +209,9 @@ print(search.initialPage.items)
 ```
 
 
-=== Get video:
+### Get video:
 
-[,kotlin]
-```
+```kotlin
 val page = extractor.getStreamExtractor("https://www.youtube.com/watch?v=mIuYmbO9uBM")
 page.fetchPage()
 
@@ -241,11 +220,11 @@ page.videoStreams
 ```
 
 
-== Final note:
+## Final note:
 This is very humble guide on how to use newpipe to scrap youtube *specificly*
 
 You can explore the library by your own
 
-image::https://imgur.com/2ciR9kq.png[width=400]
+![](https://imgur.com/2ciR9kq.png[width=400])
 
 I write this for me first to not forget and also in the hope that it will help some one :)
