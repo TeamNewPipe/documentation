@@ -24,7 +24,7 @@ buildscript {
 
 ```gradle
 // NewPipe Libraries
-implementation 'com.github.TeamNewPipe:NewPipeExtractor:0.21.12'
+implementation 'com.github.TeamNewPipe:NewPipeExtractor:v0.21.15'
 implementation 'com.github.TeamNewPipe:nanojson:1d9e1aea9049fc9f85e68b43ba39fe7be1c1f751'
 
 
