@@ -144,9 +144,9 @@ public Response execute(@Nonnull Request request) throws IOException, ReCaptchaE
 
 Here is a simple implementation for the `Downloader`, assumes that you are using `okhttp`.
 
+This have been taken from [here](https://github.com/TeamNewPipe/NewPipeExtractor/blob/dev/extractor/src/test/java/org/schabi/newpipe/downloader/DownloaderTestImpl.java).
+    
 ```java
-package gh.cloneconf.newpipe_android_example;
-
 import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.extractor.downloader.Request;
 import org.schabi.newpipe.extractor.downloader.Response;
