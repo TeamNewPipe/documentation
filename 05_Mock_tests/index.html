@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Mock Tests - NewPipe Development Documentation</title>
+  <!-- local fonts -->
+  <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_child.css" type="text/css" />
+  <!-- local code syntax highlighting -->
+  <link rel="stylesheet" href="../css/github.min.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mock Tests";
+    var mkdocs_page_input_path = "05_Mock_tests.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> NewPipe Development Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to the NewPipe Development Docs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../00_Prepare_everything/">Before You Start</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../03_Implement_a_service/">Implementing a Service</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Mock Tests</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#multiple-downloader-implementations">Multiple downloader implementations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mock-only-tests">Mock only tests</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../06_releasing/">Releasing a New NewPipe Version</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../07_documentation/">About This Documentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../08_maintainers_view/">Maintainers' Section</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">NewPipe Development Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Mock Tests</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mock-tests">Mock Tests</h1>
+<p>A web crawler is, by its very nature, dependent on the external service which it is crawling.
+In order to have a reliable CI pipeline, this external dependency needs to be removed.
+For this, there is a system in place to automatically save the requests made to a service, as well as the responses received.
+These can then be used in the CI pipeline to reliably test changes made to the Extractor, and avoid test failures due to API changes on the side of the service.</p>
+<h2 id="multiple-downloader-implementations">Multiple downloader implementations</h2>
+<p>There are multiple implementations of the abstract class <code>Downloader</code></p>
+<ol>
+<li><code>DownloaderTestImpl</code> is used for running the test against the actual service.</li>
+<li><code>RecordingDownloader</code> is used to save the request and response to a file, thus creating the mock.</li>
+<li><code>MockDownloader</code> is used to answer requests using the saved mocks.</li>
+</ol>
+<h3 id="usage">Usage</h3>
+<p>There are 2 ways to specify which downloader should be used.</p>
+<p>First one is passing the <code>-Ddownloader=&lt;value&gt;</code> argument from the command line, where <code>value</code> can be one of
+<a href="https://github.com/TeamNewPipe/NewPipeExtractor/blob/dev/extractor/src/test/java/org/schabi/newpipe/downloader/DownloaderType.java">DownloaderType</a>
+. The main use case is in the CI pipeline, like this: <code>./gradlew check --stacktrace -Ddownloader=MOCK</code>.<br />
+Other than that it can also be used to mass generate mocks by specifying which package should be tested. For example, if
+one wanted to update all YouTube mocks:
+<code>gradle clean test --tests 'org.schabi.newpipe.extractor.services.youtube.*' -Ddownloader=RECORDING</code></p>
+<p>The second way is changing the field <code>DownloaderFactory.DEFAULT_DOWNLOADER</code>.
+The default value is <code>DownloaderType.REAL</code> which should not be changed on the master branch.
+Locally one can change this to <code>DownloaderType.RECORDING</code>, run the tests and commit
+the generated mocks.<br />
+This is the main use case for when developing locally.</p>
+<h3 id="mock-only-tests">Mock only tests</h3>
+<p>There are some things which cannot ever be tested reliably against an actual service.
+For example, tests for an upcoming livestream would fail after the livestream starts.</p>
+<p>For this, there is a marker interface <code>MockOnly</code>, and a custom TestRule <code>MockOnlyRule</code>.
+It skips the tests in the CI pipeline if they are not run with mocks.</p>
+<p>See <code>MockOnlyRule</code> for further details.</p>
+<p>Example usage:</p>
+<pre><code class="language-java">public static class TestClass {
+
+     @Rule
+     public MockOnlyRule rule = new MockOnlyRule();
+
+     @MockOnly
+     @Test
+     public void myTest() throws Exception {
+         //assertions
+     }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../06_releasing/" class="btn btn-neutral float-right" title="Releasing a New NewPipe Version">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../04_Run_changes_in_App/" class="btn btn-neutral" title="Testing Your Changes in the App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../04_Run_changes_in_App/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../06_releasing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

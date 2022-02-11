@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Releasing a New NewPipe Version - NewPipe Documentation</title>
+  <title>Releasing a New NewPipe Version - NewPipe Development Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -23,7 +23,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Releasing a New NewPipe Version";
-    var mkdocs_page_input_path = "05_releasing.md";
+    var mkdocs_page_input_path = "06_releasing.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -41,7 +41,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> NewPipe Documentation</a>
+        <a href=".." class="icon icon-home"> NewPipe Development Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -51,7 +51,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to NewPipe</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to the NewPipe Development Docs</a>
                     </li>
                 </ul>
                 <ul>
@@ -72,6 +72,10 @@
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../05_Mock_tests/">Mock Tests</a>
                     </li>
                 </ul>
                 <ul class="current">
@@ -121,11 +125,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../06_documentation/">About This Documentation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../07_documentation/">About This Documentation</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../07_maintainers_view/">Maintainers' Section</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../08_maintainers_view/">Maintainers' Section</a>
                     </li>
                 </ul>
       </div>
@@ -137,7 +141,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">NewPipe Documentation</a>
+        <a href="..">NewPipe Development Documentation</a>
       </nav>
 
       
@@ -218,9 +222,9 @@ Be aware of the rule that a release should never be done on a Friday.
 For NewPipe, this means: <strong>Don't do a release if you don't have time for it!!!</strong></p>
 <p>By following the steps listed below, you can publish a stable version of NewPipe:</p>
 <ol>
-<li><a href="../07_maintainers_view#merge-changes-from-weblate-into-newpipe">Merge the translations from Weblate into NewPipe</a>.</li>
+<li><a href="../08_maintainers_view#merge-changes-from-weblate-into-newpipe">Merge the translations from Weblate into NewPipe</a>.</li>
 <li>Update your local <strong>dev</strong> branch and create a <a href="#changelog-file">changelog file</a>.
-   Make sure to push the changes and <a href="../07_maintainers_view#update-weblate">update Weblate</a>.</li>
+   Make sure to push the changes and <a href="../08_maintainers_view#update-weblate">update Weblate</a>.</li>
 <li>In your local NewPipe repo, fork the <strong>dev</strong> branch into a new <strong>release/x.y.z</strong> branch.   </li>
 <li>Increase the <a href="#version-nomenclature">version number</a> and update the version code in the <code>build.gradle</code> file.</li>
 <li>Open a pull request form the new <strong>release/x.y.z</strong> branch into the <strong>master</strong> branch.</li>
@@ -239,7 +243,7 @@ For NewPipe, this means: <strong>Don't do a release if you don't have time for i
 PRs which aim to fix regressions of the upcoming release need to target the <strong>release/x.y.z</strong> branch.
 Read <a href="#quickfixes">Quickfixes</a> for more info.</p>
 <p>The changelogs are translated during the test phase.
-Therefore, <a href="../07_maintainers_view#merge-changes-from-weblate-into-newpipe">the translations need to be merged from Weblate</a> once more.
+Therefore, <a href="../08_maintainers_view#merge-changes-from-weblate-into-newpipe">the translations need to be merged from Weblate</a> once more.
 The translation commit is cherry-picked into the release branch.</p>
 <p>Once testing is done and the release branch does not contain critical regressions, and you think the update is ready,
 proceed with <a href="#releasing">releasing the new version</a>.</p>
@@ -258,7 +262,7 @@ Increment the version number in the filename of the release candidate. e.g. <cod
 <p><img alt="release_branch" src="../img/release_branch.svg" /></p>
 <h3 id="releasing">Releasing</h3>
 <p>Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
-After going through the release procedure of <a href="#create_a_new_release">creating a new release</a>
+After going through the release procedure of <a href="#creating-a-new-release">creating a new release</a>
 and maybe a few <a href="#quickfixes">quickfixes</a> on the new release,
 this is what you should do when releasing:</p>
 <ol>
@@ -388,7 +392,7 @@ This causes troubles for translators, because Weblate enforces the 500 bytes lim
 For this reason it is recommended to keep the changelog at 400 bytes.</p>
 <p>When creating the changelog file be aware of changes which were done in the extractor as well.<br />
 Before pushing the changelog to NewPipe's repo, ask other maintainers to review it.<br />
-After pushing the changelog to NewPipe's GitHub repo, <a href="07_maintainers_view/#update-webalte">updating Weblate</a> is necessary.
+After pushing the changelog to NewPipe's GitHub repo, <a href="../08_maintainers_view#update-weblate">updating Weblate</a> is necessary.
 This enables translators to work on localized versions of the changelog before a release is tagged and published.</p>
 <h2 id="publish-on-f-droid">Publish on F-Droid</h2>
 <p>NewPipe is and supports open source software.
@@ -428,10 +432,10 @@ An example commit containing all required changes can be found <a href="https://
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../06_documentation/" class="btn btn-neutral float-right" title="About This Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../07_documentation/" class="btn btn-neutral float-right" title="About This Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../04_Run_changes_in_App/" class="btn btn-neutral" title="Testing Your Changes in the App"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../05_Mock_tests/" class="btn btn-neutral" title="Mock Tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -457,10 +461,10 @@ An example commit containing all required changes can be found <a href="https://
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../04_Run_changes_in_App/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../05_Mock_tests/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../06_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../07_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
