@@ -20,7 +20,7 @@
 #### Version name and conventions
 
 - Find the version code of the next release by looking for `versionCode` in [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): 1 added to that value (from now on called `NEW_VERSION_CODE`) will be the new value (but do not edit the file yet)
-- Choose the version number of the next release according to [semantic versioning](http://semver.org/) (from now on called `X.X.X`)
+- Choose the version number of the next release according to [semantic versioning](https://semver.org/) (from now on called `X.X.X`)
 
 #### Identification
 
