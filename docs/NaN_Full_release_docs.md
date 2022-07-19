@@ -8,24 +8,24 @@
 
 #### Repositories
 
-- have a cloned NewPipe local repository (for the rest of the page `origin` is assumed to be the remote at `github.com/TeamNewPipe/NewPipe`)
-- add the `weblate` remote to the same local repository (the URL used below can be found in the Maintenance page on Weblate)
+- have a cloned NewPipe local repository (for the rest of the page, `origin` is assumed to be the remote at `github.com/TeamNewPipe/NewPipe`)
+- add the `weblate` remote to the same local repository (the URL used below can be found on the Maintenance page on Weblate)
     - `git remote add weblate https://hosted.weblate.org/git/newpipe/strings/`
 - make sure there are no pending changes
     - `git clean -fdx` to **discard** them all (**CAUTION**)
-- go on the `dev` branch and make sure is up-to-date with remote:
+- switch to the `dev` branch and make sure it is up-to-date with the remote:
     - `git checkout dev`
     - `git pull origin dev`
 
 #### Version name and conventions
 
-- find the version code of the next release by looking for `versionCode` into [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): that value plus one (from now on called `NEW_VERSION_CODE`) will be the new value (but do not edit the file yet)
+- find the version code of the next release by looking for `versionCode` in [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): 1 added to that value (from now on called `NEW_VERSION_CODE`) will be the new value (but do not edit the file yet)
 - choose the version number of the next release according to [semantic versioning](http://semver.org/) (from now on called `X.X.X`)
 
 #### Identification
 
 - have `gpg` installed and usable on your PC
-- have a GPG key to be used to make sure it is actually you
+- have a GPG key, which can be used to verify that a file is really from you
 
 ### Pull changes from Weblate
 
@@ -53,10 +53,10 @@
 ### Create a changelog
 
 - finalize the draft changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases), in case there are still some things to fill in
-    - remove temporary instructions and numbers before `-`, that keep track in which order the PRs were merged, but which is useful information only for blogpost writers
+    - remove the temporary instructions, and the numbers before `-` which keep track of the order in which the PRs were merged, as that info is useful only for the blog post writers
     - before removing that information, you may want to send the original changelog to the blogpost writers
 - create a new English changelog in the [`fastlane/metadata/android/en-US/changelogs/`](https://github.com/TeamNewPipe/NewPipe/blob/dev/fastlane/metadata/android/en-US/changelogs/) folder
-- the file should be named `NEW_VERSION_CODE.txt`, using the new version code found in [Preliminary steps](#preliminary-steps)
+- the file should be named `NEW_VERSION_CODE.txt`, using the new version code found in the [Preliminary steps](#preliminary-steps)
 - the file should have this structure (sections with no points can be removed):
     ```
     New
@@ -80,7 +80,7 @@
 
 ### Push the changelog to Weblate
 
-Now there shuold be two new commits (the Weblate and changelog ones) on your local `dev` branch which are not on NewPipe's remote `dev` branch.
+Now there should be two new commits (the Weblate and changelog ones) on your local `dev` branch, which are not on NewPipe's remote `dev` branch.
 - if you are an admin of the NewPipe repo, just push the changes to the remote `dev`
     - `git push origin dev`
     - if you are not an admin, create a pull request normally and ask someone with maintainer access to merge it
@@ -88,7 +88,7 @@ Now there shuold be two new commits (the Weblate and changelog ones) on your loc
 - press the *Update* button to update Weblate with the commit you just pushed on NewPipe's `dev` branch
 - **press the *Unlock*** button to allow translators to translate the changelog and possibly other components (**do not forget this step!**)
 - note that we had to do this process on NewPipe's `dev` branch because:
-    - Weblate's components are connected to NewPipe's `dev` branch and will update changes from there
+    - Weblate's components are connected to NewPipe's `dev` branch, and will update changes from there
     - Weblate's git repo is not writable, so there is no way to push commits there manually
 
 ### Creating the release branch
@@ -97,11 +97,11 @@ Now there shuold be two new commits (the Weblate and changelog ones) on your loc
     - `git checkout -b release-X.X.X`
 - edit the [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle) file to update the extractor
     - set the NewPipeExtractor dependency version to a suitable one (usually [the last commit in the NewPipeExtractor repo](https://github.com/TeamNewPipe/NewPipeExtractor/commits/dev))
-- commit the extractor update (if you used a specific version, specify `to VERSION` in the commit message)
+- commit the extractor update (if you used a specific version, append `to VERSION` to the commit message)
     - `git add app/build.gradle`
     - `git commit -m "Update NewPipeExtractor"`
 - edit the [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle) file to bump the release
-    - set `versionCode` to `NEW_VERSION_CODE`, i.e. increment the value by one as described in [Preliminary steps](#preliminary-steps)
+    - set `versionCode` to `NEW_VERSION_CODE`, i.e. increment the value by 1 as described in the [Preliminary steps](#preliminary-steps)
     - set `versionName` to `"X.X.X"`
 - commit the version bump (try to stick to the provided commit message template)
     - `git add app/build.gradle`
@@ -115,14 +115,14 @@ Now there shuold be two new commits (the Weblate and changelog ones) on your loc
     - if you used the correct branch name you should be able to use this url, after changing the X.X.X: https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X
 - make sure the PR has `master` as the *base* branch and `release-X.X.X` as the *compare* branch
 - the PR title should be "Release vX.X.X (NEW_VERSION_CODE)"
-- remove all of the PR template and instead put these two lines in the description (the `ISSUE_NUMBER` will be replaced later):
+- remove the entire PR template, and instead put these two lines in the description (the `ISSUE_NUMBER` will be replaced later):
     ```
     Do not report regressions here, but rather in the corresponding issue: #ISSUE_NUMBER
     The changelog is also there.
     ```
-- once you created the PR, note down its number (from now on called `PR_NUMBER`)
-- in case some issue should be closed when the release PR is merged, link them using the "Development" tab on the right, or add a "Fixes #...." in the PR description
-- *for example check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) as a reference*
+- once you have created the PR, note down its number (from now on called `PR_NUMBER`)
+- in case some issue would be fixed when the release PR is merged, link them using the "Development" tab on the right, or add a "Fixes #...." in the PR description
+- *for example, check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) for reference*
 
 ### Creating the issue
 
@@ -135,17 +135,17 @@ Now there shuold be two new commits (the Weblate and changelog ones) on your loc
     Debug APK (built by our CI in #PR_NUMBER): ...
     Please report **only regressions** (i.e. new issues) here, not issues that were already present in the previous release!
     ```
-- the `## TODO` section should contain a list of things that still need to be done before releasing, for example regressions that need to be fixed, or a reminder to merge the Weblate changelogs before releasing (use `- [ ]` to create checkbox lists)
+- an optional `## TODO` section should contain a list of things that still need to be done before releasing, for example regressions that need to be fixed, or a reminder to merge the Weblate changelogs before releasing (use `- [ ]` to create checkbox lists)
 - the `## NewPipeExtractor version` should contain a link to the NewPipeExtractor release this new NewPipe version will ship with (i.e. the one set in [Creating the release branch](#creating-the-release-branch))
-- copy-paste the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) and put it under the `## App changelog` section
-- once you created the issue, pin it using the "Pin issue" button on the right
-- *for example check out [#8230](https://github.com/TeamNewPipe/NewPipe/pull/8230) as a reference*
+- copy the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) to the clipboard and paste it under the `## App changelog` section
+- once you have created the issue, pin it using the "Pin issue" button on the right
+- *for example, check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
 
 ### Testing APKs
 
-The first time you open the release issue and then each time some changes are made to the release PR, you should provide a debug APK in the `## Testing for regressions` section.
-- wait for the Continuous Integration (CI) to finish in the PR, then download from the "Checks" tab the debug APK it has built
-- rename it to `NewPipe_vX.X.X_RC1_debug.apk` where `RC1` should be incremented to `RC2`, ... each time a new APK is provided
+The first time you open the release issue, and then each time some changes are made to the release PR, you should provide a debug APK in the `## Testing for regressions` section.
+- wait for the Continuous Integration (CI) to finish testing the PR, then download the debug APK it will have built from the "Checks" tab
+- rename it to `NewPipe_vX.X.X_RC1_debug.apk` where `RC1` should be incremented to `RC2` and so on each time a new APK is provided
 - zip it and make sure the `.zip` file has the same name as the `.apk` it contains
 - upload it in the issue description, replacing the `...` placeholder used above
 
@@ -179,7 +179,7 @@ Once enough time has passed and all regressions and TODOs have been solved, you 
     - `git fetch weblate`
 - obtain the hash of the last commit on the `weblate/dev` remote branch
     - `git log -n 1 --pretty="format:%H" weblate/dev`
-- cherry pick the has you obtained above into the release branch (the one you are currently on)
+- cherry pick the hash you obtained above into the release branch (the one you are currently on)
     - `git cherry-pick HASH`
 - push the changes to the remote branch
     - `git push origin release-X.X.X`
