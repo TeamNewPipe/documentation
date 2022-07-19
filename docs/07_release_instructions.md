@@ -1,12 +1,16 @@
-### Preliminary steps
+# Release instructions for normal releases
 
-#### Permissions
+This page just contains detailed instructions for normal releases. Refer to [Releasing](../06_releasing) for other information about releases.
+
+## Preliminary steps
+
+### Permissions
 
 - Have admin rights on Weblate
     - You should be able to access [Weblate's Maintenance page](https://hosted.weblate.org/projects/newpipe/#repository)
 - Have at least maintainer rights on the NewPipe and NewPipeExtractor repos
 
-#### Repositories
+### Repositories
 
 - Have a cloned NewPipe local repository (for the rest of the page, `origin` is assumed to be the remote at `github.com/TeamNewPipe/NewPipe`)
 - Add the `weblate` remote to the same local repository (the URL used below can be found on the Maintenance page on Weblate)
@@ -17,17 +21,17 @@
     - `git checkout dev`
     - `git pull origin dev`
 
-#### Version name and conventions
+### Version name and conventions
 
 - Find the version code of the next release by looking for `versionCode` in [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): 1 added to that value (from now on called `NEW_VERSION_CODE`) will be the new value (but do not edit the file yet)
 - Choose the version number of the next release according to [semantic versioning](https://semver.org/) (from now on called `X.X.X`)
 
-#### Identification
+### Identification
 
 - Have `gpg` installed and usable on your PC
 - Have a GPG key, which can be used to verify that a file is really from you
 
-### Pull changes from Weblate
+## Pull changes from Weblate
 
 - Go to [Weblate's Maintenance tab](https://hosted.weblate.org/projects/newpipe/#repository)
 - Press the *Lock* button to prevent translators from translating while you are creating commits; remember to *Unlock* later!
@@ -50,7 +54,7 @@
 - Merge `weblate-dev` into `dev`:
     - `git merge weblate-dev`
 
-### Create a changelog
+## Create a changelog
 
 - Finalize the draft changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases), in case there are still some things to fill in
     - Remove the temporary instructions, and the numbers before `-` which keep track of the order in which the PRs were merged, as that info is useful only for the blog post writers
@@ -78,7 +82,7 @@
     - `git add fastlane/metadata/android/en-US/changelogs/NEW_VERSION_CODE.txt`
     - `git commit -m "Add changelog for vX.X.X (NEW_VERSION_CODE)"`
 
-### Push the changelog to Weblate
+## Push the changelog to Weblate
 
 Now there should be two new commits (the Weblate and changelog ones) on your local `dev` branch, which are not on NewPipe's remote `dev` branch.
 - If you are an admin of the NewPipe repo, just push the changes to the remote `dev`
@@ -91,7 +95,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
     - Weblate's components are connected to NewPipe's `dev` branch, and will update changes from there
     - Weblate's git repo is not writable, so there is no way to push commits there manually
 
-### Creating the release branch
+## Creating the release branch
 
 - Create a new branch starting from `dev`, named `release-X.X.X`, and switch to it
     - `git checkout -b release-X.X.X`
@@ -109,7 +113,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - Push the newly created branch to the NewPipe repo
     - `git push upstream release-X.X.X`
 
-### Creating the Pull Request
+## Creating the Pull Request
 
 - Create a Pull Request (PR) from the new branch you just pushed
     - If you used the correct branch name you should be able to use this url, after changing the X.X.X: https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X
@@ -124,7 +128,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - In case some issue would be fixed when the release PR is merged, link them using the "Development" tab on the right, or add a "Fixes #...." in the PR description
 - *for example, check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) for reference*
 
-### Creating the issue
+## Creating the issue
 
 - Create an issue
     - Click [here](https://github.com/TeamNewPipe/NewPipe/issues/new) to open one without a template
@@ -141,7 +145,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - Once you have created the issue, pin it using the "Pin issue" button on the right
 - *for example, check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
 
-### Testing APKs
+## Testing APKs
 
 The first time you open the release issue, and then each time some changes are made to the release PR, you should provide a debug APK in the `## Testing for regressions` section.
 - Wait for the Continuous Integration (CI) to finish testing the PR, then download the debug APK it will have built from the "Checks" tab
@@ -156,13 +160,13 @@ Sometimes it might be needed to also provide a release APK. In this case follow 
 - Use this naming scheme: `NewPipe_vX.X.X_RC1_release.apk`
 - Add a line to the `## Testing for regressions` section, of this form: `Debug APK (built and signed by @YOUR_GITHUB_USERNAME): ...`
 
-### Taking care of regressions
+## Taking care of regressions (quickfixes)
 
-The release issue and pull request should stay open for **roughly one week**, so that people can test the provided APKs and give feedback. If a *regression* is reported by some user, it should possibly be solved before releasing, otherwise the app would become more broken after each release. A *regression* is a bug now present in some code that used to run well in the last release, but was then modified in this release (supposedly to fix something else) and is now broken. So the following do not classify as regressions: some videos stop working because YouTube made some changes; the newly introduced big feature XYZ is still not perfect and has some bugs; a random crash reproducible also on previous versions... You get the point. Before releasing, try to fix any regression that come out, but avoid fixing non-regressions, since those should be treated with the same care and attention as all other issues.
+The release issue and pull request should stay open for **roughly one week**, so that people can test the provided APKs and give feedback. If a *regression* is reported by some user, it should possibly be solved before releasing, otherwise the app would become more broken after each release. A *regression* is a bug now present in some code that used to run well in the last release, but was then modified in this release (supposedly to fix something else) and is now broken. So the following do not classify as regressions: some videos stop working because YouTube made some changes; the newly introduced big feature XYZ is still not perfect and has some bugs; a random crash reproducible also on previous versions... You get the point. Before releasing, try to fix any regression that come out, but avoid fixing non-regressions, since those should be treated with the same care and attention as all other issues. Maintainers have to be aware that they might be required to fix regressions, so plan your release at a time when you are available.
 
-Pull requests fixing regressions should target the `release-X.X.X` branch, not the `dev` branch! When merging those PRs, also provide a new RC APK.
+Pull requests fixing regressions should target the `release-X.X.X` branch, not the `dev` branch! When merging those PRs, also provide a new Release Candidate APK.
 
-### Finally merging the pull request
+## Finally merging the pull request
 
 Once enough time has passed and all regressions and TODOs have been solved, you can proceed with the actual release. The following points include merging weblate changes again.
 - In the local repository, check out the release branch and make sure it is up-to-date with the remote
@@ -196,7 +200,7 @@ Once enough time has passed and all regressions and TODOs have been solved, you 
 - Go to [Weblate's Maintenance tab](https://hosted.weblate.org/projects/newpipe/#repository)
 - **Press *Unlock***
 
-### Creating the APK
+## Creating the APK
 
 Now on the remote `master` branch there is the release code which you need to turn into an APK.
 - In the local repository, check out the `master` branch and make sure it is up-to-date with the remote
@@ -211,7 +215,7 @@ Now on the remote `master` branch there is the release code which you need to tu
     - Double press Ctrl, type `gradle assembleRelease`, press Enter
 - After a while you should find the APK under `./app/build/outputs/apk/release/app-release-unsigned.apk`
 
-### Having the APK signed by @TheAssassin
+## Having the APK signed by @TheAssassin
 
 Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him and he will send a signed one back. He will also then publish the signed APK in NewPipe's F-Droid repo.
 - Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
@@ -228,7 +232,7 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - Install it on your device to see if everything went well (note that installation will work only if your currently installed version of newpipe comes from NewPipe's F-Droid repo or GitHub)
 - Tell @TheAssassin to "push the buttons", i.e. publish the signed APK in NewPipe's F-Droid repo.
 
-### Publishing the release
+## Publishing the release
 
 - Go to the draft changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases)
 - Set `vX.X.X` as the tag name
@@ -238,7 +242,7 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - Publish the release
 - Profit :-D
 
-### Blog post
+## Blog post
 
 > I do not know enough about blog post writing and publishing to fill in this section, I'll leave it to @opusforlife2 and @Poolitzer.
 
