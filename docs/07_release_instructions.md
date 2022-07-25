@@ -1,6 +1,6 @@
 # Release instructions for normal releases
 
-This page just contains detailed instructions for normal releases. Refer to [Releasing](../06_releasing) for other information about releases.
+This page contains detailed instructions for normal releases. Refer to [Releasing](../06_releasing) for other information about releases.
 
 ## Preliminary steps
 
@@ -23,7 +23,7 @@ This page just contains detailed instructions for normal releases. Refer to [Rel
 
 ### Version name and conventions
 
-- Find the version code of the next release by looking for `versionCode` in [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): 1 added to that value (from now on called `NEW_VERSION_CODE`) will be the new value (but do not edit the file yet)
+- Find the version code of the next release by looking for `versionCode` in [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle): You will add 1 to that value (from now on called `NEW_VERSION_CODE`) to get the new value (but do not edit the file yet)
 - Choose the version number of the next release according to [semantic versioning](https://semver.org/) (from now on called `X.X.X`)
 
 ### Identification
@@ -36,7 +36,7 @@ This page just contains detailed instructions for normal releases. Refer to [Rel
 - Go to [Weblate's Maintenance tab](https://hosted.weblate.org/projects/newpipe/#repository)
 - Press the *Lock* button to prevent translators from translating while you are creating commits; remember to *Unlock* later!
 - Press the *Update* button to update Weblate with the latest changes on NewPipe's `dev` branch
-- Press the *Commit* button, if needed, to make sure Weblate creates a commit for translations which had not been committed yet
+- Press the *Commit* button, if needed, to make sure Weblate creates a commit for translations which have not been committed yet
 - Now go back to the local git repository
 - In case you followed these steps before, delete the `weblate-dev` branch
     - `git branch -D weblate-dev`
@@ -116,7 +116,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 ## Creating the Pull Request
 
 - Create a Pull Request (PR) from the new branch you just pushed
-    - If you used the correct branch name you should be able to use this url, after changing the X.X.X: https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X
+    - If you used the correct branch name you should be able to use this URL, after changing the X.X.X: https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X
 - Make sure the PR has `master` as the *base* branch and `release-X.X.X` as the *compare* branch
 - The PR title should be "Release vX.X.X (NEW_VERSION_CODE)"
 - Remove the entire PR template, and instead put these two lines in the description (the `ISSUE_NUMBER` will be replaced later):
@@ -126,7 +126,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
     ```
 - Once you have created the PR, note down its number (from now on called `PR_NUMBER`)
 - In case some issue would be fixed when the release PR is merged, link them using the "Development" tab on the right, or add a "Fixes #...." in the PR description
-- *for example, check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) for reference*
+- *Check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) for reference*
 
 ## Creating the issue
 
@@ -143,12 +143,12 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - The `## NewPipeExtractor version` should contain a link to the NewPipeExtractor release this new NewPipe version will ship with (i.e. the one set in [Creating the release branch](#creating-the-release-branch))
 - Copy the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) to the clipboard and paste it under the `## App changelog` section
 - Once you have created the issue, pin it using the "Pin issue" button on the right
-- *for example, check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
+- *Check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
 
 ## Testing APKs
 
 The first time you open the release issue, and then each time some changes are made to the release PR, you should provide a debug APK in the `## Testing for regressions` section.
-- Wait for the Continuous Integration (CI) to finish testing the PR, then download the debug APK it will have built from the "Checks" tab
+- Wait for the Continuous Integration (CI) to finish testing the PR, then download the resulting debug APK artifact from the "Checks" tab
 - Rename it to `NewPipe_vX.X.X_RC1_debug.apk` where `RC1` should be incremented to `RC2` and so on each time a new APK is provided
 - Zip it and make sure the `.zip` file has the same name as the `.apk` it contains
 - Upload it in the issue description, replacing the `...` placeholder used above
@@ -162,7 +162,7 @@ Sometimes it might be needed to also provide a release APK. In this case follow 
 
 ## Taking care of regressions (quickfixes)
 
-The release issue and pull request should stay open for **roughly one week**, so that people can test the provided APKs and give feedback. If a *regression* is reported by some user, it should possibly be solved before releasing, otherwise the app would become more broken after each release. A *regression* is a bug now present in some code that used to run well in the last release, but was then modified in this release (supposedly to fix something else) and is now broken. So the following do not classify as regressions: some videos stop working because YouTube made some changes; the newly introduced big feature XYZ is still not perfect and has some bugs; a random crash reproducible also on previous versions... You get the point. Before releasing, try to fix any regression that come out, but avoid fixing non-regressions, since those should be treated with the same care and attention as all other issues. Maintainers have to be aware that they might be required to fix regressions, so plan your release at a time when you are available.
+The release issue and pull request should stay open for **roughly one week**, so that people can test the provided APKs and give feedback. If a *regression* is reported by some user, it should possibly be solved before releasing, otherwise the app would become more broken after each release. A *regression* is a bug now present in some code that used to run well in the last release, but was then modified in this release (supposedly to fix something else) and is now broken. So the following do not classify as regressions: some videos stop working because YouTube made some changes; the newly introduced big feature XYZ is still not perfect and has some bugs; a random crash reproducible also on previous versions... You get the point. Before releasing, try to fix any regressions that are reported, but avoid fixing non-regressions, since those should be treated with the same care and attention as all other issues. As a Release Manager, you might be required to fix regressions, so plan your release at a time when you are available.
 
 Pull requests fixing regressions should target the `release-X.X.X` branch, not the `dev` branch! When merging those PRs, also provide a new Release Candidate APK.
 
@@ -207,7 +207,7 @@ Now on the remote `master` branch there is the release code which you need to tu
     - `git checkout master`
     - `git pull origin master`
 - Open the local project in Android Studio
-- Run the Gradle `clean` task using Android Studio's interface, in order to cleanup temporary/cache files that may interfere with reproducible builds
+- Run the Gradle `clean` task using Android Studio's interface, in order to clean up temporary/cache files that may interfere with reproducible builds
     - Double press Ctrl, type `gradle clean`, press Enter
 - Make sure leftover files from building RC releases are actually removed, in order to avoid confusion
     - `rm -rf ./app/release`
@@ -217,15 +217,15 @@ Now on the remote `master` branch there is the release code which you need to tu
 
 ## Having the APK signed by @TheAssassin
 
-Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him and he will send a signed one back. He will also then publish the signed APK in NewPipe's F-Droid repo.
+Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him, after which he will sign it and send it back to you. He will also then publish the signed APK in NewPipe's F-Droid repo.
 - Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
 - Generate a signature for the APK file
     - `gpg -b NewPipe_vX.X.X.apk` will generate `NewPipe_vX.X.X.apk.sig`
     - It will also output 'using "FINGERPRINT" as default secret key for signing'; keep track of the `FINGERPRINT` part
 - Send an email to @TheAssassin and attach both `NewPipe_vX.X.X.apk` and `NewPipe_vX.X.X.apk.sig`
 - If @TheAssassin does not already know it, send him your PGP key `FINGERPRINT` you obtained before
-    - You should send it not using email this time, but another service on which @TheAssassin can be almost sure it is really you (something like 2FA)
-    - For example, either just send it on the IRC group, or create a GitHub gist with the fingerprint and then give that link to @TheAssassin
+    - You should not send it using email this time, but using another service through which @TheAssassin can be almost sure it is really you (this is a sort of 2FA)
+    - For example, you can send it on the IRC group, or create a GitHub gist with the fingerprint and then give that link to @TheAssassin
 - Notify him on IRC that you have sent him an email
 - He will send you back the signed APK
 - Make sure its name is still `NewPipe_vX.X.X.apk` (rename if it's not the case)
@@ -244,10 +244,12 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 
 ## Blog post
 
-> I do not know enough about blog post writing and publishing to fill in this section, I'll leave it to @opusforlife2 and @Poolitzer.
+The blog post writers need an up-to-date list of merged PRs numbered in chronological order. This is so that they can keep track of what changes have already been detailed in the draft blog post, and which ones still need to be added. So make sure that there is always at least one up-to-date "master copy" of the draft release notes available for them to review.
+
+The blog post should ideally be published before the GitHub release is made (so that the link to it works!), but in case of some delay, it is fine to let the blog post come later. It is far more important to get the release into users' hands sooner.
 
 - In order for the blog post to be published, ask @TheAssassin to "press the buttons" again
-- Once the blog post is ready (which, in optimal cases, should happen before the release is published, but that's not a must), add this block of text on top of the release notes on GitHub:
+- Once the blog post is ready, add this block of text on top of the release notes on GitHub:
     ```
     [:arrow_right: :arrow_right: :arrow_right: Read the blog post :arrow_left: :arrow_left: :arrow_left:](LINK_TO_BLOG_POST)
     ```
