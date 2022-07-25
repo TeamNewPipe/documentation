@@ -65,80 +65,14 @@ Modify the PR's title if it does not represent the introduced changes anymore.
 After a maintainer merged the new feature into the dev branch,
 they should add the PR's title or a summary of the changes into the [release notes](#release-notes).
 
-### Creating a New Release
+### Normal Releases
 
 Once there are enough changes, and the maintainers believe that NewPipe is ready
 for a new version, they should prepare a new release.  
 Be aware of the rule that a release should never be done on a Friday.
 For NewPipe, this means: __Don't do a release if you don't have time for it!!!__
 
-By following the steps listed below, you can publish a stable version of NewPipe:
-
-1. [Merge the translations from Weblate into NewPipe](../08_maintainers_view#merge-changes-from-weblate-into-newpipe).
-2. Update your local __dev__ branch and create a [changelog file](#changelog-file).
-   Make sure to push the changes and [update Weblate](../08_maintainers_view#update-weblate).
-3. In your local NewPipe repo, fork the __dev__ branch into a new __release/x.y.z__ branch.   
-4. Increase the [version number](#version-nomenclature) and update the version code in the `build.gradle` file.
-5. Open a pull request form the new __release/x.y.z__ branch into the __master__ branch.
-6. Create an issue pointing to the new pull request.
-   The reason for opening an issue is that from my perception, people read issues more than pull requests.
-   You can also pin this issue to draw more attention to it.
-   Ensure that the discussion about regressions take place in this issue.
-7. Create signed release and debug APKs of the release branch using the `releaseCandidate` and `debug` build types. 
-   Name the build apk files `NewPipe_<versionCode>_RC1.apk` and `NewPipe_<versionCode>_debug_RC1.apk`.
-   Zip and post them to the head of the pull request and issue. This way, others can test the release candidate.
-   Release (candidate) and debug APKs of the latest published NewPipe version
-   should also be provided to allow testing the upgrade process.
-8. Test and QA the new version with the help of others. Keep the PR and issue open for a few days
-
-New features can be merged into __dev__ while the release candidate is tested.
-PRs which aim to fix regressions of the upcoming release need to target the __release/x.y.z__ branch.
-Read [Quickfixes](#quickfixes) for more info.
-
-The changelogs are translated during the test phase.
-Therefore, [the translations need to be merged from Weblate](../08_maintainers_view#merge-changes-from-weblate-into-newpipe) once more.
-The translation commit is cherry-picked into the release branch.
-
-Once testing is done and the release branch does not contain critical regressions, and you think the update is ready,
-proceed with [releasing the new version](#releasing).
-
-### Quickfixes
-
-When issuing a new release, you will most likely encounter bugs
-that might not have existed in previous versions.
-These are called __regressions__.
-If you find a regression during release phase,
-you are allowed to push fixes directly into the release branch
-without having to fork a branch away from it.
-Maintainers have to be aware that they might be required to fix regressions,
-so plan your release at a time when you are available.
-
-When you have pushed a quickfix, you need to provide an updated __release candidate__.
-Increment the version number in the filename of the release candidate. e.g. `NewPipe_<versionNumber>_RC2.apk` etc.
-_Don't update the actual version number. :P_
-
-![release_branch](img/release_branch.svg)
-
-### Releasing
-
-Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
-After going through the release procedure of [creating a new release](#creating-a-new-release)
-and maybe a few [quickfixes](#quickfixes) on the new release,
-this is what you should do when releasing:
-
-1. Click "Merge Pull Request".
-2. Checkout the __master__ branch locally and create an unsigned APK.
-3. Send this APK to TheAssassin for signing and publishing in an encrypted and signed E-Mail. He'll check your APK, too.
-4. Once you received a signed APK, upgrade the version on your device and look for any crashes and regressions.
-5. In the GitHub releases section, make sure the draft name equals the tag name. ![draft_name](img/draft_name.png)
-6. Add the signed APK to the draft. 
-7. Make sure to not have forgotten anything.
-8. Click "Publish Release".
-9. [Publish the new version on F-Droid](#publish-on-f-droid).
-10. Merge __master__ into __dev__ or fast-forward if possible. Push.
-11. [Update the changelog for the website](https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html).
-
-![rebase_back](img/rebase_back_release.svg)
+By following the steps listed in [Release instructions](../07_release_instructions), you can publish a stable version of NewPipe.
 
 ## Hotfix Releases
 
@@ -275,7 +209,7 @@ For this reason it is recommended to keep the changelog at 400 bytes.
 
 When creating the changelog file be aware of changes which were done in the extractor as well.  
 Before pushing the changelog to NewPipe's repo, ask other maintainers to review it.  
-After pushing the changelog to NewPipe's GitHub repo, [updating Weblate](../08_maintainers_view#update-weblate) is necessary.
+After pushing the changelog to NewPipe's GitHub repo, [updating Weblate](../09_maintainers_view#update-weblate) is necessary.
 This enables translators to work on localized versions of the changelog before a release is tagged and published.
 
 ## Publish on F-Droid
