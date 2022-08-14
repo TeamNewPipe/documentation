@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Releasing a New NewPipe Version - NewPipe Development Documentation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Releasing a New NewPipe Version - NewPipe Development Documentation</title>
   <!-- local fonts -->
   <link rel="stylesheet" href="../css/local_fonts.css" type="text/css" />
 
@@ -36,50 +32,48 @@
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> NewPipe Development Documentation</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> NewPipe Development Documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to the NewPipe Development Docs</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../00_Prepare_everything/">Before You Start</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../03_Implement_a_service/">Implementing a Service</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../05_Mock_tests/">Mock Tests</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Releasing a New NewPipe Version</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome to the NewPipe Development Docs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../00_Prepare_everything/">Before You Start</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_Concept_of_the_extractor/">Concept of the Extractor</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_Concept_of_LinkHandler/">Concept of the LinkHandler</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_Implement_a_service/">Implementing a Service</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_Run_changes_in_App/">Testing Your Changes in the App</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_Mock_tests/">Mock Tests</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Releasing a New NewPipe Version</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#differences-between-regular-and-hotfix-releases">Differences Between Regular and Hotfix Releases</a>
     </li>
@@ -89,11 +83,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#merging-featuresbugfixes">Merging Features/Bugfixes</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#creating-a-new-release">Creating a New Release</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#quickfixes">Quickfixes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#releasing">Releasing</a>
+    <li class="toctree-l3"><a class="reference internal" href="#normal-releases">Normal Releases</a>
     </li>
         </ul>
     </li>
@@ -101,7 +91,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#hotfix-branch">Hotfix Branch</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#releasing_1">Releasing</a>
+    <li class="toctree-l3"><a class="reference internal" href="#releasing">Releasing</a>
     </li>
         </ul>
     </li>
@@ -122,48 +112,42 @@
     <li class="toctree-l2"><a class="reference internal" href="#publish-on-f-droid">Publish on F-Droid</a>
     </li>
     </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../07_documentation/">About This Documentation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../08_maintainers_view/">Maintainers' Section</a>
-                    </li>
-                </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../07_release_instructions/">Release instructions for normal releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../08_documentation/">About This Documentation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../09_maintainers_view/">Maintainers' Section</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">NewPipe Development Documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">NewPipe Development Documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Releasing a New NewPipe Version</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Releasing a New NewPipe Version</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
-  
   <hr/>
 </div>
-
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="releasing-a-new-newpipe-version">Releasing a New NewPipe Version</h1>
 <p>This site is meant for those who want to maintain NewPipe, or just want to know how releasing works.</p>
@@ -215,70 +199,12 @@ and different devices like phones, tablets and TVs.</p>
 Modify the PR's title if it does not represent the introduced changes anymore.
 After a maintainer merged the new feature into the dev branch,
 they should add the PR's title or a summary of the changes into the <a href="#release-notes">release notes</a>.</p>
-<h3 id="creating-a-new-release">Creating a New Release</h3>
+<h3 id="normal-releases">Normal Releases</h3>
 <p>Once there are enough changes, and the maintainers believe that NewPipe is ready
 for a new version, they should prepare a new release.<br />
 Be aware of the rule that a release should never be done on a Friday.
 For NewPipe, this means: <strong>Don't do a release if you don't have time for it!!!</strong></p>
-<p>By following the steps listed below, you can publish a stable version of NewPipe:</p>
-<ol>
-<li><a href="../08_maintainers_view#merge-changes-from-weblate-into-newpipe">Merge the translations from Weblate into NewPipe</a>.</li>
-<li>Update your local <strong>dev</strong> branch and create a <a href="#changelog-file">changelog file</a>.
-   Make sure to push the changes and <a href="../08_maintainers_view#update-weblate">update Weblate</a>.</li>
-<li>In your local NewPipe repo, fork the <strong>dev</strong> branch into a new <strong>release/x.y.z</strong> branch.   </li>
-<li>Increase the <a href="#version-nomenclature">version number</a> and update the version code in the <code>build.gradle</code> file.</li>
-<li>Open a pull request form the new <strong>release/x.y.z</strong> branch into the <strong>master</strong> branch.</li>
-<li>Create an issue pointing to the new pull request.
-   The reason for opening an issue is that from my perception, people read issues more than pull requests.
-   You can also pin this issue to draw more attention to it.
-   Ensure that the discussion about regressions take place in this issue.</li>
-<li>Create signed release and debug APKs of the release branch using the <code>releaseCandidate</code> and <code>debug</code> build types. 
-   Name the build apk files <code>NewPipe_&lt;versionCode&gt;_RC1.apk</code> and <code>NewPipe_&lt;versionCode&gt;_debug_RC1.apk</code>.
-   Zip and post them to the head of the pull request and issue. This way, others can test the release candidate.
-   Release (candidate) and debug APKs of the latest published NewPipe version
-   should also be provided to allow testing the upgrade process.</li>
-<li>Test and QA the new version with the help of others. Keep the PR and issue open for a few days</li>
-</ol>
-<p>New features can be merged into <strong>dev</strong> while the release candidate is tested.
-PRs which aim to fix regressions of the upcoming release need to target the <strong>release/x.y.z</strong> branch.
-Read <a href="#quickfixes">Quickfixes</a> for more info.</p>
-<p>The changelogs are translated during the test phase.
-Therefore, <a href="../08_maintainers_view#merge-changes-from-weblate-into-newpipe">the translations need to be merged from Weblate</a> once more.
-The translation commit is cherry-picked into the release branch.</p>
-<p>Once testing is done and the release branch does not contain critical regressions, and you think the update is ready,
-proceed with <a href="#releasing">releasing the new version</a>.</p>
-<h3 id="quickfixes">Quickfixes</h3>
-<p>When issuing a new release, you will most likely encounter bugs
-that might not have existed in previous versions.
-These are called <strong>regressions</strong>.
-If you find a regression during release phase,
-you are allowed to push fixes directly into the release branch
-without having to fork a branch away from it.
-Maintainers have to be aware that they might be required to fix regressions,
-so plan your release at a time when you are available.</p>
-<p>When you have pushed a quickfix, you need to provide an updated <strong>release candidate</strong>.
-Increment the version number in the filename of the release candidate. e.g. <code>NewPipe_&lt;versionNumber&gt;_RC2.apk</code> etc.
-<em>Don't update the actual version number. :P</em></p>
-<p><img alt="release_branch" src="../img/release_branch.svg" /></p>
-<h3 id="releasing">Releasing</h3>
-<p>Once the glorious day of all days has come, and you fulfill the ceremony of releasing.
-After going through the release procedure of <a href="#creating-a-new-release">creating a new release</a>
-and maybe a few <a href="#quickfixes">quickfixes</a> on the new release,
-this is what you should do when releasing:</p>
-<ol>
-<li>Click "Merge Pull Request".</li>
-<li>Checkout the <strong>master</strong> branch locally and create an unsigned APK.</li>
-<li>Send this APK to TheAssassin for signing and publishing in an encrypted and signed E-Mail. He'll check your APK, too.</li>
-<li>Once you received a signed APK, upgrade the version on your device and look for any crashes and regressions.</li>
-<li>In the GitHub releases section, make sure the draft name equals the tag name. <img alt="draft_name" src="../img/draft_name.png" /></li>
-<li>Add the signed APK to the draft. </li>
-<li>Make sure to not have forgotten anything.</li>
-<li>Click "Publish Release".</li>
-<li><a href="#publish-on-f-droid">Publish the new version on F-Droid</a>.</li>
-<li>Merge <strong>master</strong> into <strong>dev</strong> or fast-forward if possible. Push.</li>
-<li><a href="https://github.com/TeamNewPipe/website/blob/master/_includes/release_data.html">Update the changelog for the website</a>.</li>
-</ol>
-<p><img alt="rebase_back" src="../img/rebase_back_release.svg" /></p>
+<p>By following the steps listed in <a href="../07_release_instructions">Release instructions</a>, you can publish a stable version of NewPipe.</p>
 <h2 id="hotfix-releases">Hotfix Releases</h2>
 <p><img alt="this_is_fine" src="../img/could_not_decrypt.png" /></p>
 <p>As aforementioned, NewPipe heavily relies on external components and might break at a random point of time.
@@ -298,7 +224,7 @@ Of course, you are not allowed to push to master directly,
 so you need to create a <strong>hotfix</strong> branch. 
 <em>If someone else is pushing a hotfix into master, and it works this can be considered as hotfix branch as well.</em></p>
 <p><img alt="hotfix_branch" src="../img/hotfix_branch.svg" /></p>
-<h3 id="releasing_1">Releasing</h3>
+<h3 id="releasing">Releasing</h3>
 <p>If you fixed the issue and found it to be tested and reviewed well enough, you may publish a new version.
 You don't need to undergo the full release procedure of a regular release, which takes too much time.
 Keep in mind that if the hotfix might turn out to be broken after release, you should release another hotfix.
@@ -392,7 +318,7 @@ This causes troubles for translators, because Weblate enforces the 500 bytes lim
 For this reason it is recommended to keep the changelog at 400 bytes.</p>
 <p>When creating the changelog file be aware of changes which were done in the extractor as well.<br />
 Before pushing the changelog to NewPipe's repo, ask other maintainers to review it.<br />
-After pushing the changelog to NewPipe's GitHub repo, <a href="../08_maintainers_view#update-weblate">updating Weblate</a> is necessary.
+After pushing the changelog to NewPipe's GitHub repo, <a href="../09_maintainers_view#update-weblate">updating Weblate</a> is necessary.
 This enables translators to work on localized versions of the changelog before a release is tagged and published.</p>
 <h2 id="publish-on-f-droid">Publish on F-Droid</h2>
 <p>NewPipe is and supports open source software.
@@ -427,29 +353,21 @@ An example commit containing all required changes can be found <a href="https://
 </ol>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../07_documentation/" class="btn btn-neutral float-right" title="About This Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../05_Mock_tests/" class="btn btn-neutral" title="Mock Tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../05_Mock_tests/" class="btn btn-neutral float-left" title="Mock Tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../07_release_instructions/" class="btn btn-neutral float-right" title="Release instructions for normal releases">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -457,14 +375,14 @@ An example commit containing all required changes can be found <a href="https://
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
       <span><a href="../05_Mock_tests/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../07_documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../07_release_instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
