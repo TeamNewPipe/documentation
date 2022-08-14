@@ -1,6 +1,6 @@
 # Release instructions for normal releases
 
-This page contains detailed instructions for normal releases. Refer to [Releasing](../06_releasing) for other information about releases.
+This page contains detailed instructions for normal releases. Refer to [Releasing a New NewPipe Version](../06_releasing) for other information about releases.
 
 ## Preliminary steps
 
@@ -45,10 +45,10 @@ This page contains detailed instructions for normal releases. Refer to [Releasin
 - Create a new branch starting from `weblate/dev`, named `weblate-dev`, and switch to it
     - `git checkout -b weblate-dev weblate/dev`
 - If you run `git log --oneline --graph` you should see a Weblate commit on top, and then all of the commits currently on the `dev` branch:
-    ```
-    * cmt12hash (HEAD -> weblate-dev, weblate/dev) Translated using Weblate (...)
-    * cmt89hash (origin/dev, dev) Commit message ...
-    ```
+```md
+* cmt12hash (HEAD -> weblate-dev, weblate/dev) Translated using Weblate (...)
+* cmt89hash (origin/dev, dev) Commit message ...
+```
 - Switch back to the `dev` branch
     - `git checkout dev`
 - Merge `weblate-dev` into `dev`:
@@ -62,16 +62,16 @@ This page contains detailed instructions for normal releases. Refer to [Releasin
 - Create a new English changelog in the [`fastlane/metadata/android/en-US/changelogs/`](https://github.com/TeamNewPipe/NewPipe/blob/dev/fastlane/metadata/android/en-US/changelogs/) folder
 - The file should be named `NEW_VERSION_CODE.txt`, using the new version code found in the [Preliminary steps](#preliminary-steps)
 - The file should have this structure (sections with no points can be removed):
-    ```
-    New
-    • ...
+```txt
+New
+• ...
 
-    Improved
-    • ...
+Improved
+• ...
 
-    Fixed
-    • ...
-    ```
+Fixed
+• ...
+```
 - Make sure you use the `•` for points (it looks nicer than `-`)
 - Capitalize the first letter in each point
 - Use English verbs as if you were asking someone to do something, so for example use "Fix abc" and not "Fixed abc"; this allows saving a few characters and using a consistent style
@@ -85,6 +85,7 @@ This page contains detailed instructions for normal releases. Refer to [Releasin
 ## Push the changelog to Weblate
 
 Now there should be two new commits (the Weblate and changelog ones) on your local `dev` branch, which are not on NewPipe's remote `dev` branch.
+
 - If you are an admin of the NewPipe repo, just push the changes to the remote `dev`
     - `git push origin dev`
     - If you are not an admin, create a pull request normally and ask someone with maintainer access to merge it
@@ -116,14 +117,14 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 ## Creating the Pull Request
 
 - Create a Pull Request (PR) from the new branch you just pushed
-    - If you used the correct branch name you should be able to use this URL, after changing the X.X.X: https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X
+    - If you used the correct branch name you should be able to use this URL, after changing the X.X.X: `https://github.com/TeamNewPipe/NewPipe/pull/new/release-X.X.X`
 - Make sure the PR has `master` as the *base* branch and `release-X.X.X` as the *compare* branch
 - The PR title should be "Release vX.X.X (NEW_VERSION_CODE)"
 - Remove the entire PR template, and instead put these two lines in the description (the `ISSUE_NUMBER` will be replaced later):
-    ```
-    Do not report regressions here, but rather in the corresponding issue: #ISSUE_NUMBER
-    The changelog is also there.
-    ```
+```md
+Do not report regressions here, but rather in the corresponding issue: #ISSUE_NUMBER
+The changelog is also there.
+```
 - Once you have created the PR, note down its number (from now on called `PR_NUMBER`)
 - In case some issue would be fixed when the release PR is merged, link them using the "Development" tab on the right, or add a "Fixes #...." in the PR description
 - *Check out [#8231](https://github.com/TeamNewPipe/NewPipe/pull/8231) for reference*
@@ -135,10 +136,10 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - The issue title should be "Release vX.X.X (please TEST!)"
 - The issue should have some sections, in the same order as provided below, with `##` before titles
 - The `## Testing for regressions` section should contain the following lines; more information about how to obtain the APK are given at [Testing APKs](testing-apks)
-    ```
-    Debug APK (built by our CI in #PR_NUMBER): ...
-    Please report **only regressions** (i.e. new issues) here, not issues that were already present in the previous release!
-    ```
+```md
+Debug APK (built by our CI in #PR_NUMBER): ...
+Please report **only regressions** (i.e. new issues) here, not issues that were already present in the previous release!
+```
 - An optional `## TODO` section should contain a list of things that still need to be done before releasing, for example regressions that need to be fixed, or a reminder to merge the Weblate changelogs before releasing (use `- [ ]` to create checkbox lists)
 - The `## NewPipeExtractor version` should contain a link to the NewPipeExtractor release this new NewPipe version will ship with (i.e. the one set in [Creating the release branch](#creating-the-release-branch))
 - Copy the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) to the clipboard and paste it under the `## App changelog` section
@@ -148,12 +149,14 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 ## Testing APKs
 
 The first time you open the release issue, and then each time some changes are made to the release PR, you should provide a debug APK in the `## Testing for regressions` section.
+
 - Wait for the Continuous Integration (CI) to finish testing the PR, then download the resulting debug APK artifact from the "Checks" tab
 - Rename it to `NewPipe_vX.X.X_RC1_debug.apk` where `RC1` should be incremented to `RC2` and so on each time a new APK is provided
 - Zip it and make sure the `.zip` file has the same name as the `.apk` it contains
 - Upload it in the issue description, replacing the `...` placeholder used above
 
 Sometimes it might be needed to also provide a release APK. In this case follow the same steps as above, with these differences:
+
 - Make sure you are on the `release-X.X.X` branch
 - Build the **release** APK yourself in Android Studio and sign it with your keys
 - Make sure it installs correctly on your device
@@ -169,6 +172,7 @@ Pull requests fixing regressions should target the `release-X.X.X` branch, not t
 ## Finally merging the pull request
 
 Once enough time has passed and all regressions and TODOs have been solved, you can proceed with the actual release. The following points include merging weblate changes again.
+
 - In the local repository, check out the release branch and make sure it is up-to-date with the remote
     - `git checkout release-X.X.X`
     - `git pull origin release-X.X.X`
@@ -203,6 +207,7 @@ Once enough time has passed and all regressions and TODOs have been solved, you 
 ## Creating the APK
 
 Now on the remote `master` branch there is the release code which you need to turn into an APK.
+
 - In the local repository, check out the `master` branch and make sure it is up-to-date with the remote
     - `git checkout master`
     - `git pull origin master`
@@ -218,6 +223,7 @@ Now on the remote `master` branch there is the release code which you need to tu
 ## Having the APK signed by @TheAssassin
 
 Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him, after which he will sign it and send it back to you. He will also then publish the signed APK in NewPipe's F-Droid repo.
+
 - Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
 - Generate a signature for the APK file
     - `gpg -b NewPipe_vX.X.X.apk` will generate `NewPipe_vX.X.X.apk.sig`
