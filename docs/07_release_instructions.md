@@ -112,7 +112,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
     - `git add app/build.gradle`
     - `git commit -m "Release vX.X.X (NEW_VERSION_CODE)"`
 - Push the newly created branch to the NewPipe repo
-    - `git push upstream release-X.X.X`
+    - `git push origin release-X.X.X`
 
 ## Creating the Pull Request
 
@@ -243,7 +243,7 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - Go to the draft changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases)
 - Set `vX.X.X` as the tag name
 - Set `vX.X.X` as the release title
-- Set `dev` as the "Target:" branch
+- Set `master` as the "Target:" branch
 - Attach the signed APK @TheAssassin sent you
 - Publish the release
 - Profit :-D
