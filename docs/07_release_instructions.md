@@ -8,7 +8,7 @@ This page contains detailed instructions for normal releases. Refer to [Releasin
 
 - Have admin rights on Weblate
     - You should be able to access [Weblate's Maintenance page](https://hosted.weblate.org/projects/newpipe/#repository)
-    - Tip: if the correct page does not show up when clicking that url, make sure you are logged in ;-)
+    - Tip: if the correct page does not show up when clicking that URL, make sure you are logged in ;-)
 - Have at least maintainer rights on the NewPipe and NewPipeExtractor repos
 
 ### Repositories
