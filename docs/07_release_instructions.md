@@ -157,6 +157,7 @@ INSERT_COPIED_CHANGELOG_HERE
 </details>
 ```
 - Once you have created the issue, pin it using the "Pin issue" button on the right
+- Update the `ISSUE_NUMBER` in the pull request description
 - *Check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
 
 ## Testing APKs
