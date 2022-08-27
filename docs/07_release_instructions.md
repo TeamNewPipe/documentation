@@ -8,6 +8,7 @@ This page contains detailed instructions for normal releases. Refer to [Releasin
 
 - Have admin rights on Weblate
     - You should be able to access [Weblate's Maintenance page](https://hosted.weblate.org/projects/newpipe/#repository)
+    - Tip: if the correct page does not show up when clicking that url, make sure you are logged in ;-)
 - Have at least maintainer rights on the NewPipe and NewPipeExtractor repos
 
 ### Repositories
@@ -78,6 +79,7 @@ Fixed
 - Prepend `[SERVICE]` to service-only changes (e.g. "• \[YouTube\] Add mixes")
 - Summarize only the most important changes from the draft release [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (it contains all merged pull requests)
 - Make sure the file size is **at most 500 bytes**, in order to **fit [F-Droid's changelog size limit](https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/#fastlane-structure) (!)**
+    - Tip: removing the newline at the end of the file saves 1 byte ;-)
 - Commit the file on the `dev` branch (try to stick to the provided commit message template)
     - `git add fastlane/metadata/android/en-US/changelogs/NEW_VERSION_CODE.txt`
     - `git commit -m "Add changelog for vX.X.X (NEW_VERSION_CODE)"`
@@ -99,6 +101,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 ## Creating the release branch
 
 - Create a new branch starting from `dev`, named `release-X.X.X`, and switch to it
+    - `git checkout dev`
     - `git checkout -b release-X.X.X`
 - Edit the [`app/build.gradle`](https://github.com/TeamNewPipe/NewPipe/blob/dev/app/build.gradle) file to update the extractor
     - Set the NewPipeExtractor dependency version to a suitable one (usually [the last commit in the NewPipeExtractor repo](https://github.com/TeamNewPipe/NewPipeExtractor/commits/dev))
@@ -122,7 +125,7 @@ Now there should be two new commits (the Weblate and changelog ones) on your loc
 - The PR title should be "Release vX.X.X (NEW_VERSION_CODE)"
 - Remove the entire PR template, and instead put these two lines in the description (the `ISSUE_NUMBER` will be replaced later):
 ```md
-Do not report regressions here, but rather in the corresponding issue: #ISSUE_NUMBER
+Do **not** report regressions here, but rather in the corresponding issue: #ISSUE_NUMBER
 The changelog is also there.
 ```
 - Once you have created the PR, note down its number (from now on called `PR_NUMBER`)
@@ -135,14 +138,24 @@ The changelog is also there.
     - Click [here](https://github.com/TeamNewPipe/NewPipe/issues/new) to open one without a template
 - The issue title should be "Release vX.X.X (please TEST!)"
 - The issue should have some sections, in the same order as provided below, with `##` before titles
-- The `## Testing for regressions` section should contain the following lines; more information about how to obtain the APK are given at [Testing APKs](testing-apks)
+- The `## Testing for regressions` section should contain the following lines; more information about how to obtain the APK are given at [Testing APKs](#testing-apks)
 ```md
 Debug APK (built by our CI in #PR_NUMBER): ...
-Please report **only regressions** (i.e. new issues) here, not issues that were already present in the previous release!
+Please report **only regressions** (i.e. new issues) here, not issues that were already present in previous releases!
 ```
 - An optional `## TODO` section should contain a list of things that still need to be done before releasing, for example regressions that need to be fixed, or a reminder to merge the Weblate changelogs before releasing (use `- [ ]` to create checkbox lists)
-- The `## NewPipeExtractor version` should contain a link to the NewPipeExtractor release this new NewPipe version will ship with (i.e. the one set in [Creating the release branch](#creating-the-release-branch))
-- Copy the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) to the clipboard and paste it under the `## App changelog` section
+- The `## NewPipeExtractor version` section should contain a link to the NewPipeExtractor release this new NewPipe version will ship with (i.e. the one set in [Creating the release branch](#creating-the-release-branch)); choose one of these lines as a template
+```md
+This version of NewPipe will ship with [NewPipeExtractor version NPE_VERSION](https://github.com/TeamNewPipe/NewPipeExtractor/releases/tag/NPE_VERSION)
+This version of NewPipe will ship with [NewPipeExtractor commit FIRST_7_DIGITS_OF_NPE_COMMIT](https://github.com/TeamNewPipe/NewPipeExtractor/commit/NPE_COMMIT)
+```
+- Create the `App changelog` section using the template below. Copy the draft Markdown changelog [kept on GitHub](https://github.com/TeamNewPipe/NewPipe/releases) (you finalized it earlier in [Create a changelog](#create-a-changelog)) to the clipboard and paste it where specified below (make sure to leave a newline above, otherwise Markdown breaks):
+```md
+<details><summary><h2>App changelog </h2></summary><p>
+
+INSERT_COPIED_CHANGELOG_HERE
+</details>
+```
 - Once you have created the issue, pin it using the "Pin issue" button on the right
 - *Check out [#8230](https://github.com/TeamNewPipe/NewPipe/issues/8230) for reference*
 
@@ -159,9 +172,11 @@ Sometimes it might be needed to also provide a release APK. In this case follow 
 
 - Make sure you are on the `release-X.X.X` branch
 - Build the **release** APK yourself in Android Studio and sign it with your keys
+    - *Temporarily* edit the `app/build.gradle` file and add `System.properties.put("packageSuffix", "vX_X_X")` at the top of the `android -> buildTypes -> release` block, which ensures that the application has a different package name than the official one
+    - Build and sign an APK via "Build -> Generate Signed Bundle / APK..."
 - Make sure it installs correctly on your device
 - Use this naming scheme: `NewPipe_vX.X.X_RC1_release.apk`
-- Add a line to the `## Testing for regressions` section, of this form: `Debug APK (built and signed by @YOUR_GITHUB_USERNAME): ...`
+- Add a line to the `## Testing for regressions` section, of this form: `Release APK (built and signed by @YOUR_GITHUB_USERNAME): ...`
 
 ## Taking care of regressions (quickfixes)
 
