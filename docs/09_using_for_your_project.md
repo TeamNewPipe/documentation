@@ -1,0 +1,230 @@
+# Using Newpipe Extractor in android app
+
+
+## Add dependencies to gradle:
+
+1. **project** build.gradle:
+
+```gradle
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+
+2. **module**/app build.gradle:
+
+![](https://img.shields.io/github/v/release/TeamNewPipe/NewPipeExtractor.svg)
+
+```gradle
+// NewPipe Libraries
+implementation 'com.github.TeamNewPipe:NewPipeExtractor:0.21.12'
+implementation 'com.github.TeamNewPipe:nanojson:1d9e1aea9049fc9f85e68b43ba39fe7be1c1f751'
+
+
+// HTTP client
+//noinspection GradleDependency --> do not update okhttp to keep supporting Android 4.4 users
+implementation "com.squareup.okhttp3:okhttp:3.12.13"
+
+```
+
+**NOTE**: You could really use any http client other than okhttp.
+
+
+## Configure for android projects:
+
+Make sure you are using Java 11.
+
+```gradle
+android {
+    ...
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // if you are using kotlin:
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        useIR = true
+    }
+}
+
+dependencies {
+    ...
+
+    // desugar
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+}
+```
+
+## Proguard rules if you've [minify] enable:
+
+the `proguard-rules.pro` file:
+
+```pro
+...
+
+# For NewPipeExtractor
+-dontobfuscate
+-keep class org.schabi.newpipe.extractor.timeago.patterns.** { *; }
+-keep class org.ocpsoft.prettytime.i18n.** { *; }
+
+-keep class org.mozilla.javascript.** { *; }
+
+-keep class org.mozilla.classfile.ClassFileWriter
+-keep class com.google.android.exoplayer2.** { *; }
+
+-dontwarn org.mozilla.javascript.tools.**
+-dontwarn android.arch.util.paging.CountedDataSource
+-dontwarn android.arch.persistence.room.paging.LimitOffsetDataSource
+
+
+
+# Rules for OkHttp. Copy paste from https://github.com/square/okhttp
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+}
+```
+
+
+## Implementing [Downloader] (okhttp)
+
+Copy paste from Newpipe ;)
+
+```kotlin
+package com.mycompany.hello
+
+import okhttp3.OkHttpClient
+import org.schabi.newpipe.extractor.downloader.Downloader
+import org.schabi.newpipe.extractor.downloader.Request
+import org.schabi.newpipe.extractor.downloader.Response
+import org.schabi.newpipe.extractor.exceptions.ReCaptchaException
+
+import okhttp3.RequestBody
+
+class DownloaderImpl(
+    private val okhttp : OkHttpClient
+) : Downloader() {
+
+    companion object {
+        const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0"
+    }
+
+    override fun execute(request: Request): Response {
+        val httpMethod = request.httpMethod()
+        val url = request.url()
+        val headers = request.headers()
+        val dataToSend = request.dataToSend()
+
+        var requestBody: RequestBody? = null
+        if (dataToSend != null) {
+            requestBody = RequestBody.create(null, dataToSend)
+        }
+
+        val requestBuilder = okhttp3.Request.Builder()
+            .method(httpMethod, requestBody).url(url)
+            .addHeader("User-Agent", USER_AGENT)
+
+        for ((headerName, headerValueList) in headers) {
+            if (headerValueList.size > 1) {
+                requestBuilder.removeHeader(headerName)
+                for (headerValue in headerValueList) {
+                    requestBuilder.addHeader(headerName, headerValue)
+                }
+            } else if (headerValueList.size == 1) {
+                requestBuilder.header(headerName, headerValueList[0])
+            }
+        }
+
+        val response: okhttp3.Response = okhttp.newCall(requestBuilder.build()).execute()
+
+        if (response.code() == 429) {
+            response.close()
+            throw ReCaptchaException("reCaptcha Challenge requested", url)
+        }
+
+        val body = response.body()
+        var responseBodyToReturn: String? = null
+
+        if (body != null) {
+            responseBodyToReturn = body.string()
+        }
+
+        val latestUrl = response.request().url().toString()
+        return Response(
+            response.code(), response.message(), response.headers().toMultimap(),
+            responseBodyToReturn, latestUrl
+        )
+    }
+
+}
+```
+
+
+
+## Using the library!
+
+
+```kotlin
+// init Okhttp client
+val okhttp = OkHttpClient.Builder()
+        .readTimeout(30, TimeUnit.SECONDS)
+        .build()
+
+// setting the downloader.
+NewPipe.init(DownloaderImpl(okhttp))
+
+// getting youtube service
+val extractor = ServiceList.Youtube
+```
+
+
+### Getting suggestions:
+
+```kotlin
+extractor.suggestionExtractor.suggestionList("Hello")
+```
+
+
+### Search for videos:
+
+```kotlin
+val search = extractor.getSearchExtractor("Hello")
+search.fetchPage()
+
+// result list. Contains videos/channels etc..
+// InfoItem include type, name, thumbnail...
+print(search.initialPage.items)
+```
+
+
+### Get video:
+
+```kotlin
+val page = extractor.getStreamExtractor("https://www.youtube.com/watch?v=mIuYmbO9uBM")
+page.fetchPage()
+
+// list of video streams (urls)
+page.videoStreams
+```
+
+
+## Final note:
+This is very humble guide on how to use newpipe to scrap youtube *specificly*
+
+You can explore the library by your own
+
+![](https://imgur.com/2ciR9kq.png[width=400])
+
+I write this for me first to not forget and also in the hope that it will help some one :)
