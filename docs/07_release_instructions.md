@@ -238,7 +238,7 @@ Now on the remote `master` branch there is the release code which you need to tu
 
 ## Having the APK signed by @TheAssassin
 
-Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him, after which he will sign it and send it back to you. He will also then publish the signed APK in NewPipe's F-Droid repo.
+Currently, @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore, you should send the unsigned APK to him, after which he will sign it and send it back to you. He will also then publish the signed APK in NewPipe's F-Droid repo.
 
 - Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
 - Generate a signature for the APK file
@@ -263,6 +263,17 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - Attach the signed APK @TheAssassin sent you
 - Publish the release
 - Profit :-D
+
+## Publish the release through the F-Droid main repo
+Once the release is tagged, F-Droid is able to build and the sign the APK. Since NewPipe's APK is reproducible, the APK built by F-Droid will be identical to the one you built locally. Therefore, you can publish the release through the F-Droid main repo, which will make the new version available to all users. However, a second APK which is only signed by F-Droid is also published in their main repo. For that reason, we need to update the metadata and add signing data for the new version manually:
+ 
+- Clone or update F-Droid metadata repo
+    - `git clone https://gitlab.com/fdroid/fdroiddata.git` / `git pull`
+- Change to the fdroiddata directory: `cd fdroiddata`
+- Update the metadata for NewPipe in the corresponding file (`metadata/org.schabi.newpipe`) by copying the metadata from the previous version and updating the version number and the commit hash of the tagged release:
+- Add the signature of the new version: `fdroid signatures path/to/NewPipe_vX.X.X.apk` (install [`fdroidserver`](https://f-droid.org/docs/Installing_the_Server_and_Repo_Tools/) if you don't have it yet)
+- Commit the changes: `git commit -m "Update org.schabi.NewPipe to X.X.X (VERSION_CODE)"`
+- Push the changes and open a Merge Request to the fdroiddata repo (choose the app update template for the MR)
 
 ## Blog post
 
