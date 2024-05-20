@@ -265,7 +265,7 @@ Currently, @TheAssassin is the only holder of NewPipe's APK signing keys. Theref
 - Profit :-D
 
 ## Publish the release through the F-Droid main repo
-Once the release is tagged, F-Droid is able to build and the sign the APK. Since NewPipe's APK is reproducible, the APK built by F-Droid will be identical to the one you built locally. Therefore, you can publish the release through the F-Droid main repo, which will make the new version available to all users. However, a second APK which is only signed by F-Droid is also published in their main repo. For that reason, we need to update the metadata and add signing data for the new version manually:
+Once the release is tagged, F-Droid is able to build and sign the APK. Since NewPipe's APK is reproducible, the APK built by F-Droid will be identical to the one you built locally. Therefore, you can publish the release through the F-Droid main repo, which will make the new version available to all users. However, a second APK which is only signed by F-Droid is also published in their main repo. For that reason, we need to update the metadata and add signing data for the new version manually:
  
 - Clone or update F-Droid metadata repo
     - `git clone https://gitlab.com/fdroid/fdroiddata.git` / `git pull`
