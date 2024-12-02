@@ -222,12 +222,23 @@ Once enough time has passed and all regressions and TODOs have been solved, you 
 
 ## Creating the APK
 
-Now on the remote `master` branch there is the release code which you need to turn into an APK.
+Now on the remote `master` branch there is the release code which you need to turn into an APK. The APK needs to be built with **JDK 21**, [as agreed with the F-Droid team](https://github.com/TeamNewPipe/NewPipe/issues/11754), to ensure reproducibility.
+
+You should build the APK using the `build-release-apk` CI workflow:
+
+- Go to the [workflow's page](https://github.com/TeamNewPipe/NewPipe/actions/workflows/build-release-apk.yml)
+- The page will say "This workflow has a `workflow_dispatch` event trigger.", click on "Run workflow" on the right
+- In the "Use workflow from" prompt, don't change anything (i.e. use `dev`); the workflow uses the last commit from the `master` branch in any case!
+- Wait for the workflow to finish
+- Download `app.zip` from the workflow artifacts, extract the APK from the archive, and make sure it is called `NewPipe_vX.X.X.apk`
+
+*In alternative*, in case something is wrong with the CI or you don't have permission to run the workflow, follow these steps to build with Android Studio:
 
 - In the local repository, check out the `master` branch and make sure it is up-to-date with the remote
     - `git checkout master`
     - `git pull origin master`
 - Open the local project in Android Studio
+- Go to *Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Gradle JDK* and select JDK 21
 - Run the Gradle `clean` task using Android Studio's interface, in order to clean up temporary/cache files that may interfere with reproducible builds
     - Double press Ctrl, type `gradle clean`, press Enter
 - Make sure leftover files from building RC releases are actually removed, in order to avoid confusion
@@ -235,12 +246,13 @@ Now on the remote `master` branch there is the release code which you need to tu
 - Run the Gradle `assembleRelease` task using Android Studio's interface: it will start the process of building an unsigned APK
     - Double press Ctrl, type `gradle assembleRelease`, press Enter
 - After a while you should find the APK under `./app/build/outputs/apk/release/app-release-unsigned.apk`
+- Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
 
 ## Having the APK signed by @TheAssassin
 
 Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefore you should send the unsigned APK to him, after which he will sign it and send it back to you. He will also then publish the signed APK in NewPipe's F-Droid repo.
 
-- Rename `app-release-unsigned.apk` to `NewPipe_vX.X.X.apk`
+- Make sure the APK is called `NewPipe_vX.X.X.apk`
 - Generate a signature for the APK file
     - `gpg -b NewPipe_vX.X.X.apk` will generate `NewPipe_vX.X.X.apk.sig`
     - It will also output 'using "FINGERPRINT" as default secret key for signing'; keep track of the `FINGERPRINT` part
@@ -252,7 +264,7 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - He will send you back the signed APK
 - Make sure its name is still `NewPipe_vX.X.X.apk` (rename if it's not the case)
 - Install it on your device to see if everything went well (note that installation will work only if your currently installed version of newpipe comes from NewPipe's F-Droid repo or GitHub)
-- Tell @TheAssassin to "push the buttons", i.e. publish the signed APK in NewPipe's F-Droid repo.
+- **Tell @TheAssassin to "push the buttons"**, i.e. publish the signed APK in NewPipe's F-Droid repo.
 
 ## Publishing the release
 
@@ -263,6 +275,12 @@ Currently @TheAssassin is the only holder of NewPipe's APK signing keys. Therefo
 - Attach the signed APK @TheAssassin sent you
 - Publish the release
 - Profit :-D
+
+## Updating the official F-Droid repository
+
+- You should open a Merge Request similar to [this one](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/15367) on the [fdroiddata](https://gitlab.com/fdroid/fdroiddata) repository
+- Follow [these instructions](https://f-droid.org/en/docs/Reproducible_Builds/#publish-both-upstream-developer-signed-and-f-droid-signed-apks) to extract signatures from the APK
+- This step is not mandatory, as the F-Droid team will take care when they notice the new release, but it is better if we do not burden them with more work
 
 ## Blog post
 
