@@ -137,7 +137,7 @@ The same that applies the app's [release notes](#release-notes) also applies to 
 When publishing an extractor release via GitHub on the __master__ branch,
 a new [JavaDoc version](https://teamnewpipe.github.io/NewPipeExtractor/javadoc/)
 is generated and published automatically.
-Pleas keep an eye on the GitHub Action which is responsible for that.
+Please keep an eye on the GitHub Action which is responsible for that.
 If changes in that release introduced invalid JavaDoc, the build fails and needs to be fixed.
 For this reason, you should check locally if there are any problems with the JavaDoc generation before publishing the new version.
 
