@@ -106,7 +106,7 @@ You have read access to Weblate's repository via `https://hosted.weblate.org/git
 If there are conflicts when rebasing weblate, resolve them.
 
 Check the following things:
-- Is there a translation for a new language? If yes, [register the language with the app's langauge selector](https://github.com/TeamNewPipe/NewPipe/pull/5721)
+- Is there a translation for a new language? If yes, [register the language with the app's language selector](https://github.com/TeamNewPipe/NewPipe/pull/5721)
 - Use `Analyse > Inspect Code` in Android Studio to find unused strings and potential bugs introduced by Weblate.
   Pay attention to plurals in Asian languages. They are broken by Weblate on a regular basis.
 
